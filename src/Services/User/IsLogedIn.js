@@ -1,5 +1,5 @@
 const IsLogedIn = () => {
-  const logedIn = localStorage.getItem('logedIn');
+  const logedIn = window.sessionStorage.getItem("logedIn");
   if ((logedIn !== null) && (logedIn === 'true')) {
     return true;
   }

@@ -15,6 +15,8 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(IsLogedIn());
   const [currentUser, setCurrentUser] = useState('');
 
+  console.log("App", currentUser, isAuthenticated);
+
   return (
     <div className="App">
       <Router>
@@ -40,7 +42,10 @@ function App() {
             <Foro />
           </Route>
           <Route path="/">
-            <Blog isAuthenticated={isAuthenticated}/>
+            <Blog
+              isAuthenticated={isAuthenticated}
+              currentUser={currentUser}
+            />
           </Route>
         </Switch>
       </Router>

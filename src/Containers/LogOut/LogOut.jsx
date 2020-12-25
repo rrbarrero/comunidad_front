@@ -4,7 +4,7 @@ const LogOut = ({ setCurrentUser, isAuthenticated, setIsAuthenticated }) => {
 
     useEffect(() => {
         if (isAuthenticated) {
-            localStorage.removeItem('logedIn');
+            window.sessionStorage.clear();
             setIsAuthenticated(false);
             setCurrentUser({});
         }

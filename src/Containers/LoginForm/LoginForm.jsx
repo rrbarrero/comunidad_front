@@ -22,12 +22,13 @@ const LoginForm = ({setCurrentUser, isAuthenticated, setIsAuthenticated}) => {
           });
           setError(errors);
         } else {
-          setCurrentUser({
+          const currentUser = {
             userId: resp.user_id,
             token: resp.token,
-          });
+          }
+          setCurrentUser(currentUser);
           setIsAuthenticated(true);
-          localStorage.setItem('logedIn', 'true');
+          window.sessionStorage.setItem("logedIn", "true");
         }
       });
         
