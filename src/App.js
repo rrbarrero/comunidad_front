@@ -1,36 +1,49 @@
 import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
-import Navbar from './Containers/Navbar/Navbar';
-import MainContent from './Containers/Blog/MainContent/MainContent';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Blog from './Containers/Blog/Blog';
+import Foro from './Containers/Foro/Foro';
+import Registro from './Containers/Registro/Registro';
+import LoginForm from './Containers/LoginForm/LoginForm';
+import LogOut from './Containers/LogOut/LogOut';
+import IsLogedIn from './Services/User/IsLogedIn';
+
 
 function App() {
+
+  const [isAuthenticated, setIsAuthenticated] = useState(IsLogedIn());
+  const [currentUser, setCurrentUser] = useState('');
+
   return (
     <div className="App">
-
-      
-        <div className="flex md:w-10/12 m-auto flex-wrap overflow-hidden">
-          <div className="w-full overflow-hidden bg-red-300">
-          Header
-          </div>
-
-          <div className="w-full overflow-hidden">          
-            <Navbar></Navbar>
-          </div>
-
-          <div className="w-full overflow-hidden bg-green-100 sm:w-3/4">
-            <MainContent></MainContent>
-          </div>
-
-          <div className="w-full overflow-hidden bg-yellow-200 sm:w-1/4">
-            Sidebar
-          </div>
-
-          <div className="w-full overflow-hidden bg-blue-300">
-              Footer
-          </div>
-        </div>
-      
-
+      <Router>
+        <Switch>
+          <Route path="/registro">
+            <Registro />
+          </Route>
+          <Route path="/login">
+            <LoginForm
+              setCurrentUser={setCurrentUser}
+              isAuthenticated={isAuthenticated}
+              setIsAuthenticated={setIsAuthenticated}
+            />
+          </Route>
+          <Route path="/logout">
+            <LogOut
+              setCurrentUser={setCurrentUser}
+              isAuthenticated={isAuthenticated}
+              setIsAuthenticated={setIsAuthenticated}
+            />
+          </Route>
+          <Route path="/foro">
+            <Foro />
+          </Route>
+          <Route path="/">
+            <Blog isAuthenticated={isAuthenticated}/>
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
