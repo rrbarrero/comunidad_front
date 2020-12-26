@@ -1,13 +1,9 @@
-const FetchAvatar = (userId) => {
-    /*
-        RETURN AVATAR URL FROM USER_ID
-    */
-    
+const FetchUserDetail = (userId) => {
     if (!userId) {
         return null;
     }
 
-    const url = `${process.env.REACT_APP_API_URL}usuarios/${userId}/avatar`;
+    const url = `${process.env.REACT_APP_API_URL}usuarios/${userId}`;
     
     const response = fetch(url, {
         method: 'get',
@@ -20,4 +16,4 @@ const FetchAvatar = (userId) => {
     return response;
 }
 
-export default FetchAvatar;
+export default FetchUserDetail;

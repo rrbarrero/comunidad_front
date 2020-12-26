@@ -1,19 +1,18 @@
-import { useEffect, useState } from 'react';
-import FetchAvatar from '../../Services/User/Avatar';
+//import { useEffect, useState } from 'react';
+//import FetchAvatar from '../../Services/User/FetchAvatar';
+import Avatar from '../Common/Avatar';
 
 const Navbar = ({ isAuthenticated, currentUser }) => {
     
-    const [currentUserAvatar, setCurrentUserAvatar] = useState('');
+    // const [currentUserAvatar, setCurrentUserAvatar] = useState('');
 
-    useEffect(() => {
-        if (isAuthenticated && currentUser && currentUser.userId) {
-            FetchAvatar(currentUser.userId).then(resp => {
-                setCurrentUserAvatar(`${process.env.REACT_APP_BACKEND_STATIC_URL}${resp.avatar}`);
-            });
-        }
-    }, [currentUser, isAuthenticated]);
-
-    
+    // useEffect(() => {
+    //     if (isAuthenticated && currentUser && currentUser.userId) {
+    //         FetchAvatar(currentUser.userId).then(resp => {
+    //             setCurrentUserAvatar(`${process.env.REACT_APP_BACKEND_STATIC_URL}${resp.avatar}`);
+    //         });
+    //     }
+    // }, [currentUser, isAuthenticated]);
 
     return (
         <div className="hidden lg:flex lg:items-center lg:w-auto w-full" id="menu">
@@ -34,9 +33,10 @@ const Navbar = ({ isAuthenticated, currentUser }) => {
             </div>
             <div className="flex lg:w-1/12">
                 {isAuthenticated === true &&
-                    <a href="/" className="lg:ml-4 flex items-center justify-start lg:mb-0 mb-4 pointer-cursor">
-                        <img className="rounded-full w-10 h-10 border-2 border-transparent hover:border-indigo-400" src={currentUserAvatar} alt="Current User Avatar" />
-                    </a>
+                    // <a href="/" className="lg:ml-4 flex items-center justify-start lg:mb-0 mb-4 pointer-cursor">
+                    //     <img className="rounded-full w-10 h-10 border-2 border-transparent hover:border-indigo-400" src={currentUserAvatar} alt="Current User Avatar" />
+                    // </a>
+                    <Avatar userId={currentUser.userId} />
                 }
             </div>
         </div>

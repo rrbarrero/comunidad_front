@@ -24,7 +24,7 @@ const MainContent = () => {
             <a href="/noticia/1" className="flex w-full m-1 overflow-hidden sm:w-full bg-gradient-to-l md:bg-gradient-to-r" style={articleOneStyle} id="article-1">
                 <h1>Título noticia principal</h1>
             </a>
-            <div className="flex flex-wrap w-full overflow-hidden">
+            <div className="flex flex-wrap w-full overflow-hidden pb-6">
                 <a href="/noticia/2" className="flex w-full lg:w-1/2 bg-indigo-100" style={articleTwoStyle} id="article-2">
                     <h1>Articulo Secundario Izquierdo</h1>
                 </a>
@@ -32,14 +32,14 @@ const MainContent = () => {
                     <h1>Articulo Secundario Derecho</h1>
                 </a>
             </div>
-            <div className="flex flex-wrap w-full overflow-hidden sm:w-full bg-yellow-100">
-                <ul>
+            <div className="flex flex-wrap w-full overflow-hidden sm:w-full">
+                
                     <ArticleCommonList
                         url={desiredUrl}
                         setNextUrl={setNextUrl}
                         setPrevUrl={setPrevUrl}
                         setArticlesCount={setArticlesCount} />
-                </ul>
+                
             </div>
         </div>
     );
