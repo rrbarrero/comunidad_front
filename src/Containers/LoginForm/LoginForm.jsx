@@ -29,6 +29,7 @@ const LoginForm = ({setCurrentUser, isAuthenticated, setIsAuthenticated}) => {
           setCurrentUser(currentUser);
           setIsAuthenticated(true);
           window.sessionStorage.setItem("logedIn", "true");
+          window.sessionStorage.setItem("currentUser", JSON.stringify(currentUser));
         }
       });
         

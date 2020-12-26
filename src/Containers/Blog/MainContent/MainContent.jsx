@@ -1,6 +1,13 @@
+import { useEffect, useState } from 'react';
 import './MainContent.css';
+import ArticleCommonList from '../ArticleCommonList/ArticleCommonList';
 
 const MainContent = () => {
+
+    const [nextUrl, setNextUrl] = useState('');
+    const [prevUrl, setPrevUrl] = useState('');
+    const [articlesCount, setArticlesCount] = useState(0);
+    const [desiredUrl, setDesiredUrl] = useState('');
 
     const articleOneStyle = {
         backgroundImage: 'url(https://aprenderesunaactitud.es/wp-content/uploads/2019/06/Congreso-Sociedad-Aprendizaje-en-Merida.jpg)',
@@ -12,7 +19,6 @@ const MainContent = () => {
         backgroundImage: 'url(https://aprenderesunaactitud.es/wp-content/uploads/2019/06/formacion-outdoor.jpg)',
     }
 
-    
     return (
         <div className="flex flex-wrap overflow-hidden">
             <a href="/noticia/1" className="flex w-full m-1 overflow-hidden sm:w-full bg-gradient-to-l md:bg-gradient-to-r" style={articleOneStyle} id="article-1">
@@ -28,10 +34,11 @@ const MainContent = () => {
             </div>
             <div className="flex flex-wrap w-full overflow-hidden sm:w-full bg-yellow-100">
                 <ul>
-                    <li>Articulo 1</li>
-                    <li>Articulo 2</li>
-                    <li>Articulo 3</li>
-                    <li>Articulo 4</li>
+                    <ArticleCommonList
+                        url={desiredUrl}
+                        setNextUrl={setNextUrl}
+                        setPrevUrl={setPrevUrl}
+                        setArticlesCount={setArticlesCount} />
                 </ul>
             </div>
         </div>
