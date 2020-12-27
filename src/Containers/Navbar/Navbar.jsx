@@ -20,7 +20,7 @@ const Navbar = ({ isAuthenticated, currentUser }) => {
             <div className="flex lg:w-11/12">
             <nav>
                 <ul className="lg:flex items-center justify-between text-base text-gray-700 pt-4 lg:pt-0">
-                <li><a className="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="/">Noticias</a></li>
+                <li><Link to={{ pathname: "/" }} className="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400">Inicio </Link></li>
                 <li><a className="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="/foro">Foros</a></li>
                         <li><a className="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="/registro">Registro</a></li>
                 {isAuthenticated === false &&

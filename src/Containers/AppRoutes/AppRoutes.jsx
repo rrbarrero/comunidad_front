@@ -9,32 +9,38 @@ const AppRoutes = ({currentUser, setCurrentUser, isAuthenticated, setIsAuthentic
     return (
         <Router>
             <Switch>
-            <Route path="/registro">
-                <Registro />
-            </Route>
-            <Route path="/login">
-                <LoginForm
-                setCurrentUser={setCurrentUser}
-                isAuthenticated={isAuthenticated}
-                setIsAuthenticated={setIsAuthenticated}
-                />
-            </Route>
-            <Route path="/logout">
-                <LogOut
-                setCurrentUser={setCurrentUser}
-                isAuthenticated={isAuthenticated}
-                setIsAuthenticated={setIsAuthenticated}
-                />
-            </Route>
-            <Route path="/foro">
-                <Foro />
-            </Route>
-            <Route path="/">
-                <Blog
-                isAuthenticated={isAuthenticated}
-                currentUser={currentUser}
-                />
-            </Route>
+                <Route path="/registro">
+                    <Registro />
+                </Route>
+                <Route path="/login">
+                    <LoginForm
+                    setCurrentUser={setCurrentUser}
+                    isAuthenticated={isAuthenticated}
+                    setIsAuthenticated={setIsAuthenticated}
+                    />
+                </Route>
+                <Route path="/logout">
+                    <LogOut
+                    setCurrentUser={setCurrentUser}
+                    isAuthenticated={isAuthenticated}
+                    setIsAuthenticated={setIsAuthenticated}
+                    />
+                </Route>
+                <Route path="/foro">
+                    <Foro />
+                </Route>
+                <Route path="/articulos/:articuloId">
+                    <Blog
+                        isAuthenticated={isAuthenticated}
+                        currentUser={currentUser}
+                    />
+                </Route>
+                <Route path="/">
+                    <Blog
+                    isAuthenticated={isAuthenticated}
+                    currentUser={currentUser}
+                    />
+                </Route>
             </Switch>
       </Router>
     );

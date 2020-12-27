@@ -17,15 +17,21 @@ const ArticleCommon = ({ item }) => {
     
     
     useEffect(() => {
+        let isSubscribed = true;
         if (item.autor) {
             FetchUserDetail(item.autor).then(resp => {
-                setAutor(resp);
+                if (isSubscribed) {
+                    setAutor(resp);
+                }
             });
         }
         if (item.id) {
             FetchCommentsOfArticle(item.id).then(resp => {
-                setComentarios(resp.results);
-            })
+                if (isSubscribed) {
+                    setComentarios(resp.results);
+                }
+            });
+            return () => isSubscribed = false;
         }
     },[item]);
 
@@ -39,7 +45,7 @@ const ArticleCommon = ({ item }) => {
             <div className="flex w-full lg:w-9/12 p-3 flex-col">
                 <p className="hidden lg:flex lg:items-center lg:w-auto text-xl inline-block font-bold pb-2">{item.titulo}</p>
                 <p className="text-sm inline-block" dangerouslySetInnerHTML={{ __html: item.entradilla.substring(0, 450) + '...' }}></p>
-                <div class="flex flex-row">
+                <div className="flex flex-row">
                     <div className="flex lg:w-8/12">
                         <p className="text-sm italic"><Avatar userId={autor.id} /><br /> <span className="text-purple-400">{autor.username} </span><br />{dtFormated()}<br />comentarios: {comentarios.length} </p>
                     </div>

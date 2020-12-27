@@ -2,15 +2,19 @@ import { useEffect, useState } from "react";
 import FetchAvatar from '../../Services/User/FetchAvatar';
 import Spinner from '../../Assets/spinner.gif';
 
-const Avatar = ({userId}) => {
+const Avatar = ({ userId }) => {
 
     const [avatar, setAvatar] = useState(Spinner);
 
     useEffect(() => {
         if (userId) {
+            let isSubscribed = true;
             FetchAvatar(userId).then(resp => {
-                setAvatar(`${process.env.REACT_APP_BACKEND_STATIC_URL}${resp.avatar}`);
+                if (isSubscribed) {
+                    setAvatar(`${process.env.REACT_APP_BACKEND_STATIC_URL}${resp.avatar}`);
+                }
             });
+            return () => isSubscribed = false;
         }
     }, [userId]);
 
