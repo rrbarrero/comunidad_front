@@ -1,5 +1,6 @@
 //import { useEffect, useState } from 'react';
 //import FetchAvatar from '../../Services/User/FetchAvatar';
+import { Link } from 'react-router-dom';
 import Avatar from '../Common/Avatar';
 
 const Navbar = ({ isAuthenticated, currentUser }) => {
@@ -23,7 +24,7 @@ const Navbar = ({ isAuthenticated, currentUser }) => {
                 <li><a className="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="/foro">Foros</a></li>
                         <li><a className="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400" href="/registro">Registro</a></li>
                 {isAuthenticated === false &&
-                    <li><a className="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400 lg:mb-0 mb-2" href="/login">Login</a></li>
+                    <li><Link to={{ pathname: "/login" }} className="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400 lg:mb-0 mb-2">Login</Link></li>
                 }
                 {isAuthenticated === true &&
                     <li><a className="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400 lg:mb-0 mb-2" href="/logout">Log Out</a></li>

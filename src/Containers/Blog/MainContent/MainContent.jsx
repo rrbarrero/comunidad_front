@@ -33,13 +33,11 @@ const MainContent = () => {
                 </a>
             </div>
             <div className="flex flex-wrap w-full overflow-hidden sm:w-full">
-                
-                    <ArticleCommonList
-                        url={desiredUrl}
-                        setNextUrl={setNextUrl}
-                        setPrevUrl={setPrevUrl}
-                        setArticlesCount={setArticlesCount} />
-                
+                <ArticleCommonList
+                    url={desiredUrl}
+                    setNextUrl={setNextUrl}
+                    setPrevUrl={setPrevUrl}
+                    setArticlesCount={setArticlesCount} />
             </div>
         </div>
     );
