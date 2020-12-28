@@ -3,6 +3,7 @@ import Navbar from '../Navbar/Navbar';
 import MainContent from './MainContent/MainContent';
 import ArticleDetail from '../Blog/ArticleDetail/ArticleDetail';
 import { useParams } from 'react-router';
+import Sidebar from '../Sidebar/Siderbar';
 
 const Blog = ({ isAuthenticated, currentUser }) => {
     
@@ -27,7 +28,7 @@ const Blog = ({ isAuthenticated, currentUser }) => {
             </div>
 
             <div className="w-full overflow-hidden  sm:w-1/4">
-                Sidebar
+                <Sidebar />
             </div>
 
             <div className="w-full overflow-hidden ">
