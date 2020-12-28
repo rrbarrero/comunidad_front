@@ -3,8 +3,9 @@ import CommentArticle from '../CommentArticle/CommentArticle';
 import FetchArticleDetail from '../../../Services/Blog/FetchArticleDetail';
 import FetchCommentsOfArticle from '../../../Services/Blog/FetchCommentsOfArticle';
 import Spinner from '../../../Assets/spinner.gif';
+import PostComment from './PostComment';
 
-const ArticleDetail = ({ articuloId }) => {
+const ArticleDetail = ({ articuloId, isAuthenticated, currentUser }) => {
     
     const [article, setArticle] = useState({});
     const [isLoading, setIsLoading] = useState();
@@ -18,12 +19,12 @@ const ArticleDetail = ({ articuloId }) => {
             FetchArticleDetail(articuloId).then(resp => {
                 if (isSubscribed) {
                     setArticle(resp);
-                    setIsLoading(false);
                 }
             });
             FetchCommentsOfArticle(articuloId).then(resp => {
                 if (isSubscribed) {
                     setComentarios(resp.results);
+                    setIsLoading(false);
                 }
             });
             return () => isSubscribed = false;
@@ -39,11 +40,21 @@ const ArticleDetail = ({ articuloId }) => {
                     {isLoading && <img className="float-left m-5 rounded" src={Spinner} alt="Artículo imagen" />}
                     <article className="text-sm " dangerouslySetInnerHTML={{ __html: article.cuerpo }}></article>
             </div>
-            <div>
-                {comentarios.map((comment, i) => (
-                    <CommentArticle key={i} comment={comment} />
-                ))}
+            <div id="article-detail-comments" className="border shadow-xl">
+                <p className="text-xl font-bold p-3">Comentarios</p>
+                <div>
+                    {comentarios.map((comment, i) => (
+                        <CommentArticle key={i} comment={comment} commentIdx={i} />
+                    ))}
+                </div>
             </div>
+            <PostComment
+                currentUser={currentUser}
+                article={article}
+                isAuthenticated={isAuthenticated}
+                comentarios={comentarios}
+                setComentarios={setComentarios}
+            />
         </div>
     );
 }

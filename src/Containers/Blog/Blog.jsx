@@ -4,6 +4,7 @@ import MainContent from './MainContent/MainContent';
 import ArticleDetail from '../Blog/ArticleDetail/ArticleDetail';
 import { useParams } from 'react-router';
 import Sidebar from '../Sidebar/Siderbar';
+import Footer from '../Footer/Footer';
 
 const Blog = ({ isAuthenticated, currentUser }) => {
     
@@ -23,7 +24,7 @@ const Blog = ({ isAuthenticated, currentUser }) => {
             </div>
 
             <div className="w-full overflow-hidden sm:w-3/4">
-                {articuloId && <ArticleDetail articuloId={articuloId} />}
+                {articuloId && <ArticleDetail currentUser={currentUser} articuloId={articuloId} isAuthenticated={isAuthenticated} />}
                 {!articuloId && <MainContent />}
             </div>
 
@@ -32,7 +33,7 @@ const Blog = ({ isAuthenticated, currentUser }) => {
             </div>
 
             <div className="w-full overflow-hidden ">
-                Footer
+                <Footer />
             </div>
         </div>
     );

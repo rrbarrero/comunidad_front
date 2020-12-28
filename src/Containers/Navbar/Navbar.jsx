@@ -27,7 +27,7 @@ const Navbar = ({ isAuthenticated, currentUser }) => {
                     <li><Link to={{ pathname: "/login" }} className="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400 lg:mb-0 mb-2">Login</Link></li>
                 }
                 {isAuthenticated === true &&
-                    <li><a className="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-indigo-400 lg:mb-0 mb-2" href="/logout">Log Out</a></li>
+                    <li><a className="lg:p-4 py-3 px-0 text-gray-400 block border-b-2 border-transparent hover:border-indigo-400 lg:mb-0 mb-2" href="/logout">Salir</a></li>
                 }
                 </ul>
             </nav>
