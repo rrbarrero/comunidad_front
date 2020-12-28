@@ -2,6 +2,7 @@ const FetchCommentsOfArticle = (articleId) => {
     /*
         RETURN LAST X COMMON ARTICLES
     */
+    
     let url = `${process.env.REACT_APP_API_URL}blog/articulos/${articleId}/comentarios`;
     
     const response = fetch(url, {

@@ -15,12 +15,6 @@ const ArticleCommonList = ({url, setNextUrl, setPrevUrl, setArticlesCount}) => {
         });
     }, [url, setNextUrl, setPrevUrl, setArticlesCount]);
 
-    // console.log(articles);
-    
-    // const articleListComponent = articles.map((item) =>
-    //     <ArticleCommon key={item.id} item={item} />
-    // );
-
     return (
         <div>
             {articles.map((item, i) => (

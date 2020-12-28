@@ -1,4 +1,4 @@
-const FetchCommentsOfArticle = (articleId) => {    
+const FetchArticleDetail = (articleId) => {    
     /*
         RETURN articleId DETAILS
     */
@@ -15,4 +15,4 @@ const FetchCommentsOfArticle = (articleId) => {
     return response;
 }
 
-export default FetchCommentsOfArticle;
+export default FetchArticleDetail;
