@@ -45,7 +45,7 @@ const ArticleCommon = ({ item }) => {
             </div>
             <div className="flex w-full lg:w-9/12 p-3 flex-col">
                 <Link to={{ pathname: `/articulos/${item.id}` }} className="text-purple-400 hover:text-purple-600 text-lg">
-                    <p className="hidden text-purple-900 lg:flex lg:items-center lg:w-auto text-xl inline-block font-bold pb-2">{item.titulo}</p>
+                    <p className="hidden text-purple-600 lg:flex lg:items-center lg:w-auto text-xl inline-block font-bold pb-2">{item.titulo}</p>
                 </Link>
                 <p className="text-sm inline-block" dangerouslySetInnerHTML={{ __html: item.entradilla.substring(0, 450) + '...' }}></p>
                 <Link to={{ pathname: `/articulos/${item.id}` }} className="text-purple-500 hover:text-purple-600 text-right text-lg">continuar leyendo </Link>
