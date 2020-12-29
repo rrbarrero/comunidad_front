@@ -34,11 +34,11 @@ const ArticleCommon = ({ item }) => {
             });
             return () => isSubscribed = false;
         }
-    },[item]);
-
+    }, [item]);
+    
     
     return (
-        <div className="flex flex-col lg:flex-row border border-gray-100 shadow-xl mb-7 bg-white ml-1 round">
+        <div className="flex flex-col lg:flex-row border border-gray-100 shadow-xl mb-7 bg-white ml-1 mr-1 round">
             <div className="flex w-auto text-2xl inline-block font-bold pb-2 pt-7 lg:hidden">{item.titulo}</div>
             <div className="w-full lg:w-3/12 p-5 ">
                 <img className="lg:w-52 mx-auto rounded" src={item.imagen} alt="Artículo {item.id} imagen" />
@@ -51,13 +51,15 @@ const ArticleCommon = ({ item }) => {
                 <Link to={{ pathname: `/articulos/${item.id}` }} className="text-red-congreso100 hover:text-red-congreso200 text-right text-lg">continuar leyendo </Link>
 
                 <div className="flex justify-between items-center h-16 p-4 my-6  rounded-lg border border-gray-100">
-                    <div className="flex items-center">
-                        <Avatar userId={autor.id} /><br />
-                        <div className="ml-8">
-                            <div className="text-sm text-gray-400">Por <span className="text-sm font-semibold text-gray-500">{autor.username}</span> el <span className="text-sm font-semibold text-gray-400">{dtFormated()}</span></div>
-                            <div className="hidden lg:flex lg:items-center lg:w-auto text-sm font-light italic text-gray-congreso100">Frase inspiracional delasdfasfasffsafasdfsfsfasfjhgkjhgkjhgkjhgkjh jhgkjhgkjhg kjhgkjhgkjhg autor (pendiente)</div>
+                    <div className="flex w-full items-center">
+                        <div className="flex w-10/12">
+                            <Avatar userId={autor.id} /><br />
+                            <div className="ml-8">
+                                <div className="text-sm text-gray-400">Por <span className="text-sm font-semibold text-gray-500">{autor.username}</span> el <span className="text-sm font-semibold text-gray-400">{dtFormated()}</span></div>
+                                <div className="hidden lg:flex lg:items-center lg:w-auto text-sm font-light italic text-gray-congreso100">{autor.perfil && autor.perfil.frase_inspiradora}</div>
+                            </div>
                         </div>
-                        <div>
+                        <div className="flex w-2/12">
                             <a href={`/articulos/${item.id}#article-detail-comments`} className="text-red-congreso100 hover:text-red-congreso200 text-lg">
                                 <button className="hover:bg-blue-congreso p-2 rounded-full shadow-md flex justify-center items-center ml-2">
                                     {comentarios.length} <FaComments className="ml-1 border-transparent"/>

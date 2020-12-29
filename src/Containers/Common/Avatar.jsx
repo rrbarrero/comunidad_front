@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import FetchAvatar from '../../Services/User/FetchAvatar';
-import Spinner from '../../Assets/spinner.gif';
+import DefaultAvatar from '../../Assets/logo_header.jpeg';
+// import Spinner from '../../Assets/spinner.gif';
 
 const Avatar = ({ userId }) => {
 
-    const [avatar, setAvatar] = useState(Spinner);
+    const [avatar, setAvatar] = useState(DefaultAvatar);
 
     useEffect(() => {
         if (userId) {

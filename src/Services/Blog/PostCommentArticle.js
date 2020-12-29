@@ -4,8 +4,6 @@ const PostCommentArticle = (articleId, currentUser, commentMsg) => {
     */
     let url = `${process.env.REACT_APP_API_URL}blog/articulos/${articleId}/comentarios`;
     
-    console.log(currentUser);
-
     const response = fetch(url, {
         method: 'post',
         headers: {

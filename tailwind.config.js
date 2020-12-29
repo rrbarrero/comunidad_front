@@ -16,7 +16,9 @@ module.exports = {
           pink: {
             congreso100: '#f7beb3',
           },
-          yellow: {
+        yellow: {
+            congreso98: '#fffce0',
+            congreso99: '#fcf6c4',
             congreso100: '#fdf094',
           },
           gray: {

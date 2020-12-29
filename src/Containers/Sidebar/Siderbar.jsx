@@ -1,6 +1,6 @@
 const Sidebar = () => {
     return (
-        <div className="flex flex-col justify-between overflow-y-auto sticky max-h-(screen-18) pt-10 pl-8 pb-6 top-18 bg-blue-congreso100">
+        <div className="flex h-full border-l-2 border-white flex-col justify-between overflow-y-auto sticky max-h-(screen-18) pt-10 pl-8 pb-6 top-18 bg-yellow-congreso98">
             <div className="mb-8">
                 <h5 className="text-red-congreso200 uppercase tracking-wide font-semibold mb-3 text-sm lg:text-xs">Últimas publicaciones</h5>
                 <ul className="overflow-x-hidden text-gray-500 font-medium">

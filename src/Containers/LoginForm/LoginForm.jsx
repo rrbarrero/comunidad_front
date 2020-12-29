@@ -5,26 +5,27 @@ import { Redirect } from "react-router-dom";
 const LoginForm = ({setCurrentUser, isAuthenticated, setIsAuthenticated}) => {
 
   const [error, setError] = useState([]);
-  let username, password;
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-  if (isAuthenticated) {
+    if (isAuthenticated) {
     return <Redirect to='/' />  
   }
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    if(!isAuthenticated) {
+    if (!isAuthenticated) {
       Login(username, password).then(resp => {
-        if (resp !== null && 'non_field_errors' in resp) {
+        if (resp.status!==200) {
           let errors = [];
-          resp.non_field_errors.forEach((item) => {
-            errors.push(item.toString());
-          });
+          for (var [_v, value] of Object.entries(resp.data)){
+            errors.push(value);
+          };
           setError(errors);
         } else {
           const currentUser = {
-            userId: resp.user_id,
-            token: resp.token,
+            userId: resp.data.user_id,
+            token: resp.data.token,
           }
           setCurrentUser(currentUser);
           setIsAuthenticated(true);
@@ -68,7 +69,7 @@ const LoginForm = ({setCurrentUser, isAuthenticated, setIsAuthenticated}) => {
                     type="text"
                     id="username"
                     value={username}
-                    onChange={(e) => username = e.target.value}
+                    onChange={(e) => setUsername(e.target.value)}
                     autoFocus
                     className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                   />
@@ -82,7 +83,7 @@ const LoginForm = ({setCurrentUser, isAuthenticated, setIsAuthenticated}) => {
                     type="password"
                     id="password"
                     value={password}
-                    onChange={(e) => password = e.target.value}
+                    onChange={(e) => setPassword(e.target.value)}
                     className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                   />
                 </div>
