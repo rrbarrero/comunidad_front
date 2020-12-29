@@ -34,13 +34,13 @@ const ArticleDetail = ({ articuloId, isAuthenticated, currentUser }) => {
 
     return (
         <div>
-            <p className="text-2xl font-bold">{article.titulo}</p>
+            <p className="text-2xl font-bold pl-4">{article.titulo}</p>
             <div className="w-full p-5">
                     {!isLoading && <img className="w-52 lg:w-52 float-left m-5 rounded" src={article.imagen} alt="Artículo imagen" />}
                     {isLoading && <img className="float-left m-5 rounded" src={Spinner} alt="Artículo imagen" />}
                     <article className="text-sm " dangerouslySetInnerHTML={{ __html: article.cuerpo }}></article>
             </div>
-            <div id="article-detail-comments" className="border shadow-xl">
+            <div id="article-detail-comments" className="">
                 <p className="text-xl font-bold p-3">Comentarios</p>
                 <div>
                     {comentarios.map((comment, i) => (

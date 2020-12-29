@@ -32,12 +32,12 @@ const PostComment = ({ isAuthenticated, article, currentUser, comentarios, setCo
         if (isAuthenticated) {
             return (
                 <div className="flex mx-auto items-start justify-start shadow-lg w-full">
-                    <form onSubmit={handleSubmit} className="w-full bg-white rounded-lg px-4 pt-2">
+                    <form onSubmit={handleSubmit} className="w-full bg-blue-congreso100 rounded-lg px-4 pt-2">
                         <div className="flex flex-wrap -mx-3 mb-6">
-                            <h2 className="px-4 pt-3 pb-2 text-gray-800 text-lg">Añade un nuevo comentario</h2>
+                            <h2 className="px-4 pt-3 pb-2 text-red-congreso200 text-lg">Deja un comentario</h2>
                             <div className="w-full md:w-full px-3 mb-2 mt-2">
                                 <textarea
-                                    className="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"
+                                    className="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-400 focus:outline-none focus:bg-white"
                                     name="commentBody"
                                     id="commentBody"
                                     placeholder='Escribe tu comentario'

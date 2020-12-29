@@ -3,7 +3,7 @@ import LogoFooter from '../../Assets/logo_footer.jpg';
 
 const Footer = () => {
     return (
-        <nav id="footer" className="bg-blue-congreso100">
+        <nav id="footer" className="bg-yellow-congreso100 border-t-2 border-red-congreso100">
 
     <div className="container mx-auto pt-8 pb-4">
 

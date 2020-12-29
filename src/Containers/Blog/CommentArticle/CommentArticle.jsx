@@ -28,7 +28,7 @@ const CommentArticle = ({ comment, commentIdx }) => {
     },[comment])
 
     return (
-        <div className="p-4 bg-gray-50 dark:bg-gray-900 flex items-start justify-start w-full">
+        <div className="p-4 bg-blue-congreso100 flex items-start justify-start w-full">
             <div className="px-5 py-4 bg-white dark:bg-gray-800 shadow rounded-lg w-full">
                 <div className="flex mb-4">
                 <Avatar userId={autor.id} />
@@ -37,7 +37,7 @@ const CommentArticle = ({ comment, commentIdx }) => {
                     <span className="block text-sm text-gray-500 dark:text-gray-400 font-light leading-snug">{dtFormated()}</span>
                 </div>
                 </div>
-                <p className="text-gray-800 dark:text-gray-100 leading-snug md:leading-normal"><span className="text-4xl font-bold text-purple-400 float-left mr-2">{commentIdx+1}</span><FaComment className="text-1xl text-purple-400 font-bold float-left mb-1 mr-5"/>{comment.cuerpo}</p>
+                <p className="text-gray-800 dark:text-gray-100 leading-snug md:leading-normal"><span className="text-6xl font-bold text-red-200 font-Blackout float-left mr-2">{commentIdx+1}</span><FaComment className="text-1xl text-red-200 font-bold float-left mb-1 mr-5"/>{comment.cuerpo}</p>
             </div>
         </div>
     );

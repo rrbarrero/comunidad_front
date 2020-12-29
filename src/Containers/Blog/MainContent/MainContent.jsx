@@ -22,10 +22,10 @@ const MainContent = () => {
 
     return (
         <div className="flex flex-wrap overflow-hidden">
-            <a href="/noticia/1" className="flex w-full m-1 overflow-hidden sm:w-full bg-gradient-to-l md:bg-gradient-to-r" style={articleOneStyle} id="article-1">
+            <a href="/noticia/1" className="flex w-full ml-1 overflow-hidden sm:w-full bg-gradient-to-l md:bg-gradient-to-r" style={articleOneStyle} id="article-1">
                 <h1>Título noticia principal</h1>
             </a>
-            <div className="flex flex-wrap w-full overflow-hidden pb-6">
+            <div className="flex flex-wrap ml-1 mt-1 w-full overflow-hidden pb-6">
                 <a href="/noticia/2" className="flex w-full lg:w-1/2 bg-indigo-100" style={articleTwoStyle} id="article-2">
                     <h1>Articulo Secundario Izquierdo</h1>
                 </a>

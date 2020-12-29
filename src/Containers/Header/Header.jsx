@@ -1,5 +1,4 @@
 import LogoHeader from '../../Assets/logo_header.jpeg';
-import './Header.css';
 
 const Header = () => {
     const styleBackground = {
@@ -14,8 +13,8 @@ const Header = () => {
                         src={LogoHeader} alt="header-logo" />
                 </div>
                 <div className="p-8  my-auto ">
-                    <h1 id="header-title" className="text-orange-100 text-5xl font-bold text-center font-lsaFamily"> Comunidad Sociedad del Aprendizaje </h1>
-                    <p className=" text-gray-600 text-xl text-center"> ¡Sé parte del cambio! </p>
+                    <h1 id="header-title" className="text-red-congreso100 text-5xl font-bold text-center font-Midnight"> Comunidad Sociedad del Aprendizaje </h1>
+                    <p className=" text-xl text-center text-2xl text-gray-congreso100 font-Blackout mt-5"> SE PARTE DEL CAMBIO </p>
                 </div>
             </div>
         </header>

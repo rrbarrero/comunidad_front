@@ -4,6 +4,12 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "font-lsaFamily";
-  src: url("./Assets/Blackout-2am.ttf") format("truetype");
+  font-family: "Blackout";
+  src: local("Blackout"), url("./Assets/Blackout-2am.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Midnight";
+  src: local("Midnight"),
+    url("./Assets/Blackout-Midnight.ttf") format("truetype");
 }

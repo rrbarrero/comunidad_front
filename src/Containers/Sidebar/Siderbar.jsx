@@ -1,8 +1,8 @@
 const Sidebar = () => {
     return (
-        <div className="flex flex-col justify-between overflow-y-auto sticky max-h-(screen-18) pt-10 pl-8 pb-6 top-18">
+        <div className="flex flex-col justify-between overflow-y-auto sticky max-h-(screen-18) pt-10 pl-8 pb-6 top-18 bg-blue-congreso100">
             <div className="mb-8">
-                <h5 className="text-gray-900 uppercase tracking-wide font-semibold mb-3 text-sm lg:text-xs">Últimas publicaciones</h5>
+                <h5 className="text-red-congreso200 uppercase tracking-wide font-semibold mb-3 text-sm lg:text-xs">Últimas publicaciones</h5>
                 <ul className="overflow-x-hidden text-gray-500 font-medium">
                     <li><a href="#class-reference" className="block transform transition-colors duration-200 py-2 hover:text-gray-900 text-gray-900">Publicación más comentada</a></li>
                     <li><a href="#float-right" className="block transform transition-colors duration-200 py-2 hover:text-gray-900">Float right</a></li>

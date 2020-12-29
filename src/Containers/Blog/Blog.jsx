@@ -11,7 +11,7 @@ const Blog = ({ isAuthenticated, currentUser }) => {
     const { articuloId } = useParams();
 
     return (
-         <div className="flex md:w-10/12 m-auto flex-wrap overflow-hidden">
+         <div className="flex md:w-10/12 m-auto flex-wrap overflow-hidden bg-blue-congreso100">
             <div className="w-full overflow-hidden">
              <Header />
             </div>
