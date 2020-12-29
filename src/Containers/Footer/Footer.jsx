@@ -1,31 +1,71 @@
+import Colaboradores1 from '../../Assets/colaboradores2-congreso-SAEX-1-300x133.png';
+import LogoFooter from '../../Assets/logo_footer.jpg';
+
 const Footer = () => {
     return (
-        <div className="w-full">
-            <svg className="z-0 absolute" xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 600 600">
-            <g transform="translate(300,300)">
-                <path d="M108.7,-102.8C139.7,-47.8,163,-2.6,157.3,41.4C151.6,85.4,117,128.3,71.9,150.5C26.8,172.7,-28.9,174.2,-85.4,155.4C-141.9,136.6,-199.1,97.6,-217.2,42.6C-235.3,-12.3,-214.2,-83.2,-171.5,-140.9C-128.7,-198.7,-64.4,-243.3,-12.8,-233.2C38.8,-223,77.7,-157.9,108.7,-102.8Z" fill="#7adcb58c"/>
-            </g>
-            </svg>
-            <div className="flex flex-row bg-teal-100 rounded">
-                <div className="relative z-2 max-w-sm rounded overflow-hidden shadow-lg">
-                    <div className="px-6 py-4">
-                        <div className="relative text-teal-900 font-bold text-xl mb-2">Comunidad Sociedad del Aprendizaje</div>
-                        <p className="text-gray-700 text-base z-234 ">
-                            La inversión en formación, metodologías y recursos en la sociedad, fomentando la generación de contextos para el aprendizaje, es una estrategia prioritaria para la Junta de Extremadura.
-                        </p>
-                        <div className="text-teal-900 font-bold text-xl mt-2 mb-2">Síguenos</div>
-                        <div className=" flex flex-wrap  justify-">
-                            <div className="rounded w-auto flex-1 text-gray-700 text-center bg-teal-400 hover:bg-teal-600 px-4 py-2 m-2">1</div>
-                            <div className="rounded w-auto flex-1 text-gray-700 text-center bg-teal-400 hover:bg-teal-600 px-4 py-2 m-2">2</div>
-                            <div className="rounded w-auto flex-1 text-gray-700 text-center bg-teal-400 hover:bg-teal-600 px-4 py-2 m-2">3</div>
-                            <div className="rounded w-auto flex-1 text-gray-700 text-center bg-teal-400 hover:bg-teal-600 px-4 py-2 m-2">4</div>
-                            <div className="rounded w-auto flex-1 text-gray-700 text-center bg-teal-400 hover:bg-teal-600 px-4 py-2 m-2">5</div>
-                        </div>
-                        <div className="text-xs text-center text-teal-900  mt-5 ">© LSA</div>
-                    </div>
-                </div>
+        <nav id="footer" className="bg-blue-congreso100">
+
+    <div className="container mx-auto pt-8 pb-4">
+
+        <div className="flex flex-wrap overflow-hidden sm:-mx-1 md:-mx-px lg:-mx-2 xl:-mx-2">
+
+            <div className="w-full overflow-hidden sm:my-1 sm:px-1 sm:w-1/2 md:my-px md:px-px md:w-1/2 lg:my-2 lg:px-2 lg:w-1/4 xl:my-2 xl:px-2 xl:w-1/4 pb-6">
+                        <img className="round p-5" src={LogoFooter} alt="Logo" />
             </div>
+
+            <div className="w-full overflow-hidden sm:my-1 sm:px-1 sm:w-1/2 md:my-px md:px-px md:w-1/2 lg:my-2 lg:px-2 lg:w-1/4 xl:my-2 xl:px-2 xl:w-1/4 pb-6">
+
+
+                <h4 className="text-red-congreso200 text-2xl font-bold">Recursos</h4>
+                <ul className="nav navbar-nav">
+                    <li id="navi-2" className="leading-7 text-sm">
+                        <a className="text-red-congreso200 underline text-small" href="/page-1">
+                            Page 1 </a>
+                    </li>
+                    <li id="navi-1" className="leading-7 text-sm"><a className="text-red-congreso200 underline text-small" href="/page-2">Page 2</a></li>
+                </ul>
+
+
+            </div>
+
+            <div className="w-full overflow-hidden sm:my-1 sm:px-1 sm:w-1/2 md:my-px md:px-px md:w-1/2 lg:my-2 lg:px-2 lg:w-1/4 xl:my-2 xl:px-2 xl:w-1/4 pb-6">
+                <h4 className="text-red-congreso200 text-2xl font-bold">Formacion</h4>
+                <ul className="">
+                <li id="navi-2" className="leading-7 text-sm">
+                    <a className="text-red-congreso200 underline text-small" href="/page-1">
+                        Page 1 </a>
+                </li>
+                <li id="navi-1" className="leading-7 text-sm"><a className="text-red-congreso200 underline text-small" href="/page-2">Page 2</a></li>
+                </ul>
+            </div>
+
+            <div className="w-full overflow-hidden sm:my-1 sm:px-1 sm:w-1/2 md:my-px md:px-px md:w-1/2 lg:my-2 lg:px-2 lg:w-1/4 xl:my-2 xl:px-2 xl:w-1/4 pb-6">
+
+                <h4 className="text-red-congreso200 text-2xl font-bold">Congresos</h4>
+                <ul className="">
+                <li id="navi-2" className="leading-7 text-sm">
+                    <a className="text-red-congreso200 underline text-small" href="/page-1">
+                        Page 1 </a>
+                </li>
+                <li id="navi-1" className="leading-7 text-sm"><a className="text-red-congreso200 underline text-small" href="/page-2">Page 2</a></li>
+                </ul>
+            </div>
+
         </div>
+
+                <div className="pt-4 md:flex md:items-center md:justify-center " style={{ borderTop: 1 + 'px', solid: 'white' }}>
+            <ul className="">
+                <li className="md:mx-2 md:inline leading-7 text-sm" id="footer-navi-2"><a className="text-red-congreso200 underline text-small" href="/disclaimer">Condiciones legales</a></li>
+                <li className="md:mx-2 md:inline leading-7 text-sm" id="footer-navi-2"><a className="text-red-congreso200 underline text-small" href="/cookie">de uso</a></li>
+                <li className="md:mx-2 md:inline leading-7 text-sm" id="footer-navi-2"><a className="text-red-congreso200 underline text-small" href="/privacy">y de cookies</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+
+
+</nav>
     );
 }
 
