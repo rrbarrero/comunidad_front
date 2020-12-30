@@ -14,7 +14,7 @@ const Header = () => {
                 </div>
                 <div className="p-8  my-auto ">
                     <h1 id="header-title" className="text-red-congreso200 text-5xl font-bold text-center font-Midnight"> Comunidad Sociedad del Aprendizaje </h1>
-                    <p className=" text-xl text-center text-2xl text-gray-congreso100 font-Blackout mt-5"> SE PARTE DEL CAMBIO </p>
+                    <p className=" text-xl text-center text-3xl text-gray-congreso100 font-Blackout mt-5"> SE PARTE DEL CAMBIO </p>
                 </div>
             </div>
         </header>

@@ -33,7 +33,7 @@ const ArticleDetail = ({ articuloId, isAuthenticated, currentUser }) => {
 
 
     return (
-        <div>
+        <div className="p-8">
             <p className="text-2xl font-bold pl-4">{article.titulo}</p>
             <div className="w-full p-5">
                     {!isLoading && <img className="w-52 lg:w-52 float-left m-5 rounded" src={article.imagen} alt="Artículo imagen" />}
