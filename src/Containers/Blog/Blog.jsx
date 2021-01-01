@@ -1,42 +1,49 @@
-// import Header from '../Header/Header';
-// import Navbar from '../Navbar/Navbar';
-// import MainContent from './MainContent/MainContent';
-// import ArticleDetail from '../Blog/ArticleDetail/ArticleDetail';
-// import { useParams } from 'react-router';
-// import Sidebar from '../Sidebar/Siderbar';
-// import Footer from '../Footer/Footer';
+import { useEffect, useState } from 'react';
+import './Blog.css';
 
-// const Blog = ({ isAuthenticated, currentUser }) => {
-    
-//     const { articuloId } = useParams();
+import ArticleList from './ArticleList/ArticleList';
 
-//     return (
-//          <div className="flex md:w-10/12 m-auto flex-wrap overflow-hidden bg-blue-congreso100">
-//             <div className="w-full overflow-hidden">
-//              <Header />
-//             </div>
+const Blog = () => {
 
-//             <div className="w-full overflow-hidden">          
-//                 <Navbar
-//                     isAuthenticated={isAuthenticated}
-//                     currentUser={currentUser}
-//                 />
-//             </div>
+    const [nextUrl, setNextUrl] = useState('');
+    const [prevUrl, setPrevUrl] = useState('');
+    const [articlesCount, setArticlesCount] = useState(0);
+    const [desiredUrl, setDesiredUrl] = useState('');
 
-//             <div className="w-full overflow-hidden sm:w-3/4">
-//                 {articuloId && <ArticleDetail currentUser={currentUser} articuloId={articuloId} isAuthenticated={isAuthenticated} />}
-//                 {!articuloId && <MainContent />}
-//             </div>
+    const articleOneStyle = {
+        backgroundImage: 'url(https://aprenderesunaactitud.es/wp-content/uploads/2019/06/Congreso-Sociedad-Aprendizaje-en-Merida.jpg)',
+    }
+    const articleTwoStyle = {
+        backgroundImage: 'url(https://aprenderesunaactitud.es/wp-content/uploads/2019/06/Maldita-Nerea.jpg)',
+    }
+    const articleThreeStyle = {
+        backgroundImage: 'url(https://aprenderesunaactitud.es/wp-content/uploads/2019/06/formacion-outdoor.jpg)',
+    }
 
-//             <div className="w-full overflow-hidden  sm:w-1/4">
-//                 <Sidebar />
-//             </div>
+    return (
+        <div className="w-full overflow-hidden sm:w-3/4">
+            <div className="flex flex-wrap overflow-hidden">
+                <a href="/noticia/1" className="flex w-full ml-1 overflow-hidden sm:w-full bg-gradient-to-l md:bg-gradient-to-r" style={articleOneStyle} id="article-1">
+                    <h1>Título noticia principal</h1>
+                </a>
+                <div className="flex flex-wrap ml-1 mt-1 w-full overflow-hidden pb-6">
+                    <a href="/noticia/2" className="flex w-full lg:w-1/2 bg-indigo-100" style={articleTwoStyle} id="article-2">
+                        <h1>Articulo Secundario Izquierdo</h1>
+                    </a>
+                    <a href="/noticia/2" className="flex w-full lg:w-1/2 bg-purple-500" style={articleThreeStyle} id="article-3">
+                        <h1>Articulo Secundario Derecho</h1>
+                    </a>
+                </div>
+                <div className="flex flex-wrap w-full overflow-hidden sm:w-full">
+                    <ArticleList
+                        url={desiredUrl}
+                        setNextUrl={setNextUrl}
+                        setPrevUrl={setPrevUrl}
+                        setArticlesCount={setArticlesCount} />
+                </div>
+            </div>
+        </div>
+    );
+}
 
-//             <div className="w-full overflow-hidden ">
-//                 <Footer />
-//             </div>
-//         </div>
-//     );
-// }
-
-// export default Blog;
+export default Blog;

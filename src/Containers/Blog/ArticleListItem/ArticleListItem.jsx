@@ -6,7 +6,7 @@ import FetchCommentsOfArticle from '../../../Services/Blog/FetchCommentsOfArticl
 import { FaComments } from 'react-icons/fa';
 
 
-const ArticleCommon = ({ item }) => {
+const ArticleListItem = ({ item }) => {
 
     const [autor, setAutor] = useState('');
     const [comentarios, setComentarios] = useState([]);
@@ -73,4 +73,4 @@ const ArticleCommon = ({ item }) => {
     );
 }
 
-export default ArticleCommon;
+export default ArticleListItem;

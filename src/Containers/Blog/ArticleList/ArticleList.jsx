@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import FetchArticleCommonList from '../../../Services/Blog/FetchArticleCommonList';
-import ArticleCommon from './ArticleCommon';
+import ArticleListItem from '../ArticleListItem/ArticleListItem';
 
-const ArticleCommonList = ({url, setNextUrl, setPrevUrl, setArticlesCount}) => {
+const ArticleList = ({url, setNextUrl, setPrevUrl, setArticlesCount}) => {
 
     const [articles, setArticles] = useState([]);
 
@@ -18,10 +18,10 @@ const ArticleCommonList = ({url, setNextUrl, setPrevUrl, setArticlesCount}) => {
     return (
         <div>
             {articles.map((item, i) => (
-                <ArticleCommon key={i} item={item} />
+                <ArticleListItem key={i} item={item} />
             ))}
         </div>
     );
 }
 
-export default ArticleCommonList;
+export default ArticleList;

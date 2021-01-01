@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ArticleDetail from '../Blog/ArticleDetail/ArticleDetail';
-import MainContent from '../Blog/MainContent/MainContent';
+import Blog from '../Blog/Blog';
 import ShowTopics from '../Foro/ShowTopics/ShowTopics';
 import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
 import Sidebar from '../Sidebar/Siderbar';
 import Footer from '../Footer/Footer';
 
-const MainComponent = ({ isAuthenticated, currentUser }) => {
+const Home = ({ isAuthenticated, currentUser }) => {
     return (
         <div className="flex md:w-10/12 m-auto flex-wrap overflow-hidden bg-blue-congreso100">
             <Header />
@@ -31,7 +31,7 @@ const MainComponent = ({ isAuthenticated, currentUser }) => {
                     />
                 )}
             />
-            <Route exact path="/" render={()=><MainContent />} />
+            <Route exact path="/" render={()=><Blog />} />
             <Sidebar />
             <Footer />
         </div>
@@ -39,4 +39,4 @@ const MainComponent = ({ isAuthenticated, currentUser }) => {
     );
 }
 
-export default MainComponent;
+export default Home;
