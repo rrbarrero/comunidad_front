@@ -20,12 +20,14 @@ const ShowTopics = () => {
     },[]);
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5 bg-white">
-            {topics.map((item, i) => (
-                <TopicBox key={i} item={item} />
-            ))}
-            
+        <div className="w-full overflow-hidden sm:w-3/4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-white pb-10">
+                {topics.map((item, i) => (
+                    <TopicBox key={i} item={item} />
+                ))}
+                
 
+            </div>
         </div>
         
     );
