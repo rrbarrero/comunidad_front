@@ -7,12 +7,16 @@ const ArticleList = ({url, setNextUrl, setPrevUrl, setArticlesCount}) => {
     const [articles, setArticles] = useState([]);
 
     useEffect(() => {
+        let isSubscribed = true;
         FetchArticleCommonList(url).then(resp => {
-            setArticles(resp.results);
-            setNextUrl(resp.next);
-            setPrevUrl(resp.previous);
-            setArticlesCount(resp.count);
+            if (isSubscribed) {
+                setArticles(resp.results);
+                setNextUrl(resp.next);
+                setPrevUrl(resp.previous);
+                setArticlesCount(resp.count);
+            }
         });
+        return () => isSubscribed = false;
     }, [url, setNextUrl, setPrevUrl, setArticlesCount]);
 
     return (

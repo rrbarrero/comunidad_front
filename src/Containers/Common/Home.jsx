@@ -1,7 +1,9 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ArticleDetail from '../Blog/ArticleDetail/ArticleDetail';
+import PostDetail from '../Foro/PostDetail/PostDetail';
+import PostList from '../Foro/PostList/PostList';
 import Blog from '../Blog/Blog';
-import ShowTopics from '../Foro/ShowTopics/ShowTopics';
+import Foro from '../Foro/Foro';
 import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
 import Sidebar from '../Sidebar/Siderbar';
@@ -17,7 +19,7 @@ const Home = ({ isAuthenticated, currentUser }) => {
             />
             <Route exac path="/foro"
                 render={(props) => (
-                    <ShowTopics {...props}
+                    <Foro {...props}
                         currentUser={currentUser}
                         isAuthenticated={isAuthenticated}
                     />
@@ -31,7 +33,18 @@ const Home = ({ isAuthenticated, currentUser }) => {
                     />
                 )}
             />
-            <Route exact path="/" render={()=><Blog />} />
+            <Route exac path="/hilos/:hiloId"
+                render={(props) => (
+                    <PostDetail {...props}
+                        currentUser={currentUser}
+                        isAuthenticated={isAuthenticated}
+                    />
+                )}
+            />
+            <Route exac path="/temas/:temaId" render={() => <PostList />} />
+            
+            <Route exact path="/" render={() => <Blog />} />
+            
             <Sidebar />
             <Footer />
         </div>

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import FetchTopics from '../../../Services/Forum/FetchTopics';
-import TopicBox from './TopicBox';
+import FetchTopics from '../../Services/Forum/FetchTopics';
+import TopicItem from './TopicItem/TopicItem';
 
-const ShowTopics = () => {
+const Foro = () => {
 
     const [topics, setTopics] = useState([]);
     const [isLoading, setIsLoading] = useState();
@@ -20,17 +20,16 @@ const ShowTopics = () => {
     },[]);
 
     return (
-        <div className="w-full overflow-hidden sm:w-3/4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 bg-white pb-10">
+        <div className="w-full overflow-hidden sm:w-3/4 bg-white">
+            <div className="bg-white text-center font-Midnight text-3xl text-red-congreso200 p-3">Temas</div>
+            <ul className="divide-y divide-gray-100">
                 {topics.map((item, i) => (
-                    <TopicBox key={i} item={item} />
+                    <TopicItem key={i} item={item} />
                 ))}
-                
-
-            </div>
+            </ul>
         </div>
         
     );
 }
 
-export default ShowTopics;
+export default Foro;
