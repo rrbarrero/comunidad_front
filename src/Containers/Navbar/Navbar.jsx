@@ -21,8 +21,8 @@ const Navbar = ({ isAuthenticated, currentUser }) => {
                 <div className="flex lg:w-11/12">
                 <nav>
                     <ul className="lg:flex items-center justify-between text-base text-gray-700 pt-4 lg:pt-0">
-                    <li><Link to={{ pathname: "/" }} className="lg:p-4 py-3 px-0 font-Midnight text-red-congreso100 block border-t-2 border-transparent hover:border-blue-congreso200 text-xl">Inicio </Link></li>
-                    <li><a className="lg:p-4 py-3 font-Midnight px-0 block border-t-2 text-red-congreso100 border-transparent hover:border-blue-congreso200 text-xl" href="/foro">Foros</a></li>
+                            <li><Link to={{ pathname: "/" }} className="lg:p-4 py-3 px-0 font-Midnight text-red-congreso100 block border-t-2 border-transparent hover:border-blue-congreso200 text-xl">Inicio </Link></li>
+                            <li><Link to={{ pathname: "/foro" }} className="lg:p-4 py-3 px-0 font-Midnight text-red-congreso100 block border-t-2 border-transparent hover:border-blue-congreso200 text-xl">Foro </Link></li>
                             <li><a className="lg:p-4 py-3 px-0 font-Midnight text-red-congreso100 block border-t-2 border-transparent hover:border-blue-congreso200" href="/registro">Registro</a></li>
                     {isAuthenticated === false &&
                         <li><Link to={{ pathname: "/login" }} className="font-Midnight lg:p-4 py-3 px-0 text-red-congreso100 block border-t-2 border-transparent hover:border-blue-congreso200 lg:mb-0 mb-2">Login</Link></li>

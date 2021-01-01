@@ -9,65 +9,45 @@ import LogOut from '../LogOut/LogOut';
 import ArticleDetail from '../Blog/ArticleDetail/ArticleDetail';
 import MainContent from '../Blog/MainContent/MainContent';
 import ShowTopics from '../Foro/ShowTopics/ShowTopics';
+import MainComponent from '../Common/MainComponent';
 
-const AppRoutes = ({currentUser, setCurrentUser, isAuthenticated, setIsAuthenticated}) => {
+const AppRoutes = (
+    {
+        currentUser,
+        setCurrentUser,
+        isAuthenticated,
+        setIsAuthenticated
+    }) => {
+    console.log("Approute", currentUser, isAuthenticated)
     return (
-        <div className="flex md:w-10/12 m-auto flex-wrap overflow-hidden bg-blue-congreso100">
+        
             <Router>
                 <Switch>
-                    <Route path="/registro">
+                    <Route exact path="/registro">
                         <Registro />
                     </Route>
-                    <Route path="/login">
+                    <Route exact path="/login">
                         <LoginForm
                         setCurrentUser={setCurrentUser}
                         isAuthenticated={isAuthenticated}
-                        setIsAuthenticated={setIsAuthenticated}
-                        />
+                            setIsAuthenticated={setIsAuthenticated} />
                     </Route>
-                    <Route path="/logout">
+                    <Route exact path="/logout">
                         <LogOut
                         setCurrentUser={setCurrentUser}
                         isAuthenticated={isAuthenticated}
-                        setIsAuthenticated={setIsAuthenticated}
-                        />
+                            setIsAuthenticated={setIsAuthenticated} />
                     </Route>
-                    <Route path="/foro">
-                        <Header />
-                        <Navbar
-                            isAuthenticated={isAuthenticated}
-                            currentUser={currentUser}
-                        />
-                        <ShowTopics />
-                        <Sidebar />
-                        <Footer />
-                    </Route>
-                    <Route path="/articulos/:articuloId">
-                        <Header />
-                        <Navbar
-                            isAuthenticated={isAuthenticated}
-                            currentUser={currentUser}
-                        />
-                        <ArticleDetail
-                            currentUser={currentUser}
-                            isAuthenticated={isAuthenticated}
-                        />
-                        <Sidebar />
-                        <Footer />
-                    </Route>
-                    <Route path="/">
-                        <Header />
-                        <Navbar
-                            isAuthenticated={isAuthenticated}
-                            currentUser={currentUser}
-                        />
-                        <MainContent />
-                        <Sidebar />
-                        <Footer />
-                    </Route>
+                    <Route path="/"
+                        render={(props) => (
+                            <MainComponent {...props}
+                                isAuthenticated={isAuthenticated}
+                                currentUser={currentUser}
+                            />
+                        )}
+                    />
                 </Switch>
             </Router>
-        </div>
     );
 }
 

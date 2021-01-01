@@ -1,9 +1,10 @@
 import LogoHeader from '../../Assets/logo_header.jpeg';
 
 const Header = () => {
-    const styleBackground = {
-        backgroundImage: 'url(/header.png)',
-    }
+    // const styleBackground = {
+    //     backgroundImage: 'url(/header.png)',
+    // }
+
     return (
         <div className="w-full overflow-hidden">
             <header className="bg-gradient-to-r from-yellow-congreso98 via-yellow-congreso99 to-yellow-congreso100">
