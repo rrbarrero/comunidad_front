@@ -5,11 +5,6 @@ import ArticleList from './ArticleList/ArticleList';
 
 const Blog = () => {
 
-    const [nextUrl, setNextUrl] = useState('');
-    const [prevUrl, setPrevUrl] = useState('');
-    const [articlesCount, setArticlesCount] = useState(0);
-    const [desiredUrl, setDesiredUrl] = useState('');
-
     const articleOneStyle = {
         backgroundImage: 'url(https://aprenderesunaactitud.es/wp-content/uploads/2019/06/Congreso-Sociedad-Aprendizaje-en-Merida.jpg)',
     }
@@ -35,11 +30,7 @@ const Blog = () => {
                     </a>
                 </div>
                 <div className="flex flex-wrap w-full overflow-hidden sm:w-full">
-                    <ArticleList
-                        url={desiredUrl}
-                        setNextUrl={setNextUrl}
-                        setPrevUrl={setPrevUrl}
-                        setArticlesCount={setArticlesCount} />
+                    <ArticleList />
                 </div>
             </div>
         </div>

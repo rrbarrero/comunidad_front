@@ -7,6 +7,11 @@ const PostListItem = ({ item }) => {
 
     const [autor, setAutor] = useState('');
 
+    const dtFormated = () => {
+        const date = new Date(item.fecha_creacion);
+        return date.toLocaleDateString();
+    }
+
     useEffect(() => {
         let isSubscribed = true;
         if (item.autor) {
@@ -32,12 +37,12 @@ const PostListItem = ({ item }) => {
                     <dl className="flex flex-wrap text-sm font-medium">
                         <div className="flex-none w-full mt-0.5 font-normal italic">
                             <dt className="sr-only">Lecturas</dt>
-                            <dd>Lecturas: {item.lecturas}</dd>
+                            <dd>Lecturas: {item.lecturas} · Respuestas: pendiente</dd>
                         </div>
-                        {/* <div>
-                            <dt className="sr-only">Servings</dt>
-                            <dd>Hilos</dd>
-                        </div> */}
+                        <div className="font-normal italic">
+                            <dt className="sr-only">Autor</dt>
+                            <dd>por {autor.username} el {dtFormated()}</dd>
+                        </div>
                     </dl>
                 </div>
             </article>

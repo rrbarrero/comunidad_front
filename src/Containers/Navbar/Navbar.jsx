@@ -4,16 +4,7 @@ import { Link } from 'react-router-dom';
 import Avatar from '../Common/Avatar';
 
 const Navbar = ({ isAuthenticated, currentUser }) => {
-    
-    // const [currentUserAvatar, setCurrentUserAvatar] = useState('');
 
-    // useEffect(() => {
-    //     if (isAuthenticated && currentUser && currentUser.userId) {
-    //         FetchAvatar(currentUser.userId).then(resp => {
-    //             setCurrentUserAvatar(`${process.env.REACT_APP_BACKEND_STATIC_URL}${resp.avatar}`);
-    //         });
-    //     }
-    // }, [currentUser, isAuthenticated]);
 
     return (
         <div className="w-full overflow-hidden">          
