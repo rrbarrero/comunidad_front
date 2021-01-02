@@ -33,7 +33,7 @@ const Home = ({ isAuthenticated, currentUser }) => {
                     />
                 )}
             />
-            <Route exac path="/hilos/:hiloId"
+            <Route exac path="/hilos/:postId"
                 render={(props) => (
                     <PostDetail {...props}
                         currentUser={currentUser}

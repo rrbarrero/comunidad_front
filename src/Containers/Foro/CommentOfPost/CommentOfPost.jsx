@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import FetchUserDetail from '../../../Services/User/FetchUserDetail';
 import Avatar from '../../Common/Avatar';
-import { FaComment } from 'react-icons/fa';
 
-const CommentArticle = ({ comment, commentIdx }) => {
+const CommentOfPost = ({ comment, commentIdx }) => {
     
     const [autor, setAutor] = useState('');
     const [isLoading, setIsLoading] = useState();
@@ -47,4 +46,4 @@ const CommentArticle = ({ comment, commentIdx }) => {
     );
 }
 
-export default CommentArticle;
+export default CommentOfPost;
