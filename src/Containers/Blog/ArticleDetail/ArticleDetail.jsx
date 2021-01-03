@@ -5,9 +5,12 @@ import FetchCommentsOfArticle from '../../../Services/Blog/FetchCommentsOfArticl
 import Spinner from '../../../Assets/spinner.gif';
 import PostComment from './PostComment';
 import { useParams } from 'react-router';
+import { Route, Switch, useLocation } from 'react-router-dom'
+
 
 const ArticleDetail = ({ isAuthenticated, currentUser }) => {
     
+    const { pathname, hash } = useLocation()
     const { articuloId } = useParams();
 
     const [article, setArticle] = useState({});
@@ -33,6 +36,26 @@ const ArticleDetail = ({ isAuthenticated, currentUser }) => {
             return () => isSubscribed = false;
         }
     }, [articuloId]);
+
+    useEffect(() => {
+      // if not a hash link scroll to top
+      if(hash===''){
+          window.scrollTo(0, 0)
+      }
+      // else scroll to id
+      else{
+          setTimeout(
+              () => {
+                  const id = hash.replace('#', '');
+                  const element = document.getElementById(id);
+                  if (element) {
+                      element.scrollIntoView();
+                  }
+              },
+              1000
+          );
+      }
+    }, [hash, pathname])
 
 
     return (

@@ -60,11 +60,11 @@ const ArticleListItem = ({ item }) => {
                             </div>
                         </div>
                         <div className="flex w-2/12">
-                            <a href={`/articulos/${item.id}`} className="text-red-congreso100 hover:text-red-congreso200 text-lg">
+                            <Link to={`/articulos/${item.id}#article-detail-comments`} className="text-red-congreso100 hover:text-red-congreso200 text-lg">
                                 <button className="hover:bg-blue-congreso p-2 rounded-full shadow-md flex justify-center items-center ml-2">
                                     {comentarios.length} <FaComments className="ml-1 border-transparent"/>
                                 </button>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

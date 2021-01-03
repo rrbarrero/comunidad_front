@@ -8,6 +8,7 @@ import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
 import Sidebar from '../Sidebar/Siderbar';
 import Footer from '../Footer/Footer';
+import ScrollToTop from '../Common/ScrollToTop';
 
 const Home = ({ isAuthenticated, currentUser }) => {
     return (
@@ -25,14 +26,16 @@ const Home = ({ isAuthenticated, currentUser }) => {
                     />
                 )}
             />
-            <Route exac path="/articulos/:articuloId"
-                render={(props) => (
-                    <ArticleDetail {...props}
-                        currentUser={currentUser}
-                        isAuthenticated={isAuthenticated}
-                    />
-                )}
-            />
+            <ScrollToTop >
+                <Route exac path="/articulos/:articuloId"
+                    render={(props) => (
+                        <ArticleDetail {...props}
+                            currentUser={currentUser}
+                            isAuthenticated={isAuthenticated}
+                        />
+                    )}
+                />
+            </ScrollToTop>
             <Route exac path="/hilos/:postId"
                 render={(props) => (
                     <PostDetail {...props}
