@@ -22,7 +22,11 @@ const Sidebar = () => {
     }, []);
     
     const FeaturedItem = ({item}) => {
-        return <li><Link to={{ pathname: `/hilos/${item.id}` }} className="block transform transition-colors duration-200 py-2 hover:text-gray-900">{item.titulo}</Link></li>
+        return <li>
+            <Link
+                to={{ pathname: `/hilos/${item.id}` }}
+                className="block transform transition-colors duration-200 py-2 hover:text-gray-900">{item.titulo}
+            </Link></li>
     }
 
     return (

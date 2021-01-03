@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 const Pagination = ({ handleNext, handlePrev }) => {
     return (
         <ul className="flex list-reset border border-grey-light rounded w-auto font-sans">

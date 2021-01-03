@@ -9,7 +9,7 @@ const Navbar = ({ isAuthenticated, currentUser }) => {
     return (
         <div className="w-full overflow-hidden">          
             <div className="hidden border-b-2 border-red-congreso100 lg:flex lg:items-center lg:w-auto w-full bg-blue-congreso100" id="menu">
-                <div className="flex lg:w-11/12">
+                <div className="flex lg:w-10/12">
                 <nav>
                     <ul className="lg:flex items-center justify-between text-base text-gray-700 pt-4 lg:pt-0">
                             <li><Link to={{ pathname: "/" }} className="lg:p-4 py-3 px-0 font-Midnight text-red-congreso100 block border-t-2 border-transparent hover:border-blue-congreso200 text-xl">Inicio </Link></li>
@@ -24,12 +24,12 @@ const Navbar = ({ isAuthenticated, currentUser }) => {
                     </ul>
                 </nav>
                 </div>
-                <div className="flex lg:w-1/12">
+                <div className="flex lg:w-2/12">
                     {isAuthenticated === true &&
                         // <a href="/" className="lg:ml-4 flex items-center justify-start lg:mb-0 mb-4 pointer-cursor">
                         //     <img className="rounded-full w-10 h-10 border-2 border-transparent hover:border-indigo-400" src={currentUserAvatar} alt="Current User Avatar" />
                         // </a>
-                        <Avatar userId={currentUser.userId} />
+                        <Avatar userId={currentUser.userId}><span className="pt-2 pl-1 font-bold text-red-congreso100 hover:text-red-congreso200 text-xl">Mi Perfil</span></Avatar>
                     }
                 </div>
             </div>
