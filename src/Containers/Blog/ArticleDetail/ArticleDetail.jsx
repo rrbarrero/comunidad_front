@@ -52,7 +52,7 @@ const ArticleDetail = ({ isAuthenticated, currentUser }) => {
                       element.scrollIntoView();
                   }
               },
-              1000
+              2000
           );
       }
     }, [hash, pathname])

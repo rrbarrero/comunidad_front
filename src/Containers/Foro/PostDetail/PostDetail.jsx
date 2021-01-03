@@ -68,7 +68,7 @@ const PostDetail = ({ isAuthenticated, currentUser }) => {
 
     return (
         <div className="w-full overflow-hidden sm:w-3/4">
-            <div className="bg-white font-Midnight text-red-congreso200 p-3">
+            <div className="bg-yellow-congreso98 font-Midnight text-red-congreso200 pt-3 pb-3 pl-5">
                 <BreadCrumb />
             </div>
             <div className="p-8">

@@ -18,6 +18,7 @@ const ArticleList = () => {
     const handleNext = () => {
         if (nextUrl) {
             setUrl(nextUrl);
+            document.getElementById('article-list').scrollIntoView();
         } else {
             return () => { };
         }
@@ -26,6 +27,7 @@ const ArticleList = () => {
     const handlePrev = () => {
         if (prevUrl) {
             setUrl(prevUrl);
+            document.getElementById('article-list').scrollIntoView(); 
         } else {
             return () => { };
         }
@@ -45,7 +47,7 @@ const ArticleList = () => {
     }, [url]);
 
     return (
-        <div>
+        <div id="article-list">
             {articles.map((item, i) => (
                 <ArticleListItem key={i} item={item} />
             ))}
