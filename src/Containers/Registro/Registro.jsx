@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import Login from '../../Services/User/Login';
-import { Redirect } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
+import { useHistory } from "react-router";
 import LogoHeader from '../../Assets/logo_header.jpeg';
 import { Link } from 'react-router-dom';
+import Register from '../../Services/User/Register';
 
 const Registro = ({isAuthenticated}) => {
 
@@ -12,6 +13,8 @@ const Registro = ({isAuthenticated}) => {
     const [email2, setEmail2] = useState('');
     const [password, setPassword] = useState('');
     const [password2, setPassword2] = useState('');
+
+    const history = useHistory();
 
     const validateForm = () => {
         let errors = [];
@@ -34,7 +37,19 @@ const Registro = ({isAuthenticated}) => {
         evt.preventDefault();
         setError(validateForm())
         if (error.length === 0) {
-            console.log('bien');
+            Register({
+                username,
+                email,
+                password
+            }).then(resp => {
+                if(resp.status!==201){
+                    let errors = [];
+                    Object.values(resp.data).forEach(x => errors.push(x));
+                    setError(errors);
+                }else{
+                    history.push("/success");
+                }
+            });
         }
     }
 
@@ -153,4 +168,4 @@ const Registro = ({isAuthenticated}) => {
     );
 }
 
-export default Registro;
+export default  withRouter(Registro);

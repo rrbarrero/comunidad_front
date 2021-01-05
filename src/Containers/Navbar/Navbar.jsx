@@ -29,7 +29,7 @@ const Navbar = ({ isAuthenticated, currentUser }) => {
                         // <a href="/" className="lg:ml-4 flex items-center justify-start lg:mb-0 mb-4 pointer-cursor">
                         //     <img className="rounded-full w-10 h-10 border-2 border-transparent hover:border-indigo-400" src={currentUserAvatar} alt="Current User Avatar" />
                         // </a>
-                        <Avatar userId={currentUser.userId}><span className="pt-2 pl-1 font-bold text-red-congreso100 hover:text-red-congreso200 text-xl">Mi Perfil</span></Avatar>
+                        <Avatar userId={currentUser.userId}><span className="pt-2 pl-1 mt-2 font-bold text-red-congreso100 hover:text-red-congreso200 text-xl">Mi Perfil</span></Avatar>
                     }
                 </div>
             </div>

@@ -20,8 +20,8 @@ const Avatar = ({ userId, children }) => {
     }, [userId]);
 
     return (
-        <a href="/" className="lg:ml-4 flex inline-flex lg:mb-0 mb-4 pointer-cursor">
-            <img className="rounded-full w-11 h-10 border-2 border-transparent hover:border-indigo-400" src={avatar} alt="Current User Avatar" />{children}
+        <a href="/" className="lg:ml-1 flex inline-flex lg:mb-0 mb-4 pointer-cursor">
+            <img className="rounded-full w-12 h-11 border-2 mt-2 border-transparent hover:border-indigo-400" src={avatar} alt="Current User Avatar" />{children}
         </a>
     );
 }

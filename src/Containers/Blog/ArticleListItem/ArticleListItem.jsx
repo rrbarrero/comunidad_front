@@ -50,11 +50,11 @@ const ArticleListItem = ({ item }) => {
                 <p className="text-sm inline-block text-blue-congreso200">{item.entradilla.substring(0, 450)}...</p>
                 <Link to={{ pathname: `/articulos/${item.id}` }} className="text-red-congreso100 hover:text-red-congreso200 text-right text-lg">continuar leyendo </Link>
 
-                <div className="flex justify-between items-center h-16 p-4 my-6  rounded-lg border border-gray-100">
+                <div className="flex justify-between items-center h-16 p-2 my-6  rounded-lg border border-gray-100">
                     <div className="flex w-full items-center">
                         <div className="flex w-10/12">
                             <Avatar userId={autor.id} /><br />
-                            <div className="ml-8">
+                            <div className="pl-1">
                                 <div className="text-sm text-gray-400">Por <span className="text-sm font-semibold text-gray-500">{autor.username}</span> el <span className="text-sm font-semibold text-gray-400">{dtFormated()}</span></div>
                                 <div className="hidden lg:flex lg:items-center lg:w-auto text-sm font-light italic text-gray-congreso100">{autor.perfil && autor.perfil.frase_inspiradora}</div>
                             </div>
