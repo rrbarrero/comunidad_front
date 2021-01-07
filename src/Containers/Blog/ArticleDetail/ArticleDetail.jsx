@@ -2,12 +2,13 @@ import { useEffect, useState, useContext } from "react";
 import CommentArticle from '../CommentArticle/CommentArticle';
 import FetchArticleDetail from '../../../Services/Blog/FetchArticleDetail';
 import FetchCommentsOfArticle from '../../../Services/Blog/FetchCommentsOfArticle';
-import Spinner from '../../../Assets/spinner.gif';
+import Spinner from '../../../Assets/rings.svg';
 import PostComment from './PostComment';
 import { useParams } from 'react-router';
 import { useLocation } from 'react-router-dom'
 import { UserContext } from '../../../App';
 import './ArticleDetail.css';
+import UpdateComment from "../CommentArticle/UpdateComment";
 
 
 const ArticleDetail = () => {
@@ -18,9 +19,10 @@ const ArticleDetail = () => {
     const [article, setArticle] = useState({});
     const [isLoading, setIsLoading] = useState();
     const [comentarios, setComentarios] = useState([]);
+    const [updatingComment, setUpdatingComment] = useState(false);
+    const [commentToUpdate, setCommentToUpdate] = useState({});
 
     const {isAuthenticated, currentUser} = useContext(UserContext);
-
 
     useEffect(() => {
         if (articuloId) {
@@ -74,18 +76,30 @@ const ArticleDetail = () => {
                 <div id="article-detail-comments" className="">
                     <p className="text-xl font-bold p-3">Comentarios</p>
                     <div>
-                        {comentarios.map((comment, i) => (
-                            <CommentArticle key={i} comment={comment} commentIdx={i} />
-                        ))}
+                        {comentarios.map((comment, i) => {
+                            if (updatingComment && commentToUpdate && commentToUpdate.id === comment.id) {
+                                return <UpdateComment key={i}
+                                    comment={comment}
+                                    comentarios={comentarios}
+                                    setComentarios={setComentarios}
+                                    setUpdatingComment={setUpdatingComment}
+                                />
+                            } else {
+                                return <CommentArticle key={i}
+                                    comment={comment}
+                                    commentIdx={i}
+                                    setUpdatingComment={setUpdatingComment}
+                                    setCommentToUpdate={setCommentToUpdate}
+                                />
+                            }
+                        })}
                     </div>
                 </div>
-                <PostComment
-                    currentUser={currentUser}
+                {updatingComment===false && <PostComment
                     article={article}
-                    isAuthenticated={isAuthenticated}
                     comentarios={comentarios}
                     setComentarios={setComentarios}
-                />
+                />}
             </div>
         </div>
     );

@@ -1,16 +1,22 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import FetchUserDetail from '../../../Services/User/FetchUserDetail';
+import canUpdate from '../../../Services/Common/Misc';
 import Avatar from '../../Common/Avatar';
-import { FaComment } from 'react-icons/fa';
+import moment from 'moment';
+import 'moment/locale/es';
+import { UserContext } from '../../../App';
+import { FaEdit } from 'react-icons/fa';
 
-const CommentArticle = ({ comment, commentIdx }) => {
+const CommentArticle = ({ comment, commentIdx,  setUpdatingComment, setCommentToUpdate }) => {
     
+    const {isAuthenticated, currentUser} = useContext(UserContext);
+
     const [autor, setAutor] = useState('');
     const [isLoading, setIsLoading] = useState();
 
     const dtFormated = () => {
-        const date = new Date(comment.fecha_creacion);
-        return date.toLocaleDateString();
+        moment.locale('es');
+        return moment(comment.fecha_creacion).fromNow();
     }
 
     useEffect(() => {
@@ -25,7 +31,12 @@ const CommentArticle = ({ comment, commentIdx }) => {
             });
             return () => isSubscribed = false;
         }
-    },[comment])
+    }, [comment])
+    
+    const HandleUpdate = () => {
+        setUpdatingComment(true);
+        setCommentToUpdate(comment);
+    }
 
     return (
         <div className="p-4 bg-blue-congreso100 flex items-start justify-start w-full">
@@ -40,11 +51,15 @@ const CommentArticle = ({ comment, commentIdx }) => {
                     <span className="block text-sm text-gray-500 dark:text-gray-400 font-light leading-snug">{dtFormated()}</span>
                 </div>
                 </div>
-                <p className="text-gray-800 dark:text-gray-100 leading-snug md:leading-normal" dangerouslySetInnerHTML={{ __html: comment.cuerpo }}>
-                </p>
+                <p className="text-gray-800 dark:text-gray-100 leading-snug md:leading-normal" dangerouslySetInnerHTML={{ __html: comment.cuerpo }}></p>
             </div>
+            {(canUpdate(comment, currentUser)===true) &&
+            <div className="bg-blue pl-2 flex text-xl w-1/12">
+                <FaEdit onClick={HandleUpdate} />
+            </div>
+            }
         </div>
-    );
+    )
 }
 
 export default CommentArticle;

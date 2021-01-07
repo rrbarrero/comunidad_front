@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { FaDiaspora } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import PostCommentArticle from '../../../Services/Blog/PostCommentArticle';
+import { UserContext } from '../../../App';
 
-const PostComment = ({ isAuthenticated, article, currentUser, comentarios, setComentarios }) => {
+const PostComment = ({ article, comentarios, setComentarios }) => {
 
     let commentMsg;
+    const {isAuthenticated, currentUser} = useContext(UserContext);
     const [error, setError] = useState([]);
     
 
