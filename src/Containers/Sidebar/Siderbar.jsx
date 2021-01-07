@@ -91,7 +91,7 @@ const Sidebar = () => {
               ))}
             </ul>
             <br />
-            <h5 className="text-red-congreso200 uppercase tracking-wide font-semibold mb-3 text-sm lg:text-md">
+            {/* <h5 className="text-red-congreso200 uppercase tracking-wide font-semibold mb-3 text-sm lg:text-md">
               <FaPoll className="inline" /> Últimas encuestas
             </h5>
             <ul className="overflow-x-hidden text-gray-500 font-medium">
@@ -103,9 +103,9 @@ const Sidebar = () => {
                   ¿Con qué rol de Belbin te identificas más?
                 </a>
               </li>
-            </ul>
+            </ul> */}
             <br />
-            <h5 className="text-red-congreso200 uppercase tracking-wide font-semibold mb-3 text-sm lg:text-md">
+            {/* <h5 className="text-red-congreso200 uppercase tracking-wide font-semibold mb-3 text-sm lg:text-md">
               <FaQuestion className="inline" /> Pregúntame
             </h5>
             <ul className="overflow-x-hidden text-gray-500 font-medium">
@@ -119,7 +119,7 @@ const Sidebar = () => {
                   Lunes 17 de Enero a las 13h.
                 </a>
               </li>
-            </ul>
+            </ul> */}
           </div>
         </div>
       </div>

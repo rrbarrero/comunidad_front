@@ -7,9 +7,7 @@ import Home from '../Common/Home';
 
 const AppRoutes = (
     {
-        currentUser,
         setCurrentUser,
-        isAuthenticated,
         setIsAuthenticated
     }) => {
     return (
@@ -21,7 +19,6 @@ const AppRoutes = (
           <Route exact path="/login">
             <LoginForm
               setCurrentUser={setCurrentUser}
-              isAuthenticated={isAuthenticated}
               setIsAuthenticated={setIsAuthenticated}
             />
           </Route>
@@ -31,7 +28,6 @@ const AppRoutes = (
           <Route exact path="/logout">
             <LogOut
               setCurrentUser={setCurrentUser}
-              isAuthenticated={isAuthenticated}
               setIsAuthenticated={setIsAuthenticated}
             />
           </Route>
@@ -40,8 +36,6 @@ const AppRoutes = (
             render={(props) => (
               <Home
                 {...props}
-                isAuthenticated={isAuthenticated}
-                currentUser={currentUser}
               />
             )}
           />

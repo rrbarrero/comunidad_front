@@ -1,16 +1,19 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Login from '../../Services/User/Login';
 import { Redirect } from "react-router-dom";
 import LogoHeader from '../../Assets/logo_header.jpeg';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../App';
 
-const LoginForm = ({setCurrentUser, isAuthenticated, setIsAuthenticated}) => {
+const LoginForm = ({ setCurrentUser, setIsAuthenticated }) => {
 
   const [error, setError] = useState([]);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-    if (isAuthenticated) {
+   const {isAuthenticated, currentUser} = useContext(UserContext);
+
+  if (isAuthenticated) {
     return <Redirect to='/' />  
   }
 

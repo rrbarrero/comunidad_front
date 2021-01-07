@@ -1,6 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
+import { UserContext } from '../../App';
 
-const LogOut = ({ setCurrentUser, isAuthenticated, setIsAuthenticated }) => {
+const LogOut = ({ setCurrentUser, setIsAuthenticated }) => {
+
+    const {isAuthenticated, currentUser} = useContext(UserContext);
 
     useEffect(() => {
         if (isAuthenticated) {

@@ -1,17 +1,17 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import AddCommentToPost from '../../../Services/Forum/AddCommentToPost';
 import { FaDiaspora } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../../App';
 
 const PutCommentOnPost = ({
-    isAuthenticated,
     post,
-    currentUser,
     comentarios,
     setComentarios }) => {
     
     let commentMsg;
     const [error, setError] = useState([]);
+    const {isAuthenticated, currentUser} = useContext(UserContext);
     
     const handleSubmit = (evt) => {
         evt.preventDefault();

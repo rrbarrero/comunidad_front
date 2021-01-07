@@ -7,7 +7,7 @@ import CommentOfPost from '../../Blog/CommentArticle/CommentArticle';
 import PutCommentOnPost from './PutCommentOnPost';
 import { Link } from 'react-router-dom';
 
-const PostDetail = ({ isAuthenticated, currentUser }) => {
+const PostDetail = () => {
 
     const { postId } = useParams();
     const [isLoading, setIsLoading] = useState();
@@ -85,9 +85,7 @@ const PostDetail = ({ isAuthenticated, currentUser }) => {
                     </div>
                 </div>
                 <PutCommentOnPost
-                    currentUser={currentUser}
                     post={post}
-                    isAuthenticated={isAuthenticated}
                     comentarios={comentarios}
                     setComentarios={setComentarios}
                 />

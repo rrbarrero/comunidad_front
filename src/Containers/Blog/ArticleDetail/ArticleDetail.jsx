@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import CommentArticle from '../CommentArticle/CommentArticle';
 import FetchArticleDetail from '../../../Services/Blog/FetchArticleDetail';
 import FetchCommentsOfArticle from '../../../Services/Blog/FetchCommentsOfArticle';
 import Spinner from '../../../Assets/spinner.gif';
 import PostComment from './PostComment';
 import { useParams } from 'react-router';
-import { Route, Switch, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
+import { UserContext } from '../../../App';
+import './ArticleDetail.css';
 
 
-const ArticleDetail = ({ isAuthenticated, currentUser }) => {
+const ArticleDetail = () => {
     
     const { pathname, hash } = useLocation()
     const { articuloId } = useParams();
@@ -16,6 +18,8 @@ const ArticleDetail = ({ isAuthenticated, currentUser }) => {
     const [article, setArticle] = useState({});
     const [isLoading, setIsLoading] = useState();
     const [comentarios, setComentarios] = useState([]);
+
+    const {isAuthenticated, currentUser} = useContext(UserContext);
 
 
     useEffect(() => {
@@ -63,7 +67,7 @@ const ArticleDetail = ({ isAuthenticated, currentUser }) => {
             <div className="p-8">
                 <p className="text-2xl font-bold pl-4">{article.titulo}</p>
                 <div className="w-full p-5">
-                        {!isLoading && <img className="w-52 lg:w-52 float-left m-5 rounded" src={article.imagen} alt="Artículo imagen" />}
+                        {!isLoading && <img className="w-52 lg:w-52 float-left m-1 rounded" src={article.imagen} alt="Artículo imagen" />}
                         {isLoading && <img className="float-left m-5 rounded" src={Spinner} alt="Artículo imagen" />}
                         <article className="" dangerouslySetInnerHTML={{ __html: article.cuerpo }}></article>
                 </div>

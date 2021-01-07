@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import ArticleDetail from '../Blog/ArticleDetail/ArticleDetail';
 import PostDetail from '../Foro/PostDetail/PostDetail';
 import PostList from '../Foro/PostList/PostList';
@@ -10,38 +10,26 @@ import Sidebar from '../Sidebar/Siderbar';
 import Footer from '../Footer/Footer';
 import ScrollToTop from '../Common/ScrollToTop';
 
-const Home = ({ isAuthenticated, currentUser }) => {
+const Home = () => {
     return (
         <div className="flex md:w-10/12 m-auto flex-wrap overflow-hidden bg-blue-congreso100">
             <Header />
-            <Navbar
-                isAuthenticated={isAuthenticated}
-                currentUser={currentUser}
-            />
+            <Navbar />
             <Route exac path="/foro"
                 render={(props) => (
-                    <Foro {...props}
-                        currentUser={currentUser}
-                        isAuthenticated={isAuthenticated}
-                    />
+                    <Foro {...props} />
                 )}
             />
             <ScrollToTop >
                 <Route exac path="/articulos/:articuloId"
                     render={(props) => (
-                        <ArticleDetail {...props}
-                            currentUser={currentUser}
-                            isAuthenticated={isAuthenticated}
-                        />
+                        <ArticleDetail {...props} />
                     )}
                 />
             </ScrollToTop>
             <Route exac path="/hilos/:postId"
                 render={(props) => (
-                    <PostDetail {...props}
-                        currentUser={currentUser}
-                        isAuthenticated={isAuthenticated}
-                    />
+                    <PostDetail {...props} />
                 )}
             />
             <Route exac path="/temas/:temaId" render={() => <PostList />} />

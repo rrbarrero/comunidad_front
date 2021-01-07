@@ -2,9 +2,12 @@
 //import FetchAvatar from '../../Services/User/FetchAvatar';
 import { Link } from 'react-router-dom';
 import Avatar from '../Common/Avatar';
+import React, { useContext } from 'react'
+import { UserContext } from '../../App';
 
-const Navbar = ({ isAuthenticated, currentUser }) => {
+const Navbar = () => {
 
+    const {isAuthenticated, currentUser} = useContext(UserContext);
 
     return (
         <div className="w-full overflow-hidden">          
