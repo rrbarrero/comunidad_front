@@ -4,6 +4,7 @@ import FetchPostDetail from '../../../Services/Forum/FetchPostDetail';
 import FetchTopicDetail from '../../../Services/Forum/FetchTopicDetail';
 import FetchCommentsOfPost from '../../../Services/Forum/FetchCommentsOfPost';
 import CommentOfPost from '../../Blog/CommentArticle/CommentArticle';
+import UpdateComment from '../CommentOfPost/UpdateComment';
 import PutCommentOnPost from './PutCommentOnPost';
 import { Link } from 'react-router-dom';
 
@@ -14,6 +15,8 @@ const PostDetail = () => {
     const [post, setPost] = useState({});
     const [topic, setTopic] = useState({});
     const [comentarios, setComentarios] = useState([]);
+    const [updatingComment, setUpdatingComment] = useState(false);
+    const [commentToUpdate, setCommentToUpdate] = useState({});
 
     useEffect(() => {
         if (postId) {
@@ -79,16 +82,30 @@ const PostDetail = () => {
                 <div id="article-detail-comments" className="">
                     <p className="text-xl font-bold p-3">Comentarios</p>
                     <div>
-                        {comentarios.map((comment, i) => (
-                            <CommentOfPost key={i} comment={comment} commentIdx={i} />
-                        ))}
+                        {comentarios.map((comment, i) => {
+                            if (updatingComment && commentToUpdate && commentToUpdate.id === comment.id) {
+                                return <UpdateComment key={i}
+                                    comment={comment}
+                                    comentarios={comentarios}
+                                    setComentarios={setComentarios}
+                                    setUpdatingComment={setUpdatingComment}
+                                />
+                            } else {
+                                return <CommentOfPost key={i}
+                                    comment={comment}
+                                    commentIdx={i}
+                                    setUpdatingComment={setUpdatingComment}
+                                    setCommentToUpdate={setCommentToUpdate}
+                                />
+                            }
+                        })}
                     </div>
                 </div>
-                <PutCommentOnPost
+                {updatingComment === false && <PutCommentOnPost
                     post={post}
                     comentarios={comentarios}
                     setComentarios={setComentarios}
-                />
+                />}
             </div>
         </div>
     );

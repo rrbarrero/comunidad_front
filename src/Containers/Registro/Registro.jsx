@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Redirect, withRouter } from "react-router-dom";
 import { useHistory } from "react-router";
 import LogoHeader from '../../Assets/logo_header.jpeg';
 import { Link } from 'react-router-dom';
 import Register from '../../Services/User/Register';
+import PropTypes from 'prop-types' 
 
 const Registro = ({isAuthenticated}) => {
 
@@ -54,6 +55,7 @@ const Registro = ({isAuthenticated}) => {
     }
 
     if (isAuthenticated) {
+        //TODO: CORREGIR
         return <Redirect to='/' />
     }
 
@@ -166,6 +168,20 @@ const Registro = ({isAuthenticated}) => {
             </div>
         </div>
     );
+}
+
+Registro.propTypes = {
+    error: PropTypes.arrayOf(PropTypes.string),
+    username: PropTypes.string,
+    setUsername: PropTypes.func,
+    email: PropTypes.string,
+    setEmail: PropTypes.func,
+    email2: PropTypes.string,
+    setEmail2: PropTypes.func,
+    password: PropTypes.string,
+    setPassword: PropTypes.func,
+    password2: PropTypes.string,
+    setPassword2: PropTypes.string,
 }
 
 export default  withRouter(Registro);

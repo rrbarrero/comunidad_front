@@ -4,6 +4,7 @@ import Success from '../Registro/Success';
 import LoginForm from '../LoginForm/LoginForm';
 import LogOut from '../LogOut/LogOut';
 import Home from '../Common/Home';
+import PropTypes from 'prop-types' 
 
 const AppRoutes = (
     {
@@ -42,6 +43,11 @@ const AppRoutes = (
         </Switch>
       </Router>
     );
+}
+
+AppRoutes.propTypes = {
+  setCurrentUser: PropTypes.func.isRequired,
+  setIsAuthenticated: PropTypes.func.isRequired,
 }
 
 export default AppRoutes;

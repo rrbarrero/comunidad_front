@@ -22,7 +22,7 @@ const ArticleDetail = () => {
     const [updatingComment, setUpdatingComment] = useState(false);
     const [commentToUpdate, setCommentToUpdate] = useState({});
 
-    const {isAuthenticated, currentUser} = useContext(UserContext);
+    //const {isAuthenticated, currentUser} = useContext(UserContext);
 
     useEffect(() => {
         if (articuloId) {

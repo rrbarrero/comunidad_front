@@ -21,6 +21,7 @@ const PostListItem = ({ item }) => {
                 }
             });
         }
+        return () => isSubscribed = false;
     }, [item]);
 
 

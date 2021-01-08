@@ -4,6 +4,7 @@ import './App.css';
 import AppRoutes from './Containers/AppRoutes/AppRoutes';
 import React from 'react'
 import IsLogedIn from './Services/User/IsLogedIn';
+import PropTypes from 'prop-types'  
 
 export const UserContext = React.createContext({
   isAuthenticated: null,
@@ -28,5 +29,11 @@ function App() {
     </div>
   );
 }
+
+App.propTypes = {
+  isAuthenticated: PropTypes.bool,
+  currentUser: PropTypes.object,
+}
+
 
 export default App;

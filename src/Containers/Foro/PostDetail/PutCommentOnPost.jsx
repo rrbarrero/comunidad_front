@@ -17,7 +17,6 @@ const PutCommentOnPost = ({
         evt.preventDefault();
         if (isAuthenticated) {
             AddCommentToPost(post.id, currentUser, commentMsg).then(resp => {
-                console.log(resp);
                 if (resp.status!==201) {
                     let errors = [];
                     for (var [_v, value] of Object.entries(resp.data)){
@@ -25,7 +24,6 @@ const PutCommentOnPost = ({
                     };
                     setError(errors);
                 } else {
-                    console.log(resp.data);
                     setComentarios([...comentarios, resp.data]);
                     document.getElementById('commentBody').value = "";
                 }
