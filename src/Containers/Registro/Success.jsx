@@ -25,12 +25,6 @@ const Success = () => {
             claves para poder modificar y transformar nuestra realidad, desde la
             propia sociedad, desde uno mismo.
           </p>
-          <p className="hidden lg:flex lg:items-center lg:w-auto flex flex-col items-center justify-center mt-10 text-center">
-            <span>¿Aún no te has unido al cambio?</span>
-            <a href="/registro" className="underline">
-              ¡Únete!
-            </a>
-          </p>
           <p className="mt-6 text-sm text-center text-gray-500">
             Lee nuestros{" "}
             <a href="/terminos" className="underline">

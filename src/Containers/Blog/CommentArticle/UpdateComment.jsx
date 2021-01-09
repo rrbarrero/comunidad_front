@@ -58,7 +58,7 @@ const UpdateComment = ({ comment, comentarios, setComentarios, setUpdatingCommen
                         </svg>
                         </div>
                         <div className="-mr-1">
-                            <input type='submit' className="bg-white text-gray-700 font-medium py-1 px-4 border border-gray-400 rounded-lg tracking-wide mr-1 hover:bg-gray-100" value='Publicar comentario' />
+                            <input type='submit' id="button-update-comment" className="bg-white text-gray-700 font-medium py-1 px-4 border border-gray-400 rounded-lg tracking-wide mr-1 hover:bg-gray-100" value='Publicar comentario' />
                         </div>                                        
                     </div>
                 </div>

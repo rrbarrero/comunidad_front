@@ -48,7 +48,7 @@ const ArticleListItem = ({ item }) => {
                     <p className="hidden lg:flex lg:items-center lg:w-auto text-xl inline-block font-bold pb-2">{item.titulo}</p>
                 </Link>
                 <p className="text-sm inline-block text-blue-congreso200">{item.entradilla.substring(0, 450)}...</p>
-                <Link to={{ pathname: `/articulos/${item.id}` }} className="text-red-congreso100 hover:text-red-congreso200 text-right text-lg">continuar leyendo </Link>
+                <Link to={{ pathname: `/articulos/${item.id}` }} className="text-red-congreso100 hover:text-red-congreso200 text-right text-lg more-button">continuar leyendo </Link>
 
                 <div className="flex justify-between items-center h-16 p-2 my-6  rounded-lg border border-gray-100">
                     <div className="flex w-full items-center">

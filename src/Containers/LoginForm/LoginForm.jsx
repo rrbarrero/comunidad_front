@@ -105,7 +105,8 @@ const LoginForm = ({ setCurrentUser, setIsAuthenticated }) => {
                   <label htmlFor="remember" className="text-sm font-semibold text-gray-500">Guardar sesión</label>
                 </div>
                 <div>
-                  <button
+                <button
+                    id="button-login"
                     type="submit"
                     className="w-full px-4 py-2 text-lg font-semibold text-white transition-colors duration-300 bg-blue-congreso200 rounded-md shadow hover:bg-blue-600 focus:outline-none focus:ring-blue-200 focus:ring-4">
                     Acceder

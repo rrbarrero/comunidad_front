@@ -55,7 +55,7 @@ const CommentArticle = ({ comment, commentIdx,  setUpdatingComment, setCommentTo
             </div>
             {(canUpdate(comment, currentUser)===true) &&
             <div className="bg-blue pl-2 flex text-xl w-1/12">
-                <FaEdit onClick={HandleUpdate} />
+                <button id="button-comment-update" onClick={HandleUpdate}><FaEdit  /></button>
             </div>
             }
         </div>
