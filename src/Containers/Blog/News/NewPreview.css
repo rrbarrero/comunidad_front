@@ -1,0 +1,27 @@
+#article-1 {
+  height: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#article-1 h1 {
+  padding-top: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
+  /* color: black; */
+  font-size: 36px;
+}
+#article-2,
+#article-3 {
+  height: 250px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#article-2 h1,
+#article-3 h1 {
+  padding-top: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
+  /* color: black; */
+  font-size: 26px;
+}

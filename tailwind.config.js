@@ -9,6 +9,7 @@ module.exports = {
             congreso200: '#568c9f',
           },
           red: {
+            congreso99:  '#ecc2b9',
             congreso100: '#ef8a76',
             congreso200: '#df664e',
             congreso300: '#782717',

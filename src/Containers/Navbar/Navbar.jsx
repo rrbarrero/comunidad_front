@@ -11,7 +11,7 @@ const Navbar = () => {
 
     return (
         <div className="w-full overflow-hidden">          
-            <div className="hidden border-b-2 border-red-congreso100 lg:flex lg:items-center lg:w-auto w-full bg-blue-congreso100" id="menu">
+            <div className="hidden border-b-2 border-red-congreso99 lg:flex lg:items-center lg:w-auto w-full bg-blue-congreso100" id="menu">
                 <div className="flex lg:w-10/12">
                 <nav>
                     <ul className="lg:flex items-center justify-between text-base text-gray-700 pt-4 lg:pt-0">

@@ -3,3 +3,22 @@ img {
   border-radius: 8px;
   width: 350px;
 }
+
+#article-detail ul,
+#article-detail ol {
+  margin-left: 7rem;
+  padding-left: 2rem;
+}
+
+#article-detail ul li {
+  list-style-type: circle !important;
+}
+
+#article-detail ol li {
+  list-style-type: decimal !important;
+}
+
+#article-detail img {
+  float: left;
+  margin: 2rem;
+}

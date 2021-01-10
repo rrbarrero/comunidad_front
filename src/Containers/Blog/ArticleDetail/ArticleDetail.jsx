@@ -71,7 +71,7 @@ const ArticleDetail = () => {
                 <div className="w-full p-5">
                         {!isLoading && <img className="w-52 lg:w-52 float-left m-1 rounded" src={article.imagen} alt="Artículo imagen" />}
                         {isLoading && <img className="float-left m-5 rounded" src={Spinner} alt="Artículo imagen" />}
-                        <article className="" dangerouslySetInnerHTML={{ __html: article.cuerpo }}></article>
+                        <article id="article-detail" dangerouslySetInnerHTML={{ __html: article.cuerpo }}></article>
                 </div>
                 <div id="article-detail-comments" className="">
                     <p className="text-xl font-bold p-3">Comentarios</p>
