@@ -49,7 +49,7 @@ const NewPreview = ({ position }) => {
 
     return (
         <Link
-            to={{ pathname: `/noticias/${newArticle.id}` }}
+            to={{ pathname: `/portadas/${newArticle.id}` }}
             className={getItemClasses()}
             style={getNewBackgroundStyle()} id={getArticleId()}>
                     <h1>{newArticle.titulo}</h1>

@@ -1,8 +1,8 @@
 import { useState, useContext, useEffect } from 'react';
 import { UserContext } from '../../../App';
-import UpdateCommentArticle from '../../../Services/Blog/UpdateCommentArticle';
+// import UpdateCommentArticle from '../../../Services/Blog/UpdateCommentArticle';
 
-const UpdateComment = ({ comment, comentarios, setComentarios, setUpdatingComment }) => {
+const UpdateComment = ({ comment, comentarios, setComentarios, setUpdatingComment, updateFunction }) => {
 
     const { isAuthenticated, currentUser } = useContext(UserContext);
     const [commentMsg, setCommentMsg] = useState();
@@ -16,7 +16,7 @@ const UpdateComment = ({ comment, comentarios, setComentarios, setUpdatingCommen
     const handleSubmit = (evt) => {
         evt.preventDefault();
         if(isAuthenticated) {
-            UpdateCommentArticle(comment, currentUser, commentMsg).then(resp => {
+            updateFunction(comment, currentUser, commentMsg).then(resp => {
                 if (resp.status!==200) {
                     let errors = [];
                     for (var [_v, value] of Object.entries(resp.data)){

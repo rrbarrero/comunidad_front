@@ -1,6 +1,7 @@
 import { Route } from 'react-router-dom';
 import ArticleDetail from '../Blog/ArticleDetail/ArticleDetail';
 import PostDetail from '../Foro/PostDetail/PostDetail';
+import NewDetail from '../Blog/News/NewDetail';
 import PostList from '../Foro/PostList/PostList';
 import Blog from '../Blog/Blog';
 import Foro from '../Foro/Foro';
@@ -24,6 +25,13 @@ const Home = () => {
                 <Route exac path="/articulos/:articuloId"
                     render={(props) => (
                         <ArticleDetail {...props} />
+                    )}
+                />
+            </ScrollToTop>
+            <ScrollToTop >
+                <Route exac path="/portadas/:articuloId"
+                    render={(props) => (
+                        <NewDetail {...props} />
                     )}
                 />
             </ScrollToTop>

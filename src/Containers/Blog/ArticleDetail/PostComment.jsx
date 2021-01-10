@@ -1,10 +1,10 @@
 import { useState, useContext } from 'react';
 import { FaDiaspora } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import PostCommentArticle from '../../../Services/Blog/PostCommentArticle';
+//import PostCommentArticle from '../../../Services/Blog/PostCommentArticle';
 import { UserContext } from '../../../App';
 
-const PostComment = ({ article, comentarios, setComentarios }) => {
+const PostComment = ({ article, comentarios, setComentarios, postCommentFunction }) => {
 
     let commentMsg;
     const {isAuthenticated, currentUser} = useContext(UserContext);
@@ -14,7 +14,7 @@ const PostComment = ({ article, comentarios, setComentarios }) => {
     const handleSubmit = (evt) => {
         evt.preventDefault();
         if(isAuthenticated) {
-            PostCommentArticle(article.id, currentUser, commentMsg).then(resp => {
+            postCommentFunction(article.id, currentUser, commentMsg).then(resp => {
                 if (resp !== null && 'non_field_errors' in resp) {
                 let errors = [];
                 resp.non_field_errors.forEach((item) => {

@@ -1,19 +1,18 @@
 import { useEffect, useState, useContext } from "react";
 import CommentArticle from '../CommentArticle/CommentArticle';
-import FetchArticleDetail from '../../../Services/Blog/FetchArticleDetail';
-import FetchCommentsOfArticle from '../../../Services/Blog/FetchCommentsOfArticle';
+import FetchNewDetail from '../../../Services/Blog/FetchNewDetail';
+import FetchCommentsOfNew from '../../../Services/Blog/FetchCommentsOfNew';
 import Spinner from '../../../Assets/rings.svg';
-import PostComment from './PostComment';
+import PostComment from '../ArticleDetail/PostComment';
 import { useParams } from 'react-router';
 import { useLocation } from 'react-router-dom'
-import { UserContext } from '../../../App';
-import './ArticleDetail.css';
+import '../ArticleDetail/ArticleDetail.css';
 import UpdateComment from "../CommentArticle/UpdateComment";
-import UpdateCommentArticle from '.././../../Services/Blog/UpdateCommentArticle';
-import PostCommentArticle from '../../../Services/Blog/PostCommentArticle';
+import UpdateCommentNews from "../../../Services/Blog/UpdateCommentNews";
+import PostCommentNews from "../../../Services/Blog/PostCommentNews";
 
 
-const ArticleDetail = () => {
+const NewDetail = () => {
     
     const { pathname, hash } = useLocation()
     const { articuloId } = useParams();
@@ -24,18 +23,16 @@ const ArticleDetail = () => {
     const [updatingComment, setUpdatingComment] = useState(false);
     const [commentToUpdate, setCommentToUpdate] = useState({});
 
-    //const {isAuthenticated, currentUser} = useContext(UserContext);
-
     useEffect(() => {
         if (articuloId) {
             setIsLoading(true);
             let isSubscribed = true;
-            FetchArticleDetail(articuloId).then(resp => {
+            FetchNewDetail(articuloId).then(resp => {
                 if (isSubscribed) {
                     setArticle(resp);
                 }
             });
-            FetchCommentsOfArticle(articuloId).then(resp => {
+            FetchCommentsOfNew(articuloId).then(resp => {
                 if (isSubscribed) {
                     setComentarios(resp.results);
                     setIsLoading(false);
@@ -85,7 +82,7 @@ const ArticleDetail = () => {
                                     comentarios={comentarios}
                                     setComentarios={setComentarios}
                                     setUpdatingComment={setUpdatingComment}
-                                    updateFunction={UpdateCommentArticle}
+                                    updateFunction={UpdateCommentNews}
                                 />
                             } else {
                                 return <CommentArticle key={i}
@@ -102,11 +99,11 @@ const ArticleDetail = () => {
                     article={article}
                     comentarios={comentarios}
                     setComentarios={setComentarios}
-                    postCommentFunction={PostCommentArticle}
+                    postCommentFunction={PostCommentNews}
                 />}
             </div>
         </div>
     );
 }
 
-export default ArticleDetail;
+export default NewDetail;
