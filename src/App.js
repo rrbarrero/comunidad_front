@@ -4,7 +4,8 @@ import './App.css';
 import AppRoutes from './Containers/AppRoutes/AppRoutes';
 import React from 'react'
 import IsLogedIn from './Services/User/IsLogedIn';
-import PropTypes from 'prop-types'  
+import PropTypes from 'prop-types';
+import ReactGA from 'react-ga';
 
 export const UserContext = React.createContext({
   isAuthenticated: null,
@@ -13,11 +14,15 @@ export const UserContext = React.createContext({
 
 function App() {
 
+  ReactGA.initialize(process.env.REACT_APP_GA);
+  ReactGA.pageview(window.location.pathname + window.location.search);
+
+
   const [isAuthenticated, setIsAuthenticated] = useState(IsLogedIn());
   const [currentUser, setCurrentUser] = useState(JSON.parse(window.sessionStorage.getItem('currentUser')));
 
   
-  console.log("App", currentUser, isAuthenticated);
+  //console.log("App", currentUser, isAuthenticated);
 
   return (
     <div className="App">

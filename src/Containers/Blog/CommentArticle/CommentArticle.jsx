@@ -47,7 +47,7 @@ const CommentArticle = ({ comment, commentIdx,  setUpdatingComment, setCommentTo
                 <div className="flex mb-4">
                 <Avatar userId={autor.id} />
                 <div className="ml-2 mt-0.5">
-                    <span className="block font-medium text-base leading-snug text-black dark:text-gray-100">{autor.username}</span>
+                    <span className="block font-medium text-base leading-snug text-black dark:text-gray-100">{autor.first_name ? autor.first_name + ' ' + autor.last_name : autor.username}</span>
                     <span className="block text-sm text-gray-500 dark:text-gray-400 font-light leading-snug">{dtFormated()}</span>
                 </div>
                 </div>
