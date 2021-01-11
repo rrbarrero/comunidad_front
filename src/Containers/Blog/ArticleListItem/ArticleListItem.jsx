@@ -39,7 +39,9 @@ const ArticleListItem = ({ item }) => {
     
     return (
         <div className="flex flex-col lg:flex-row border border-gray-100 shadow-xl mb-7 bg-white ml-1 mr-1 round">
-            <div className="flex w-auto text-2xl inline-block font-bold pb-2 pt-7 lg:hidden">{item.titulo}</div>
+            <Link to={{ pathname: `/articulos/${item.id}` }} className="text-red-congreso200">
+                <div className="flex w-auto text-xl inline-block font-bold pl-5 pr-5 pb-2 pt-7 lg:hidden">{item.titulo}</div>
+            </Link>
             <div className="w-full lg:w-3/12 p-5 ">
                 <img className="lg:w-52 mx-auto rounded" src={item.imagen} alt="Artículo {item.id} imagen" />
             </div>

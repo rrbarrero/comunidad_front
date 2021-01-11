@@ -7,6 +7,7 @@ import Blog from '../Blog/Blog';
 import Foro from '../Foro/Foro';
 import Header from '../Header/Header';
 import Navbar from '../Navbar/Navbar';
+import NavbarMobile from '../Navbar/NavbarMobile';
 import Sidebar from '../Sidebar/Siderbar';
 import Footer from '../Footer/Footer';
 import ScrollToTop from '../Common/ScrollToTop';
@@ -16,6 +17,7 @@ const Home = () => {
         <div className="flex md:w-10/12 m-auto flex-wrap overflow-hidden bg-blue-congreso100">
             <Header />
             <Navbar />
+            <NavbarMobile />
             <Route exac path="/foro"
                 render={(props) => (
                     <Foro {...props} />

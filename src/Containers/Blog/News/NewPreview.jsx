@@ -40,7 +40,7 @@ const NewPreview = ({ position }) => {
     const getItemClasses = () => {
         if (newArticle && newArticle.posicion) {
             if (newArticle.posicion === "1") {
-                return "flex w-full ml-1 text-gray-700 hover:text-gray-900 overflow-hidden sm:w-full bg-gradient-to-l md:bg-gradient-to-r border-2 border-red-congreso100 font-Midnight";
+                return "flex w-full m-1 text-gray-700 hover:text-gray-900 overflow-hidden sm:w-full bg-gradient-to-l md:bg-gradient-to-r border-2 border-red-congreso100 font-Midnight";
             } else {
                 return "flex w-full lg:w-1/2 text-gray-700 hover:text-gray-900 bg-indigo-100 border-2 border-red-congreso100 font-Midnight";
             }
