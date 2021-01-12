@@ -11,6 +11,7 @@ import NavbarMobile from '../Navbar/NavbarMobile';
 import Sidebar from '../Sidebar/Siderbar';
 import Footer from '../Footer/Footer';
 import ScrollToTop from '../Common/ScrollToTop';
+import Profile from '../Common/Profile';
 
 const Home = () => {
     return (
@@ -21,6 +22,11 @@ const Home = () => {
             <Route exac path="/foro"
                 render={(props) => (
                     <Foro {...props} />
+                )}
+            />
+            <Route exac path="/perfil"
+                render={(props) => (
+                    <Profile {...props} />
                 )}
             />
             <ScrollToTop >
