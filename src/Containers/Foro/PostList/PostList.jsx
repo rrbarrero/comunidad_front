@@ -4,6 +4,7 @@ import FetchPostsInTopic from '../../../Services/Forum/FetchPostsInTopic';
 import PostListItem from '../PostListItem/PostListItem';
 import FetchTopicDetail from '../../../Services/Forum/FetchTopicDetail';
 import { Link } from 'react-router-dom';
+import { FaNewspaper } from 'react-icons/fa';
 
 const PostList = () => {
 
@@ -32,9 +33,18 @@ const PostList = () => {
     }, [temaId]);
     
     return (
-          <div className="w-full overflow-hidden sm:w-3/4 bg-white">
-            <div className="bg-white font-Midnight text-red-congreso200 p-3">
-                <Link to={{ pathname: "/foro" }} className="text-xl">Temas</Link> / <span className="text-2xl">{topic.nombre}</span>
+        <div className="w-full overflow-hidden sm:w-3/4 bg-white">
+            <div className="flex">
+                <div className="bg-white w-3/4 font-Midnight text-red-congreso200 p-3">
+                    <Link to={{ pathname: "/foro" }} className="text-xl">Temas</Link> / <span className="text-2xl">{topic.nombre}</span>
+                </div>
+                <div className="w-1/4">
+                    <Link to={{ pathname: `/nuevo_hilo/${topic.id}` }}>
+                        <button type="button" className="bg-blue-600 text-white p-2 mt-2 rounded  leading-none flex items-center">
+                            Nuevo Hilo <span className="bg-white p-1 rounded text-blue-600 text-xs ml-2"><FaNewspaper /></span>
+                        </button>
+                    </Link>
+                </div>
             </div>
             <ul className="divide-y divide-gray-100">
                 {posts.map((item, i) => (

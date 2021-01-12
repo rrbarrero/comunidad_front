@@ -32,7 +32,7 @@ const NavbarMobile = () => {
                 <li className="pr-5"><Link to={{ pathname: "/foro" }} className="text-red-congreso200 pl-4 font-Midnight">Foro </Link></li>
                 {!isAuthenticated && <li className="pr-5"><Link to={{ pathname: "/login" }} className="text-red-congreso200 pl-4 font-Midnight">Iniciar sesión </Link></li>}
                 {!isAuthenticated && <li className="pr-5"><Link to={{ pathname: "/registro" }} className="text-red-congreso200 pl-4 font-Midnight">Registro </Link></li>}
-                {isAuthenticated && <li className="pr-5"><Link to={{ pathname: "/" }} className="text-red-congreso200 pl-4 font-Midnight">Mi perfil </Link></li>}
+                {isAuthenticated && <li className="pr-5"><Link to={{ pathname: `/perfil/${currentUser.userId}` }} className="text-red-congreso200 pl-4 font-Midnight">Mi perfil </Link></li>}
                 {isAuthenticated && <li className="pr-5"><Link to={{ pathname: "/logout" }} className="text-red-congreso200 pl-4 font-Midnight">Cerrar sesión </Link></li>}
             </ul>
         </nav>

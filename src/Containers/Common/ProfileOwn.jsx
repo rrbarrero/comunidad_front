@@ -111,9 +111,9 @@ const ProfileOwn = () => {
     return (
         <div className="w-full overflow-hidden sm:w-3/4 bg-white">
             <ToastContainer />
-            <div className="w-full md:hidden"><img className="m-4 border border-red-congreso99 rounded-lg" id="profile-currentAvatarImg" src={currentAvatar} alt="Current User Avatar" /></div>
+            <div className="w-full lg:hidden"><img className="m-4 border border-red-congreso99 rounded-lg" id="profile-currentAvatarImg" src={currentAvatar} alt="Current User Avatar" /></div>
             <div className="w-full flex flex-row-reverse p-5">
-                <div className="hidden md:block md:flex-grow-0 m-3">
+                <div className="hidden lg:block lg:flex-grow-0 m-3">
                     <img className="border border-red-congreso99 rounded-lg" id="profile-currentAvatarImg" src={currentAvatar} alt="Current User Avatar" />
                 </div>
                 <div className="flex-grow">

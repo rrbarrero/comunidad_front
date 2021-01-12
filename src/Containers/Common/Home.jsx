@@ -12,6 +12,7 @@ import Sidebar from '../Sidebar/Siderbar';
 import Footer from '../Footer/Footer';
 import ScrollToTop from '../Common/ScrollToTop';
 import Profile from '../Common/Profile';
+import CreatePost from '../Foro/CreatePost/CreatePost';
 
 const Home = () => {
     return (
@@ -22,6 +23,11 @@ const Home = () => {
             <Route exac path="/foro"
                 render={(props) => (
                     <Foro {...props} />
+                )}
+            />
+            <Route exac path="/nuevo_hilo/:topicId"
+                render={(props) => (
+                    <CreatePost {...props} />
                 )}
             />
             <Route exac path="/perfil/:userId"
