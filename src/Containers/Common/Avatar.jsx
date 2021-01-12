@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import FetchAvatar from '../../Services/User/FetchAvatar';
 import DefaultAvatar from '../../Assets/logo_header.jpeg';
+import { Link } from 'react-router-dom';
 // import Spinner from '../../Assets/spinner.gif';
 
 const Avatar = ({ userId, children }) => {
@@ -20,9 +21,9 @@ const Avatar = ({ userId, children }) => {
     }, [userId]);
 
     return (
-        <a href="/" className="lg:ml-1 flex inline-flex lg:mb-0 mb-4 pointer-cursor">
+        <Link to={{ pathname: `/perfil/${userId}` }} className="lg:ml-1 flex inline-flex lg:mb-0 mb-4 pointer-cursor">
             <img className="rounded-full w-12 h-11 border-2 mt-2 border-transparent hover:border-indigo-400" src={avatar} alt="Current User Avatar" />{children}
-        </a>
+        </Link>
     );
 }
 

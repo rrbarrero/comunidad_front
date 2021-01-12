@@ -15,7 +15,7 @@ import PostCommentArticle from '../../../Services/Blog/PostCommentArticle';
 
 const ArticleDetail = () => {
     
-    const { pathname, hash } = useLocation()
+    const { pathname, hash } = useLocation();
     const { articuloId } = useParams();
 
     const [article, setArticle] = useState({});

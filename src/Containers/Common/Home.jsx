@@ -24,7 +24,7 @@ const Home = () => {
                     <Foro {...props} />
                 )}
             />
-            <Route exac path="/perfil"
+            <Route exac path="/perfil/:userId"
                 render={(props) => (
                     <Profile {...props} />
                 )}
