@@ -7,6 +7,9 @@ import CommentOfPost from '../../Blog/CommentArticle/CommentArticle';
 import UpdateComment from '../CommentOfPost/UpdateComment';
 import PutCommentOnPost from './PutCommentOnPost';
 import { Link } from 'react-router-dom';
+import Avatar from "../../Common/Avatar";
+import FetchUserDetail from "../../../Services/User/FetchUserDetail";
+import { getDateFormated, getSignature } from "../../../Services/Common/Misc";
 
 const PostDetail = () => {
 
@@ -17,6 +20,7 @@ const PostDetail = () => {
     const [comentarios, setComentarios] = useState([]);
     const [updatingComment, setUpdatingComment] = useState(false);
     const [commentToUpdate, setCommentToUpdate] = useState({});
+    const [autor, setAutor] = useState({});
 
     useEffect(() => {
         if (postId) {
@@ -33,9 +37,24 @@ const PostDetail = () => {
                     setIsLoading(false);
                 }
             });
+            
             return () => isSubscribed = false;
         }
     }, [postId]);
+
+    useEffect(() => {
+        let isSubscribed = true;
+        if (post && post.autor) {
+            FetchUserDetail(post.autor).then(resp => {
+                if (isSubscribed) {
+                    setAutor(resp)
+                }
+            });
+            return () => isSubscribed = false;
+        }
+    }, [post]);
+
+        
 
     useEffect(() => {
         if (post && post.tema) {
@@ -75,7 +94,16 @@ const PostDetail = () => {
                 <BreadCrumb />
             </div>
             <div className="p-8">
-                <p className="text-2xl font-bold pl-4">{post.titulo}</p>
+                <div className="flex justify-between items-center h-16 my-6 ">
+                    <div className="flex items-center">
+                        <Avatar userId={post.autor} />
+                        <div className="ml-2">
+                            <div className="text-2xl font-bold">{post.titulo}</div>
+                            <div className="text-sm font-light text-gray-500">{getSignature(autor)} {getDateFormated(post.fecha_creacion)}</div>
+                        </div>
+                    </div>
+                </div>
+                {/* <p className="text-2xl font-bold pl-4">{post.titulo}</p> */}
                 <div className="w-full p-5">
                     <article className="">{post.cuerpo}</article>
                 </div>

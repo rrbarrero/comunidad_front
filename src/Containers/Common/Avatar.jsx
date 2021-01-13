@@ -22,7 +22,7 @@ const Avatar = ({ userId, children }) => {
 
     return (
         <Link to={{ pathname: `/perfil/${userId}` }} className="lg:ml-1 flex inline-flex lg:mb-0 mb-4 pointer-cursor">
-            <img className="rounded-full w-12 h-11 border-2 mt-2 border-transparent hover:border-indigo-400" src={avatar} alt="Current User Avatar" />{children}
+            <img className="rounded-full w-14 h-13 border-2 mt-2 border-transparent hover:border-indigo-400" src={avatar} alt="Current User Avatar" />{children}
         </Link>
     );
 }

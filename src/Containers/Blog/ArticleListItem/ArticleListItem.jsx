@@ -4,6 +4,7 @@ import Avatar from '../../Common/Avatar';
 import FetchUserDetail from '../../../Services/User/FetchUserDetail';
 import FetchCommentsOfArticle from '../../../Services/Blog/FetchCommentsOfArticle';
 import { FaComments } from 'react-icons/fa';
+import { getDateFormated, getSignature } from '../../../Services/Common/Misc';
 
 
 const ArticleListItem = ({ item }) => {
@@ -43,7 +44,7 @@ const ArticleListItem = ({ item }) => {
                 <div className="flex w-auto text-xl inline-block font-bold pl-5 pr-5 pb-2 pt-7 lg:hidden">{item.titulo}</div>
             </Link>
             <div className="w-full lg:w-3/12 p-5 ">
-                <img className="lg:w-52 mx-auto rounded" src={item.imagen} alt="Artículo {item.id} imagen" />
+                <img className="lg:w-52 mx-auto rounded" src={item.imagen} alt="Artículo id imagen" />
             </div>
             <div className="flex w-full lg:w-9/12 p-3 flex-col">
                 <Link to={{ pathname: `/articulos/${item.id}` }} className="text-red-congreso200 hover:text-red-congreso300 text-lg">
@@ -56,8 +57,8 @@ const ArticleListItem = ({ item }) => {
                     <div className="flex w-full items-center">
                         <div className="flex w-10/12">
                             <Avatar userId={autor.id} /><br />
-                            <div className="pl-1">
-                                <div className="text-sm text-gray-400">Por <span className="text-sm font-semibold text-gray-500">{autor.first_name ? autor.first_name + ' ' + autor.last_name : autor.username}</span> el <span className="text-sm font-semibold text-gray-400">{dtFormated()}</span></div>
+                            <div className="pl-1 pt-3">
+                                <div className="text-sm text-gray-400">Por <span className="text-sm font-semibold text-gray-500">{getSignature(autor)}</span> el <span className="text-sm font-semibold text-gray-400">{getDateFormated(item.fecha_creacion)}</span></div>
                                 <div className="hidden lg:flex lg:items-center lg:w-auto text-sm font-light italic text-gray-congreso100">{autor.perfil && autor.perfil.frase_inspiradora}</div>
                             </div>
                         </div>

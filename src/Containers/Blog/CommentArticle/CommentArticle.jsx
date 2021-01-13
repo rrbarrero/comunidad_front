@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import FetchUserDetail from '../../../Services/User/FetchUserDetail';
-import canUpdate from '../../../Services/Common/Misc';
+import canUpdate, { getDateFormated, getSignature } from '../../../Services/Common/Misc';
 import Avatar from '../../Common/Avatar';
 import moment from 'moment';
 import 'moment/locale/es';
@@ -14,10 +14,6 @@ const CommentArticle = ({ comment, commentIdx,  setUpdatingComment, setCommentTo
     const [autor, setAutor] = useState('');
     const [isLoading, setIsLoading] = useState();
 
-    const dtFormated = () => {
-        moment.locale('es');
-        return moment(comment.fecha_creacion).fromNow();
-    }
 
     useEffect(() => {
         if (comment.autor) {
@@ -47,8 +43,8 @@ const CommentArticle = ({ comment, commentIdx,  setUpdatingComment, setCommentTo
                 <div className="flex mb-4">
                 <Avatar userId={autor.id} />
                 <div className="ml-2 mt-0.5">
-                    <span className="block font-medium text-base leading-snug text-black dark:text-gray-100">{autor.first_name ? autor.first_name + ' ' + autor.last_name : autor.username}</span>
-                    <span className="block text-sm text-gray-500 dark:text-gray-400 font-light leading-snug">{dtFormated()}</span>
+                    <span className="block font-medium text-base leading-snug text-black dark:text-gray-100">{getSignature(autor)}</span>
+                    <span className="block text-sm text-gray-500 dark:text-gray-400 font-light leading-snug">{getDateFormated(comment.fecha_creacion)}</span>
                 </div>
                 </div>
                 <p className="text-gray-800 dark:text-gray-100 leading-snug md:leading-normal" dangerouslySetInnerHTML={{ __html: comment.cuerpo }}></p>
