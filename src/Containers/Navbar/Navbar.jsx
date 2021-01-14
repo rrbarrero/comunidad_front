@@ -7,8 +7,8 @@ import { UserContext } from '../../App';
 
 const Navbar = () => {
 
-    const {isAuthenticated, currentUser} = useContext(UserContext);
-
+    const { isAuthenticated, currentUser } = useContext(UserContext);
+    
     return (
         <div className="w-full overflow-hidden">          
             <div className="hidden border-b-2 border-red-congreso99 lg:flex lg:items-center lg:w-auto w-full bg-blue-congreso100" id="menu">
@@ -17,7 +17,8 @@ const Navbar = () => {
                     <ul className="lg:flex items-center justify-between text-base text-gray-700 pt-4 lg:pt-0">
                             <li><Link to={{ pathname: "/" }} className="lg:p-4 py-3 px-0 font-Midnight text-red-congreso100 block border-t-2 border-transparent hover:border-blue-congreso200 text-xl">Inicio </Link></li>
                             <li><Link to={{ pathname: "/foro" }} className="lg:p-4 py-3 px-0 font-Midnight text-red-congreso100 block border-t-2 border-transparent hover:border-blue-congreso200 text-xl">Foro </Link></li>
-                            <li><a className="lg:p-4 py-3 px-0 font-Midnight text-red-congreso100 block border-t-2 border-transparent hover:border-blue-congreso200" href="/registro">Registro</a></li>
+                    {isAuthenticated === false &&
+                        <li><a className="lg:p-4 py-3 px-0 font-Midnight text-red-congreso100 block border-t-2 border-transparent hover:border-blue-congreso200" href="/registro">Registro</a></li>}
                     {isAuthenticated === false &&
                         <li><Link to={{ pathname: "/login" }} className="font-Midnight lg:p-4 py-3 px-0 text-red-congreso100 block border-t-2 border-transparent hover:border-blue-congreso200 lg:mb-0 mb-2">Login</Link></li>
                     }

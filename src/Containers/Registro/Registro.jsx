@@ -43,7 +43,7 @@ const Registro = ({isAuthenticated}) => {
                 email,
                 password
             }).then(resp => {
-                if(resp.status!==201){
+                if(resp.status!==200){
                     let errors = [];
                     Object.values(resp.data).forEach(x => errors.push(x));
                     setError(errors);

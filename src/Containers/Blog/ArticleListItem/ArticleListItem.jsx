@@ -58,7 +58,7 @@ const ArticleListItem = ({ item }) => {
                         <div className="flex w-10/12">
                             <Avatar userId={autor.id} /><br />
                             <div className="pl-1 pt-3">
-                                <div className="text-sm text-gray-400">Por <span className="text-sm font-semibold text-gray-500">{getSignature(autor)}</span> el <span className="text-sm font-semibold text-gray-400">{getDateFormated(item.fecha_creacion)}</span></div>
+                                <div className="text-sm text-gray-400">Por <span className="text-sm font-semibold text-gray-500">{getSignature(autor)}</span> <span className="text-sm font-semibold text-gray-400">{getDateFormated(item.fecha_creacion)}</span></div>
                                 <div className="hidden lg:flex lg:items-center lg:w-auto text-sm font-light italic text-gray-congreso100">{autor.perfil && autor.perfil.frase_inspiradora}</div>
                             </div>
                         </div>

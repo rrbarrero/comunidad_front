@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
 import { UserContext } from '../../App';
-import FetchUserDetail from '../../Services/User/FetchUserDetail';
+import FetchUserDetailProfile from '../../Services/User/FetchUserDetailProfile';
 import FetchAvatar from '../../Services/User/FetchAvatar';
 import { updateAvatar, UpdateUserDetail } from '../../Services/User/UpdateUserDetail';
 import { ToastContainer, toast } from 'react-toastify';
@@ -10,6 +10,7 @@ import './ProfileOwn.css';
 
 const ProfileOwn = () => {
 
+    const defaultUnchagedPassword = "panacEaPassw0rd!";
     const { isAuthenticated, currentUser } = useContext(UserContext);
     const MAX_FILE_SIZE = parseFloat(process.env.REACT_APP_MAX_AVATAR_SIZE);
     const BACK_URL = process.env.REACT_APP_BACKEND_STATIC_URL;
@@ -18,15 +19,15 @@ const ProfileOwn = () => {
     const [username, setUsername] = useState('');
     const [nombre, setNombre] = useState('');
     const [apellidos, setApellidos] = useState('');
-    // const [password, setPassword] = useState('');
-    // const [password2, setPassword2] = useState('');
+    const [password, setPassword] = useState(defaultUnchagedPassword);
+    const [password2, setPassword2] = useState(defaultUnchagedPassword);
     const [frase, setFrase] = useState('');
     // const [ocupacion, setOcupacion] = useState('');
     const [currentAvatar, setCurrentAvatar] = useState('');
     const [newAvatar, setNewAvatar] = useState({});
 
     const notifySuccess = () => toast.success("Tu perfil ha sido actualizado.");
-    const notifyErrors = () => toast.error("No se ha podido actualizar tu perfil");
+    const notifyErrors = () => error.forEach(x => toast.error(x));
 
     function isFileImage(file) {
         return file && file['type'].split('/')[0] === 'image';
@@ -45,8 +46,21 @@ const ProfileOwn = () => {
         }
     }
 
-    const handleSubmit = (evt) => {
-        evt.preventDefault();
+    const validateForm = () => {
+        let errors = [];
+        if (password !== password2) {
+            errors.push('Las contraseñas no coinciden.');
+        }
+        if (password.length < 8) {
+            errors.push('Las contraseñas deben tener entre 8 y 16 caracteres.');
+        }
+        if (password.length > 16) {
+            errors.push('Las contraseñas deben tener entre 8 y 16 caracteres.');
+        }
+        return errors;
+    }
+
+    const updateProfile = () => {
         const profile = {
             id: currentUser.userId,
             username,
@@ -56,14 +70,13 @@ const ProfileOwn = () => {
                 frase_inspiradora: frase,
             }
         }
+        if (password !== defaultUnchagedPassword) {
+            console.log(password);
+            profile.password = password;
+        }
         UpdateUserDetail(currentUser, profile, newAvatar).then(resp => {
             if (resp.status !== 200) {
-                let errors = [];
-                for (var [_v, value] of Object.entries(resp.data)) {
-                    errors.push(value);
-                };
-                setError(errors);
-                notifyErrors();
+                Object.values(resp.data).forEach(x => toast.error(x[0]));
             } else {
                 if (newAvatar && newAvatar.size>0 && newAvatar.size<MAX_FILE_SIZE) {
                     updateAvatar(currentUser, newAvatar).then(resp => {
@@ -86,10 +99,20 @@ const ProfileOwn = () => {
         });
     }
 
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
+        setError(validateForm())
+        if (error.length === 0) {
+            updateProfile();
+        }else {
+            notifyErrors();
+        }
+    }
+
     useState(() => {
         let isSubscribed = true;
         if (currentUser && currentUser.userId) {
-            FetchUserDetail(currentUser.userId).then(resp => {
+            FetchUserDetailProfile(currentUser).then(resp => {
                 if (isSubscribed) {
                     setUsername(resp.username);
                     setNombre(resp.first_name);
@@ -146,6 +169,26 @@ const ProfileOwn = () => {
                             id="frase"
                             value={frase}
                             onChange={(e) => setFrase(e.target.value)}
+                            className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
+                            />
+                        </div>
+                        <div className="flex flex-col space-y-1">
+                            <label htmlFor="password" className="text-sm font-semibold text-gray-500">Contraseña</label>
+                            <input
+                            type="password"
+                            id="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
+                            />
+                        </div>
+                        <div className="flex flex-col space-y-1">
+                            <label htmlFor="password2" className="text-sm font-semibold text-gray-500">Confirmar contraseña</label>
+                            <input
+                            type="password"
+                            id="password2"
+                            value={password2}
+                            onChange={(e) => setPassword2(e.target.value)}
                             className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                             />
                         </div>

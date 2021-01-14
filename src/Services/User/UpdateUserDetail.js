@@ -2,7 +2,7 @@ export const UpdateUserDetail = (currentUser, profile) => {
     /*
         RETURN articleId DETAILS
     */
-    let url = `${process.env.REACT_APP_API_URL}usuarios/${currentUser.userId}`;
+    let url = `${process.env.REACT_APP_API_URL}usuarios/perfil/${currentUser.userId}`;
 
     const response = fetch(url, {
         method: 'PUT',
