@@ -115,7 +115,6 @@ const Registro = ({isAuthenticated}) => {
                             id="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            autoFocus
                             className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                         />
                     </div>
@@ -126,7 +125,6 @@ const Registro = ({isAuthenticated}) => {
                             id="email2"
                             value={email2}
                             onChange={(e) => setEmail2(e.target.value)}
-                            autoFocus
                             className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                         />
                     </div>

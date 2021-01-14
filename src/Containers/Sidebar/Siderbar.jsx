@@ -53,7 +53,7 @@ const Sidebar = () => {
                   href="#float-left"
                   className="block transform transition-colors duration-200 py-2 hover:text-gray-900"
                 >
-                  Taller Neuroeducación: Lunes 12 Enero 19h.
+                  Taller Neuroeducación: Martes 12 Enero 19h.
                 </a>
               </li>
               <li>
@@ -61,7 +61,7 @@ const Sidebar = () => {
                   href="#don-t-float"
                   className="block transform transition-colors duration-200 py-2 hover:text-gray-900"
                 >
-                  Taller Liderazgo: Lunes 13 Enero 19h.
+                  Taller Liderazgo: Miércoles 13 Enero 19h.
                 </a>
               </li>
               <li>
@@ -69,7 +69,7 @@ const Sidebar = () => {
                   href="#responsive"
                   className="block transform transition-colors duration-200 py-2 hover:text-gray-900"
                 >
-                  Taller Roles de Belbin: Lunes 14 Enero 19h.
+                  Taller Roles de Belbin: Jueves 14 Enero 19h.
                 </a>
               </li>
               <li>
@@ -77,7 +77,7 @@ const Sidebar = () => {
                   href="#customizing"
                   className="block transform transition-colors duration-200 py-2 hover:text-gray-900"
                 >
-                  Taller Aprender a ser Padres y Madres: Lunes 15 Enero 19h.
+                  Taller Aprender a ser Padres y Madres: Viernes 15 Enero 19h.
                 </a>
               </li>
             </ul>

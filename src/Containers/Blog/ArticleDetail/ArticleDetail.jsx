@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import CommentArticle from '../CommentArticle/CommentArticle';
 import FetchArticleDetail from '../../../Services/Blog/FetchArticleDetail';
 import FetchCommentsOfArticle from '../../../Services/Blog/FetchCommentsOfArticle';
@@ -6,11 +6,14 @@ import Spinner from '../../../Assets/rings.svg';
 import PostComment from './PostComment';
 import { useParams } from 'react-router';
 import { useLocation } from 'react-router-dom'
-import { UserContext } from '../../../App';
 import './ArticleDetail.css';
 import UpdateComment from "../CommentArticle/UpdateComment";
 import UpdateCommentArticle from '.././../../Services/Blog/UpdateCommentArticle';
 import PostCommentArticle from '../../../Services/Blog/PostCommentArticle';
+import Avatar from '../../Common/Avatar';
+import FetchUserDetail from '../../../Services/User/FetchUserDetail';
+import { getDateFormated, getSignature } from '../../../Services/Common/Misc';
+import { FaComments } from 'react-icons/fa';
 
 
 const ArticleDetail = () => {
@@ -23,8 +26,9 @@ const ArticleDetail = () => {
     const [comentarios, setComentarios] = useState([]);
     const [updatingComment, setUpdatingComment] = useState(false);
     const [commentToUpdate, setCommentToUpdate] = useState({});
+    const [autor, setAutor] = useState('');
+    const [signature, setSignature] = useState('');
 
-    //const {isAuthenticated, currentUser} = useContext(UserContext);
 
     useEffect(() => {
         if (articuloId) {
@@ -44,6 +48,18 @@ const ArticleDetail = () => {
             return () => isSubscribed = false;
         }
     }, [articuloId]);
+
+    useEffect(() => {
+        if (article && article.autor) {
+            let isSubscribed = true;
+            FetchUserDetail(article.autor).then(resp => {
+                if (isSubscribed) {
+                    setAutor(resp);
+                }
+            });
+            return () => isSubscribed = false;
+        }
+    },[article]);
 
     useEffect(() => {
       // if not a hash link scroll to top
@@ -75,6 +91,24 @@ const ArticleDetail = () => {
                         {isLoading && <img className="float-left m-5 rounded" src={Spinner} alt="Artículo imagen" />}
                         <article id="article-detail" dangerouslySetInnerHTML={{ __html: article.cuerpo }}></article>
                 </div>
+
+                <div className="flex justify-between lg:w-2/3 items-center h-16 p-2 mt-2 mb-14 border-2 bg-white border-blue-congreso100 shadow-xl rounded-lg">
+                    <div className="flex w-full items-center">
+                        <div className="flex w-10/12">
+                            <Avatar userId={article.autor}/><br />
+                            <div className="pl-1 pt-3">
+                                <div className="text-sm text-red-congreso200 mt-3">Por <span className="text-sm font-semibold">{autor && getSignature(autor)}</span> <span className="text-sm text-red-congreso100">{getDateFormated(article.fecha_creacion)}</span></div>
+                                <div className="hidden lg:flex lg:items-center lg:w-auto text-sm font-light italic text-gray-congreso100">{autor.perfil && autor.perfil.frase_inspiradora}</div>
+                            </div>
+                        </div>
+                        <div className="flex w-2/12">
+                            <div className="text-red-congreso100 text-lg">
+                                {comentarios.length} <FaComments className="ml-1 border-transparent"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div id="article-detail-comments" className="">
                     <p className="text-xl font-bold p-3">Comentarios</p>
                     <div>
