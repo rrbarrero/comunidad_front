@@ -85,7 +85,7 @@ const LoginForm = ({ setCurrentUser, setIsAuthenticated }) => {
                 <div className="flex flex-col space-y-1">
                   <div className="flex items-center justify-between">
                     <label htmlFor="password" className="text-sm font-semibold text-gray-500">Contraseña</label>
-                    <a href="/recover_password" className="text-sm text-blue-congreso200 hover:underline focus:text-blue-800">¿Olviste la contraseña?</a>
+                    <a href="/recover_password" className="text-sm text-blue-congreso200 hover:underline focus:text-blue-800">¿Olvidaste la contraseña?</a>
                   </div>
                   <input
                     type="password"
