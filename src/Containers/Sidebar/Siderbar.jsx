@@ -42,42 +42,42 @@ const Sidebar = () => {
             <ul className="overflow-x-hidden text-gray-500 font-medium">
               <li>
                 <a
-                  href="#float-right"
+                  href="https://aprenderesunaactitud.es/3congresowebinars/"
                   className="block transform transition-colors duration-200 py-2 hover:text-gray-900"
                 >
-                  Taller Competencias Clave: Lunes 11 Enero 19h.
+                  Lider coach. Impulsa tu liderazgo interior: Lunes 18 Enero 19h.
                 </a>
               </li>
               <li>
                 <a
-                  href="#float-left"
+                  href="https://aprenderesunaactitud.es/3congresowebinars/"
                   className="block transform transition-colors duration-200 py-2 hover:text-gray-900"
                 >
-                  Taller Neuroeducación: Martes 12 Enero 19h.
+                  Emprendimiento ágil: Martes 19 Enero 19h.
                 </a>
               </li>
               <li>
                 <a
-                  href="#don-t-float"
+                  href="https://aprenderesunaactitud.es/3congresowebinars/"
                   className="block transform transition-colors duration-200 py-2 hover:text-gray-900"
                 >
-                  Taller Liderazgo: Miércoles 13 Enero 19h.
+                 La oratoria del siglo XXI. Trucos y técnicas de una comunicación eficaz: Miércoles 20 Enero 19h.
                 </a>
               </li>
               <li>
                 <a
-                  href="#responsive"
+                  href="https://aprenderesunaactitud.es/3congresowebinars/"
                   className="block transform transition-colors duration-200 py-2 hover:text-gray-900"
                 >
-                  Taller Roles de Belbin: Jueves 14 Enero 19h.
+                  El juego de mesa. Vínculo entre neurociencia y competencia emprendedora: Jueves 21 Enero 19h.
                 </a>
               </li>
               <li>
                 <a
-                  href="#customizing"
+                  href="https://aprenderesunaactitud.es/3congresowebinars/"
                   className="block transform transition-colors duration-200 py-2 hover:text-gray-900"
                 >
-                  Taller Aprender a ser Padres y Madres: Viernes 15 Enero 19h.
+                  Escape room. Diversión, reto y gestión de habilidades cooperativas: Viernes 22 Enero 19h.
                 </a>
               </li>
             </ul>
