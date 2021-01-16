@@ -24,6 +24,7 @@ module.exports = {
           },
           gray: {
             congreso100: '#a7b0bc',
+            congreso200: '#222223',
           }
       },
       fontFamily: {
