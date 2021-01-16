@@ -23,17 +23,17 @@ const NavbarMobile = () => {
 
                 <Link to={{ pathname: "/" }} className="py-1 px-0 font-Midnight text-xl text-red-congreso200 block text-md">Inicio </Link>
 
-            <button id="hamburgerbtn" className="lg:hidden bg-gray-200 text-red-congreso200" onClick={expandOptions}>
+            <button id="hamburgerbtn" className="lg:hidden text-3xl bg-gray-200 text-red-congreso200" onClick={expandOptions}>
                 <FaBars />
             </button>
             </div>
         
             <ul className="lg:hidden" id="mobileMenu" style={{display: displayClass}}>
                 <li className="pr-5"><Link to={{ pathname: "/foro" }} className="text-red-congreso200 pl-4 font-Midnight">Foro </Link></li>
-                {!isAuthenticated && <li className="pr-5"><Link to={{ pathname: "/login" }} className="text-red-congreso200 pl-4 font-Midnight">Iniciar sesión </Link></li>}
-                {!isAuthenticated && <li className="pr-5"><Link to={{ pathname: "/registro" }} className="text-red-congreso200 pl-4 font-Midnight">Registro </Link></li>}
-                {isAuthenticated && <li className="pr-5"><Link to={{ pathname: `/perfil/${currentUser.userId}` }} className="text-red-congreso200 pl-4 font-Midnight">Mi perfil </Link></li>}
-                {isAuthenticated && <li className="pr-5"><Link to={{ pathname: "/logout" }} className="text-red-congreso200 pl-4 font-Midnight">Cerrar sesión </Link></li>}
+                {!isAuthenticated && <li className="pr-5 my-3"><Link to={{ pathname: "/login" }} className="text-red-congreso200 pl-4 font-Midnight">Iniciar sesión </Link></li>}
+                {!isAuthenticated && <li className="pr-5 my-3"><Link to={{ pathname: "/registro" }} className="text-red-congreso200 pl-4 font-Midnight">Registro </Link></li>}
+                {isAuthenticated && <li className="pr-5 my-3"><Link to={{ pathname: `/perfil/${currentUser.userId}` }} className="text-red-congreso200 pl-4 font-Midnight">Mi perfil </Link></li>}
+                {isAuthenticated && <li className="pr-5 my-3"><Link to={{ pathname: "/logout" }} className="text-red-congreso200 pl-4 font-Midnight">Cerrar sesión </Link></li>}
             </ul>
         </nav>
     </div>
