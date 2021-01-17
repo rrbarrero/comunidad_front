@@ -57,6 +57,9 @@ const ProfileOwn = () => {
         if (password.length > 16) {
             errors.push('Las contraseñas deben tener entre 8 y 16 caracteres.');
         }
+        if (frase.length > 200) {
+            errors.push(`La frase inspiradora ocupa ${frase.length} caracteres y no puede superar los 200.`);
+        }
         return errors;
     }
 
