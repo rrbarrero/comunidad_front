@@ -16,8 +16,13 @@ const PostCommentArticle = (articleId, currentUser, commentMsg) => {
                 cuerpo: commentMsg,
                 autor: currentUser.userId,
         })
-    }).then(resp => resp.json())
-        .catch(error => console.log(error));
+    }).then(response => {
+        return response.json().then(data => ({
+            status: response.status,
+            data,
+        }))
+    })
+    .catch(error => console.log("login error", error));
     return response;
 }
 

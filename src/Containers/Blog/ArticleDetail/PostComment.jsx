@@ -1,28 +1,23 @@
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import { FaDiaspora } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-//import PostCommentArticle from '../../../Services/Blog/PostCommentArticle';
 import { UserContext } from '../../../App';
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 
 const PostComment = ({ article, comentarios, setComentarios, postCommentFunction }) => {
 
     let commentMsg;
     const {isAuthenticated, currentUser} = useContext(UserContext);
-    const [error, setError] = useState([]);
-    
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
         if(isAuthenticated) {
             postCommentFunction(article.id, currentUser, commentMsg).then(resp => {
-                if (resp !== null && 'non_field_errors' in resp) {
-                let errors = [];
-                resp.non_field_errors.forEach((item) => {
-                    errors.push(item.toString());
-                });
-                setError(errors);
+                if (resp.status!==201) {
+                    Object.values(resp.data).forEach((x) => toast.warning(x));
                 } else {
-                    setComentarios([...comentarios, resp]);
+                    setComentarios([...comentarios, resp.data]);
                     document.getElementById('commentBody').value = "";
                 }
             });
@@ -34,6 +29,7 @@ const PostComment = ({ article, comentarios, setComentarios, postCommentFunction
         if (isAuthenticated) {
             return (
                 <div className="flex mx-auto items-start justify-start shadow-lg w-full">
+                    <ToastContainer />
                     <form onSubmit={handleSubmit} className="w-full bg-blue-congreso100 rounded-lg px-4 pt-2">
                         <div className="flex flex-wrap -mx-3 mb-6">
                             <h2 className="px-4 pt-3 pb-2 text-red-congreso200 text-lg">Deja un comentario</h2>
