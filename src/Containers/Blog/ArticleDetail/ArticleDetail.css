@@ -6,7 +6,7 @@ img {
 
 #article-detail ul,
 #article-detail ol {
-  margin-left: 7rem;
+  margin-left: 2rem;
   padding-left: 2rem;
 }
 
@@ -21,4 +21,12 @@ img {
 #article-detail img {
   float: left;
   margin: 2rem;
+}
+
+@media only screen and (max-width: 600px) {
+  #article-detail ul,
+  #article-detail ol {
+    margin-left: 1.3rem;
+    padding-left: 1.3rem;
+  }
 }
