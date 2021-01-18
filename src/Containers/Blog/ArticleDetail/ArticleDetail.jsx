@@ -29,26 +29,6 @@ const ArticleDetail = () => {
     const [autor, setAutor] = useState('');
 
 
-    if (article && article.titulo && autor && autor.username) {
-        // WIDGET DE TWITTER
-        window.twttr = (function (d, s, id) {
-            let js, fjs = d.getElementsByTagName(s)[0],
-                t = window.twttr || {};
-            if (d.getElementById(id)) return t;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "https://platform.twitter.com/widgets.js";
-            fjs.parentNode.insertBefore(js, fjs);
-            t._e = [];
-            t.ready = function (f) {
-                t._e.push(f);
-            };
-            return t;
-        }(document, "script", "twitter-wjs"));
-        // WIDGET DE TWITTER
-    }
-
-
     useEffect(() => {
         if (articuloId) {
             setIsLoading(true);
@@ -113,7 +93,7 @@ const ArticleDetail = () => {
 
                 <div className="flex justify-between lg:w-4/5 items-center h-16 p-2 mt-2 mb-14 border-2 bg-white border-blue-congreso100 shadow-xl rounded-lg">
                     <div className="flex w-full items-center">
-                        <div className="flex w-9/12">
+                        <div className="flex w-11/12">
                             <Avatar userId={article.autor}/><br />
                             <div className="pl-1">
                                 <div className="text-sm text-red-congreso200 mt-3">Por <span className="text-sm font-semibold">{autor && getSignature(autor)}</span> <span className="text-sm text-red-congreso100">{getDateFormated(article.fecha_creacion)}</span></div>
@@ -125,8 +105,9 @@ const ArticleDetail = () => {
                                 {comentarios.length} <FaComments className="ml-1 border-transparent"/>
                             </div>
                         </div>
+                        {/*
                         <div className="flex w-2/12 flex-shrink">
-                            <a className="twitter-share-button"
+                             <a className="twitter-share-button"
                                 href="https://twitter.com/intent/tweet"
                                 data-lang="es"
                                 data-text={article.titulo + " por " + getSignature(autor)}
@@ -134,8 +115,9 @@ const ArticleDetail = () => {
                                 data-hashtags="ComunidadLSA,EmpiezaElCambio,25y26EneroCLSA"
                             >
                                 Tweet
-                            </a>
+                            </a> 
                         </div>
+                        */}
                     </div>
                 </div>
 

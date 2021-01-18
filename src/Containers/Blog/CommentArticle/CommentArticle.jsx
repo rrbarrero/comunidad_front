@@ -2,8 +2,6 @@ import { useEffect, useState, useContext } from "react";
 import FetchUserDetail from '../../../Services/User/FetchUserDetail';
 import canUpdate, { getDateFormated, getSignature } from '../../../Services/Common/Misc';
 import Avatar from '../../Common/Avatar';
-import moment from 'moment';
-import 'moment/locale/es';
 import { UserContext } from '../../../App';
 import { FaEdit } from 'react-icons/fa';
 
