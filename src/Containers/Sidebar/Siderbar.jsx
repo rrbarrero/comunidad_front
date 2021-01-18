@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { FaCalendar } from 'react-icons/fa';
 import { FaStar } from 'react-icons/fa';
-import { FaPoll } from "react-icons/fa";
-import { FaQuestion } from "react-icons/fa";
+//import { FaPoll } from "react-icons/fa";
+//import { FaQuestion } from "react-icons/fa";
 import FetchFeatured from '../../Services/Sidebar/FetchFeatured';
 import { Link } from 'react-router-dom';
-import Avatar from "../Common/Avatar";
+//import Avatar from "../Common/Avatar";
 
 const Sidebar = () => {
 

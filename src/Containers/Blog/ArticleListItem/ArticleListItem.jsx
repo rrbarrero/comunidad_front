@@ -11,11 +11,6 @@ const ArticleListItem = ({ item }) => {
 
     const [autor, setAutor] = useState('');
     const [comentarios, setComentarios] = useState([]);
-
-    const dtFormated = () => {
-        const date = new Date(item.fecha_creacion);
-        return date.toLocaleDateString();
-    }
     
     
     useEffect(() => {

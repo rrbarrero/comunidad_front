@@ -1,21 +1,9 @@
-import { useEffect, useState } from 'react';
+//import { useEffect, useState } from 'react';
 import './Blog.css';
 import ArticleList from './ArticleList/ArticleList';
 import NewPreview from './News/NewPreview';
 
 const Blog = () => {
-
-    
-
-    // const articleOneStyle = {
-    //     backgroundImage: 'url(https://aprenderesunaactitud.es/wp-content/uploads/2019/06/Congreso-Sociedad-Aprendizaje-en-Merida.jpg)',
-    // }
-    // const articleTwoStyle = {
-    //     backgroundImage: 'url(https://aprenderesunaactitud.es/wp-content/uploads/2019/06/Maldita-Nerea.jpg)',
-    // }
-    // const articleThreeStyle = {
-    //     backgroundImage: 'url(https://aprenderesunaactitud.es/wp-content/uploads/2019/06/formacion-outdoor.jpg)',
-    // }
 
     return (
         <div className="w-full overflow-hidden sm:w-3/4">

@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import AddCommentToPost from '../../../Services/Forum/AddCommentToPost';
 import { FaDiaspora } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -12,7 +12,6 @@ const PutCommentOnPost = ({
     setComentarios }) => {
     
     let commentMsg;
-    //const [error, setError] = useState([]);
     const {isAuthenticated, currentUser} = useContext(UserContext);
     
     const handleSubmit = (evt) => {
@@ -20,9 +19,7 @@ const PutCommentOnPost = ({
         if (isAuthenticated) {
             AddCommentToPost(post.id, currentUser, commentMsg).then(resp => {
                 if (resp.status!==201) {
-                    //let errors = [];
                     Object.values(resp.data).forEach((x) => toast.warning(x));
-                    //setError(errors);
                 } else {
                     setComentarios([...comentarios, resp.data]);
                     document.getElementById('commentBody').value = "";
