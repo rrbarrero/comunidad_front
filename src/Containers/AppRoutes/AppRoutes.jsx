@@ -8,6 +8,7 @@ import RecoverPass from '../RecoverPass/RecoverPass';
 import PropTypes from 'prop-types' 
 import RecoverSuccess from '../RecoverPass/RecoverSuccess';
 import RecoverPasswordReset from '../RecoverPass/RecoverPasswordReset';
+import AboutTerms from '../Common/AboutTerms';
 
 const AppRoutes = (
     {
@@ -43,6 +44,9 @@ const AppRoutes = (
               setCurrentUser={setCurrentUser}
               setIsAuthenticated={setIsAuthenticated}
             />
+          </Route>
+          <Route exact path="/legal">
+            <AboutTerms />
           </Route>
           <Route
             path="/"
