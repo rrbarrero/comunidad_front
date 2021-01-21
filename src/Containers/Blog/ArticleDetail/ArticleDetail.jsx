@@ -14,6 +14,8 @@ import Avatar from '../../Common/Avatar';
 import FetchUserDetail from '../../../Services/User/FetchUserDetail';
 import { getDateFormated, getSignature } from '../../../Services/Common/Misc';
 import { FaComments } from 'react-icons/fa';
+import { TwitterShareButton, FacebookShareButton, WhatsappShareButton } from 'react-share';
+import {TwitterIcon, FacebookIcon, WhatsappIcon} from 'react-share';
 
 
 const ArticleDetail = () => {
@@ -27,6 +29,8 @@ const ArticleDetail = () => {
     const [updatingComment, setUpdatingComment] = useState(false);
     const [commentToUpdate, setCommentToUpdate] = useState({});
     const [autor, setAutor] = useState('');
+
+    const hashtags = ["ComunidadLSA", "CongresoLSA_25Enero"];
 
 
     useEffect(() => {
@@ -82,76 +86,148 @@ const ArticleDetail = () => {
 
 
     return (
-        <div className="w-full overflow-hidden sm:w-3/4">
-            <div className="p-8">
-                <p className="text-2xl font-bold pl-4">{article.titulo}</p>
-                <div className="w-full p-5">
-                        {!isLoading && <img className="w-52 lg:w-52 float-left m-1 rounded" src={article.imagen} alt="Artículo imagen" />}
-                        {isLoading && <img className="float-left m-5 rounded" src={Spinner} alt="Artículo imagen" />}
-                        <article id="article-detail" dangerouslySetInnerHTML={{ __html: article.cuerpo }}></article>
-                </div>
+      <div className="w-full overflow-hidden sm:w-3/4">
+        <div className="p-8">
+          <p className="text-2xl font-bold pl-4">{article.titulo}</p>
+          <div className="w-full p-5">
+            {!isLoading && (
+              <img
+                className="w-52 lg:w-52 float-left m-1 rounded"
+                src={article.imagen}
+                alt="Artículo imagen"
+              />
+            )}
+            {isLoading && (
+              <img
+                className="float-left m-5 rounded"
+                src={Spinner}
+                alt="Artículo imagen"
+              />
+            )}
+            <article
+              id="article-detail"
+              dangerouslySetInnerHTML={{ __html: article.cuerpo }}
+            ></article>
+          </div>
 
-                <div className="flex justify-between lg:w-4/5 items-center h-16 p-2 mt-2 mb-14 border-2 bg-white border-blue-congreso100 shadow-xl rounded-lg">
-                    <div className="flex w-full items-center">
-                        <div className="flex w-11/12">
-                            <Avatar userId={article.autor}/><br />
-                            <div className="pl-1">
-                                <div className="text-sm text-red-congreso200 mt-3">Por <span className="text-sm font-semibold">{autor && getSignature(autor)}</span> <span className="text-sm text-red-congreso100">{getDateFormated(article.fecha_creacion)}</span></div>
-                                <div className="hidden lg:flex lg:items-center lg:w-auto text-sm font-light italic text-gray-congreso100">{autor.perfil && autor.perfil.frase_inspiradora}</div>
-                            </div>
-                        </div>
-                        <div className="flex w-1/12 flex-shrink">
-                            <div className="text-red-congreso100 text-lg">
-                                {comentarios.length} <FaComments className="ml-1 border-transparent"/>
-                            </div>
-                        </div>
-                        {/*
-                        <div className="flex w-2/12 flex-shrink">
-                             <a className="twitter-share-button"
-                                href="https://twitter.com/intent/tweet"
-                                data-lang="es"
-                                data-text={article.titulo + " por " + getSignature(autor)}
-                                data-url={window.location.href}
-                                data-hashtags="ComunidadLSA,EmpiezaElCambio,25y26EneroCLSA"
-                            >
-                                Tweet
-                            </a> 
-                        </div>
-                        */}
-                    </div>
+          <div className="flex justify-between md:w-4/5 items-center h-16 p-2 mt-2 mb-8 border-2 bg-white border-blue-congreso100 shadow-xl rounded-lg">
+            <div className="flex w-full items-center">
+              <div className="flex w-11/12 sm:w-9/12">
+                <Avatar userId={article.autor} />
+                <br />
+                <div className="pl-1">
+                  <div className="text-sm text-red-congreso200 mt-3">
+                    Por{" "}
+                    <span className="text-sm font-semibold">
+                      {autor && getSignature(autor)}
+                    </span>{" "}
+                    <span className="text-sm text-red-congreso100">
+                      {getDateFormated(article.fecha_creacion)}
+                    </span>
+                  </div>
+                  <div className="hidden lg:flex lg:items-center lg:w-auto text-sm font-light italic text-gray-congreso100">
+                    {autor.perfil && autor.perfil.frase_inspiradora}
+                  </div>
                 </div>
-
-                <div id="article-detail-comments" className="">
-                    <p className="text-xl font-bold p-3">Comentarios</p>
-                    <div>
-                        {comentarios.map((comment, i) => {
-                            if (updatingComment && commentToUpdate && commentToUpdate.id === comment.id) {
-                                return <UpdateComment key={i}
-                                    comment={comment}
-                                    comentarios={comentarios}
-                                    setComentarios={setComentarios}
-                                    setUpdatingComment={setUpdatingComment}
-                                    updateFunction={UpdateCommentArticle}
-                                />
-                            } else {
-                                return <CommentArticle key={i}
-                                    comment={comment}
-                                    commentIdx={i}
-                                    setUpdatingComment={setUpdatingComment}
-                                    setCommentToUpdate={setCommentToUpdate}
-                                />
-                            }
-                        })}
-                    </div>
+              </div>
+              <div className="flex w-1/12 flex-shrink-0">
+                <div className="text-red-congreso100 text-lg">
+                  {comentarios.length}{" "}
+                  <FaComments className="ml-1 border-transparent" />
                 </div>
-                {updatingComment===false && <PostComment
-                    article={article}
-                    comentarios={comentarios}
-                    setComentarios={setComentarios}
-                    postCommentFunction={PostCommentArticle}
-                />}
+              </div>
+              <div className="hidden sm:flex w-2/12 sm:flex-shrink-0">
+                <TwitterShareButton
+                  url={process.env.REACT_APP_FRONTEND_URL + pathname}
+                  title={article.titulo}
+                  hashtags={hashtags}
+                  related={["AprendizajeExt"]}
+                >
+                  <TwitterIcon size={32} round={true} />
+                </TwitterShareButton>
+                <FacebookShareButton
+                  url={process.env.REACT_APP_FRONTEND_URL + pathname}
+                  quote={article.titulo + " " + article.entradilla}
+                  hashtags={hashtags}
+                >
+                  <FacebookIcon size={32} round={true} />
+                </FacebookShareButton>
+                <WhatsappShareButton
+                  url={process.env.REACT_APP_FRONTEND_URL + pathname}
+                  title={article.titulo}
+                >
+                  <WhatsappIcon size={32} round={true} />
+                </WhatsappShareButton>
+              </div>
             </div>
+          </div>
+          <div className="sm:hidden flex w-full justify-center">
+            <TwitterShareButton
+              url={process.env.REACT_APP_FRONTEND_URL + pathname}
+              title={article.titulo}
+              hashtags={hashtags}
+              related={["AprendizajeExt"]}
+            >
+              <TwitterIcon size={32} round={true} />
+            </TwitterShareButton>
+            <FacebookShareButton
+              url={process.env.REACT_APP_FRONTEND_URL + pathname}
+              quote={article.titulo + " " + article.entradilla}
+              hashtags={hashtags}
+            >
+              <FacebookIcon size={32} round={true} />
+            </FacebookShareButton>
+            <WhatsappShareButton
+              url={process.env.REACT_APP_FRONTEND_URL + pathname}
+              title={article.titulo}
+            >
+              <WhatsappIcon size={32} round={true} />
+            </WhatsappShareButton>
+          </div>
+
+          <div id="article-detail-comments" className="">
+            <p className="text-xl font-bold p-3">Comentarios</p>
+            <div>
+              {comentarios.map((comment, i) => {
+                if (
+                  updatingComment &&
+                  commentToUpdate &&
+                  commentToUpdate.id === comment.id
+                ) {
+                  return (
+                    <UpdateComment
+                      key={i}
+                      comment={comment}
+                      comentarios={comentarios}
+                      setComentarios={setComentarios}
+                      setUpdatingComment={setUpdatingComment}
+                      updateFunction={UpdateCommentArticle}
+                    />
+                  );
+                } else {
+                  return (
+                    <CommentArticle
+                      key={i}
+                      comment={comment}
+                      commentIdx={i}
+                      setUpdatingComment={setUpdatingComment}
+                      setCommentToUpdate={setCommentToUpdate}
+                    />
+                  );
+                }
+              })}
+            </div>
+          </div>
+          {updatingComment === false && (
+            <PostComment
+              article={article}
+              comentarios={comentarios}
+              setComentarios={setComentarios}
+              postCommentFunction={PostCommentArticle}
+            />
+          )}
         </div>
+      </div>
     );
 }
 
