@@ -3,7 +3,6 @@ import Navbar from '../Navbar/Navbar';
 import NavbarMobile from '../Navbar/NavbarMobile';
 import Sidebar from '../Sidebar/Siderbar';
 import Footer from '../Footer/Footer';
-import './AboutTerms.css';
 
 const AboutTerms = () => {
     return (
