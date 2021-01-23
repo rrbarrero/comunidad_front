@@ -11,7 +11,7 @@ import { clientsClaim } from 'workbox-core';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
 import { registerRoute } from 'workbox-routing';
-import { StaleWhileRevalidate, NetworkOnly } from 'workbox-strategies';
+import { StaleWhileRevalidate, NetworkFirst} from 'workbox-strategies';
 
 clientsClaim();
 
@@ -68,7 +68,34 @@ registerRoute(
   })
 );
 
-//registerRoute(new RegExp('/v1/(.*)'), NetworkOnly({}));
+
+registerRoute(process.env.REACT_APP_API_URL + 'blog/articulos',
+  new NetworkFirst({
+    networkTimeoutSeconds: 3,
+    cacheName: 'articulosList',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 50,
+        maxAgeSeconds: 30 * 60, // 5 minutes
+      }),
+    ],
+  })
+);
+
+registerRoute(process.env.REACT_APP_API_URL + 'foro/destacados',
+  new NetworkFirst({
+    networkTimeoutSeconds: 3,
+    cacheName: 'foroDestacados',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 10,
+        maxAgeSeconds: 30 * 60, // 5 minutes
+      }),
+    ],
+  })
+);
+
+
 
 // This allows the web app to trigger skipWaiting via
 // registration.waiting.postMessage({type: 'SKIP_WAITING'})

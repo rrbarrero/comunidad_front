@@ -13,3 +13,14 @@
   src: local("Midnight"),
     url("./Assets/Blackout-Midnight.ttf") format("truetype");
 }
+
+@font-face {
+  font-family: "DINCondensed-Bold";
+  src: local("DINCondensed-Bold"), url("./Assets/D-DINCondensed-Bold.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "DINCondensed";
+  src: local("DINCondensed"), url("./Assets/D-DINCondensed.otf") format("truetype");
+}
+

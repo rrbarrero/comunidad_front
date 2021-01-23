@@ -13,10 +13,24 @@ import Footer from '../Footer/Footer';
 import ScrollToTop from '../Common/ScrollToTop';
 import Profile from '../Common/Profile';
 import CreatePost from '../Foro/CreatePost/CreatePost';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { RiWifiOffLine } from "react-icons/ri";
 
 const Home = () => {
+
+    const Msg = ({ closeToast, toastProps }) => (
+        <div>
+          <RiWifiOffLine /> Sin conexión
+        </div>
+    )
+
+    if(!navigator.onLine){
+        toast.info(Msg);
+    }
     return (
         <div className="flex md:w-10/12 m-auto flex-wrap overflow-hidden bg-blue-congreso100">
+            <ToastContainer />
             <Header />
             <Navbar />
             <NavbarMobile />

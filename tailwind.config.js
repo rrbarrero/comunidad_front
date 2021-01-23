@@ -13,11 +13,12 @@ module.exports = {
             congreso100: '#ef8a76',
             congreso200: '#df664e',
             congreso300: '#782717',
+            cabecera: '#ef8a77',
           },
           pink: {
             congreso100: '#f7beb3',
           },
-        yellow: {
+          yellow: {
             congreso98: '#fffce0',
             congreso99: '#fcf6c4',
             congreso100: '#fdf094',
@@ -30,7 +31,8 @@ module.exports = {
       fontFamily: {
         'Blackout': ['Blackout', 'Helvetica', 'Arial', 'sans-serif'],
         'Midnight': ['Midnight', 'Helvetica', 'Arial', 'sans-serif'],
-        
+        'DINCondensed-Bold': ['DINCondensed-Bold', 'Helvetica', 'Arial', 'sans-serif'],
+        'DINCondensed': ['DINCondensed', 'Helvetica', 'Arial', 'sans-serif'],
       }
     },
   },

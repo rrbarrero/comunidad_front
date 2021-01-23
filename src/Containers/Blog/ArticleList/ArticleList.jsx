@@ -37,10 +37,10 @@ const ArticleList = () => {
         let isSubscribed = true;
         FetchArticleCommonList(url).then(resp => {
             if (isSubscribed) {
-                setArticles(resp.results);
-                setNextUrl(resp.next);
-                setPrevUrl(resp.previous);
-                setArticlesCount(resp.count);
+                setArticles(resp?.results);
+                setNextUrl(resp?.next);
+                setPrevUrl(resp?.previous);
+                setArticlesCount(resp?.count);
             }
         });
         return () => isSubscribed = false;
@@ -48,7 +48,7 @@ const ArticleList = () => {
 
     return (
         <div id="article-list">
-            {articles.map((item, i) => (
+            {articles?.map((item, i) => (
                 <ArticleListItem key={i} item={item} />
             ))}
             {nextUrl && <Pagination

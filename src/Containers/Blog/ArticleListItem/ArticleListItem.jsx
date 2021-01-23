@@ -51,14 +51,14 @@ const ArticleListItem = ({ item }) => {
                 <div className="flex justify-between items-center h-16 p-2 my-6  rounded-lg border border-gray-100">
                     <div className="flex w-full items-center">
                         <div className="flex w-10/12">
-                            <Avatar userId={autor.id} /><br />
+                            <Avatar userId={autor?.id} /><br />
                             <div className="pl-1 pt-3">
-                                <div className="text-sm text-gray-400">Por <span className="text-sm font-semibold text-gray-500">{getSignature(autor)}</span> <span className="text-sm font-semibold text-gray-400">{getDateFormated(item.fecha_creacion)}</span></div>
-                                <div className="hidden lg:flex lg:items-center lg:w-auto text-sm font-light italic text-gray-congreso100">{autor.perfil && autor.perfil.frase_inspiradora}</div>
+                                <div className="text-sm text-gray-400">Por <span className="text-sm font-semibold text-gray-500">{getSignature(autor)}</span> <span className="text-sm font-semibold text-gray-400">{getDateFormated(item?.fecha_creacion)}</span></div>
+                                <div className="hidden lg:flex lg:items-center lg:w-auto text-sm font-light italic text-gray-congreso100">{autor?.perfil && autor?.perfil?.frase_inspiradora}</div>
                             </div>
                         </div>
                         <div className="flex w-2/12">
-                            <Link to={`/articulos/${item.id}#article-detail-comments`} className="text-red-congreso100 hover:text-red-congreso200 text-lg">
+                            <Link to={`/articulos/${item?.id}#article-detail-comments`} className="text-red-congreso100 hover:text-red-congreso200 text-lg">
                                 <button className="hover:bg-blue-congreso p-2 rounded-full shadow-md flex justify-center items-center ml-2">
                                     {comentarios.length} <FaComments className="ml-1 border-transparent"/>
                                 </button>

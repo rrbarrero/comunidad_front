@@ -17,7 +17,7 @@ const Sidebar = () => {
         let isSubscribed = true;
         FetchFeatured().then(resp => {
             if (isSubscribed) {
-                setFeaturedPost(resp.results);
+                setFeaturedPost(resp?.results);
                 setIsLoading(false);
             }
         });
@@ -86,7 +86,7 @@ const Sidebar = () => {
               <FaStar className="inline" /> Destacados
             </h5>
             <ul className="overflow-x-hidden text-gray-500 font-medium">
-              {featuredPost.map((item, i) => (
+              {featuredPost?.map((item, i) => (
                 <FeaturedItem key={i} item={item} />
               ))}
             </ul>
