@@ -68,11 +68,11 @@ registerRoute(
   })
 );
 
-
-registerRoute(process.env.REACT_APP_API_URL + 'blog/articulos',
+registerRoute(
+  ({request, url}) => url.pathname.startsWith('/v1/'),
   new NetworkFirst({
     networkTimeoutSeconds: 3,
-    cacheName: 'articulosList',
+    cacheName: 'apiCalls',
     plugins: [
       new ExpirationPlugin({
         maxEntries: 50,
@@ -81,20 +81,6 @@ registerRoute(process.env.REACT_APP_API_URL + 'blog/articulos',
     ],
   })
 );
-
-registerRoute(process.env.REACT_APP_API_URL + 'foro/destacados',
-  new NetworkFirst({
-    networkTimeoutSeconds: 3,
-    cacheName: 'foroDestacados',
-    plugins: [
-      new ExpirationPlugin({
-        maxEntries: 10,
-        maxAgeSeconds: 30 * 60, // 5 minutes
-      }),
-    ],
-  })
-);
-
 
 
 // This allows the web app to trigger skipWaiting via

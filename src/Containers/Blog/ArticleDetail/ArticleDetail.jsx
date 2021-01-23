@@ -87,8 +87,8 @@ const ArticleDetail = () => {
 
     return (
       <div className="w-full overflow-hidden sm:w-3/4">
-        <div className="p-8">
-          <p className="text-2xl font-bold pl-4">{article.titulo}</p>
+        <div className="px-1 pt-6">
+          <p className="text-2xl font-bold pl-2">{article.titulo}</p>
           <div className="w-full p-5">
             {!isLoading && (
               <img
@@ -162,27 +162,33 @@ const ArticleDetail = () => {
             </div>
           </div>
           <div className="sm:hidden flex w-full justify-center">
-            <TwitterShareButton
-              url={process.env.REACT_APP_FRONTEND_URL + pathname}
-              title={article.titulo}
-              hashtags={hashtags}
-              related={["AprendizajeExt"]}
-            >
-              <TwitterIcon size={32} round={true} />
-            </TwitterShareButton>
-            <FacebookShareButton
-              url={process.env.REACT_APP_FRONTEND_URL + pathname}
-              quote={article.titulo + " " + article.entradilla}
-              hashtags={hashtags}
-            >
-              <FacebookIcon size={32} round={true} />
-            </FacebookShareButton>
-            <WhatsappShareButton
-              url={process.env.REACT_APP_FRONTEND_URL + pathname}
-              title={article.titulo}
-            >
-              <WhatsappIcon size={32} round={true} />
-            </WhatsappShareButton>
+            <div className="mx-1">
+              <TwitterShareButton
+                url={process.env.REACT_APP_FRONTEND_URL + pathname}
+                title={article.titulo}
+                hashtags={hashtags}
+                related={["AprendizajeExt"]}
+              >
+                <TwitterIcon size={42} round={true} />
+              </TwitterShareButton>
+            </div>
+            <div className="mx-1">
+              <FacebookShareButton
+                url={process.env.REACT_APP_FRONTEND_URL + pathname}
+                quote={article.titulo + " " + article.entradilla}
+                hashtags={hashtags}
+              >
+                <FacebookIcon size={42} round={true} />
+              </FacebookShareButton>
+            </div>
+            <div className="mx-1">
+              <WhatsappShareButton
+                url={process.env.REACT_APP_FRONTEND_URL + pathname}
+                title={article.titulo}
+              >
+                <WhatsappIcon size={42} round={true} />
+              </WhatsappShareButton>
+            </div>
           </div>
 
           <div id="article-detail-comments" className="">
