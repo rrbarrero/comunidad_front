@@ -36,37 +36,37 @@ const Sidebar = () => {
       <div className="w-full overflow-hidden  sm:w-1/4">
         <div className="flex h-full border-l-2 border-white flex-col justify-between overflow-y-auto sticky max-h-(screen-18) pt-10 pl-8 pb-6 top-18 bg-yellow-congreso98">
           <div className="mb-8 pr-4">
-            <h5 className="text-red-congreso200 uppercase tracking-wide font-semibold mb-3 text-sm lg:text-md">
+            {/* <h5 className="text-red-congreso200 uppercase tracking-wide font-semibold mb-3 text-sm lg:text-md">
               <FaCalendar className="inline" /> Próximos eventos
             </h5>
             <ul className="overflow-x-hidden text-gray-500 font-medium">
               <li>
                 <a
-                  href="https://aprenderesunaactitud.es/3congresowebinars/"
+                  href="https://congresodelaprendizaje.juntaex.es/"
                   className="block transform transition-colors duration-200 py-2 hover:text-gray-900"
                 >
-                  Lider coach. Impulsa tu liderazgo interior: Lunes 18 Enero 19h.
+                  25 de Enero, 8:30 - "Nuestra ciudad virtual despierta"
                 </a>
               </li>
               <li>
                 <a
-                  href="https://aprenderesunaactitud.es/3congresowebinars/"
+                  href="https://congresodelaprendizaje.juntaex.es/"
                   className="block transform transition-colors duration-200 py-2 hover:text-gray-900"
                 >
-                  Emprendimiento ágil: Martes 19 Enero 19h.
+                  25 de Enero, 9:30 - "Inauguración del III Congreso"
                 </a>
               </li>
               <li>
                 <a
-                  href="https://aprenderesunaactitud.es/3congresowebinars/"
+                  href="https://congresodelaprendizaje.juntaex.es/"
                   className="block transform transition-colors duration-200 py-2 hover:text-gray-900"
                 >
-                 La oratoria del siglo XXI. Trucos y técnicas de una comunicación eficaz: Miércoles 20 Enero 19h.
+                 25 de Enero, 8:30 - "Nuestra ciudad virtual despierta"
                 </a>
               </li>
               <li>
                 <a
-                  href="https://aprenderesunaactitud.es/3congresowebinars/"
+                  href="https://congresodelaprendizaje.juntaex.es/"
                   className="block transform transition-colors duration-200 py-2 hover:text-gray-900"
                 >
                   El juego de mesa. Vínculo entre neurociencia y competencia emprendedora: Jueves 21 Enero 19h.
@@ -74,14 +74,14 @@ const Sidebar = () => {
               </li>
               <li>
                 <a
-                  href="https://aprenderesunaactitud.es/3congresowebinars/"
+                  href="https://congresodelaprendizaje.juntaex.es/"
                   className="block transform transition-colors duration-200 py-2 hover:text-gray-900"
                 >
                   Escape room. Diversión, reto y gestión de habilidades cooperativas: Viernes 22 Enero 19h.
                 </a>
               </li>
             </ul>
-            <br />
+            <br /> */}
             <h5 className="text-red-congreso200 uppercase tracking-wide font-semibold mb-3 text-sm lg:text-md">
               <FaStar className="inline" /> Destacados
             </h5>

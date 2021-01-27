@@ -22,6 +22,7 @@ const NavbarMobile = () => {
             <div className="flex flex-row justify-between">
 
                 <Link to={{ pathname: "/" }} className="py-1 px-0 font-Midnight text-xl text-red-congreso200 block text-md">Inicio </Link>
+                <Link to={{ pathname: "/foro" }} className="py-1 px-0 font-Midnight text-xl text-red-congreso200 block text-md">Foro </Link>
 
             <button id="hamburgerbtn" className="lg:hidden text-3xl bg-gray-200 text-red-congreso200" onClick={expandOptions}>
                 <FaBars />
