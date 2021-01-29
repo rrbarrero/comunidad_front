@@ -18,7 +18,9 @@ const ArticleList = () => {
     const handleNext = () => {
         if (nextUrl) {
             setUrl(nextUrl);
-            document.getElementById('article-list').scrollIntoView();
+            document
+              .getElementById("article-list")
+              .scrollIntoView({ behavior: "smooth" });
         } else {
             return () => { };
         }
@@ -27,7 +29,9 @@ const ArticleList = () => {
     const handlePrev = () => {
         if (prevUrl) {
             setUrl(prevUrl);
-            document.getElementById('article-list').scrollIntoView(); 
+            document
+              .getElementById("article-list")
+              .scrollIntoView({ behavior: "smooth" }); 
         } else {
             return () => { };
         }
@@ -47,15 +51,19 @@ const ArticleList = () => {
     }, [url]);
 
     return (
-        <div id="article-list">
-            {articles?.map((item, i) => (
-                <ArticleListItem key={i} item={item} />
-            ))}
-            {nextUrl && <Pagination
-                handleNext={handleNext}
-                handlePrev={handlePrev}
-            />}
-        </div>
+      <div id="article-list">
+        {articles?.map((item, i) => (
+          <ArticleListItem key={i} item={item} />
+        ))}
+        {nextUrl && (
+          <Pagination
+            handleNext={handleNext}
+            handlePrev={handlePrev}
+            nextString="Artículos anteriores"
+            prevString="Artículos siguientes"
+          />
+        )}
+      </div>
     );
 }
 

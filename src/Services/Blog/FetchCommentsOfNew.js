@@ -1,14 +1,16 @@
-const FetchCommentsOfNew = (newId) => {    
+const FetchCommentsOfNew = (newId, nextUrl='') => {    
     /*
         RETURN LAST X COMMON newId
     */
-    
-    let url = new URL(`${process.env.REACT_APP_API_URL}news/noticias/${newId}/comentarios`);
+    let url = nextUrl;
 
-    const params = {
-        page_size: 50
+    if(newId!==0){
+        url = new URL(`${process.env.REACT_APP_API_URL}news/noticias/${newId}/comentarios`);
+        const params = {
+          page_size: process.env.REACT_APP_COMMENTS_PER_PAGE,
+        };
+        url.search = new URLSearchParams(params).toString();
     }
-    url.search = new URLSearchParams(params).toString();
     
     const response = fetch(url, {
         method: 'get',
