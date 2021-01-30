@@ -31,11 +31,13 @@ const NewDetail = () => {
     const [nextUrl, setNextUrl] = useState("");
     const [prevUrl, setPrevUrl] = useState("");
     const [commentsCount, setCommentsCount] = useState(0);
+    const [page, setPage] = useState(0);
 
     const handleNext = () => {
       if (nextUrl) {
         setUrl(nextUrl);
         document.getElementById("article-detail-comments").scrollIntoView({behavior: "smooth"});
+        setPage(page+1);
       } else {
         return () => {};
       }
@@ -45,6 +47,9 @@ const NewDetail = () => {
       if (prevUrl) {
         setUrl(prevUrl);
         document.getElementById("article-detail-comments").scrollIntoView({behavior: "smooth"});
+        if(page>0){
+          setPage(page-1);
+        }
       } else {
         return () => {};
       }
@@ -168,7 +173,7 @@ const NewDetail = () => {
               </div>
               <div className="flex w-2/12">
                 <div className="text-red-congreso100 text-lg">
-                  {comentarios.length}{" "}
+                  {commentsCount}{" "}
                   <FaComments className="ml-1 border-transparent" />
                 </div>
               </div>
@@ -179,6 +184,7 @@ const NewDetail = () => {
             <p className="text-xl font-bold p-3">Comentarios</p>
             <div>
               {comentarios.map((comment, i) => {
+                const idx = i+page*process.env.REACT_APP_COMMENTS_PER_PAGE;
                 if (
                   updatingComment &&
                   commentToUpdate &&
@@ -186,7 +192,7 @@ const NewDetail = () => {
                 ) {
                   return (
                     <UpdateComment
-                      key={i}
+                      key={idx}
                       comment={comment}
                       comentarios={comentarios}
                       setComentarios={setComentarios}
@@ -197,9 +203,9 @@ const NewDetail = () => {
                 } else {
                   return (
                     <CommentArticle
-                      key={i}
+                      key={idx}
                       comment={comment}
-                      commentIdx={i}
+                      commentIdx={idx}
                       setUpdatingComment={setUpdatingComment}
                       setCommentToUpdate={setCommentToUpdate}
                     />
