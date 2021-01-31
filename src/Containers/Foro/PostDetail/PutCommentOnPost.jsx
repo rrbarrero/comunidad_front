@@ -90,7 +90,7 @@ const PutCommentOnPost = ({
                     </span>
                 </div>
                 <div className="text-sm text-gray-600  tracking-tight ">
-                    <Link to={{ pathname: "/login" }} className="text-purple-400 hover:text-purple-600">Inicia sesión</Link> o regístrate para comentar
+                    <Link to={{ pathname: "/login" }} className="text-purple-400 hover:text-purple-600">Inicia sesión</Link> o <Link to={{ pathname: "/registro" }} className="text-purple-400 hover:text-purple-600">regístrate</Link> para comentar
                 </div>
             </div>
         );

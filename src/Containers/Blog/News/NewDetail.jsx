@@ -216,8 +216,8 @@ const NewDetail = () => {
                 <Pagination
                   handleNext={handlePrev}
                   handlePrev={handleNext}
-                  nextString="Comentarios anteriores"
-                  prevString="Comentarios posteriores"
+                  nextString="COMENTARIOS ANTERIORES"
+                  prevString="COMENTARIOS POSTERIORES"
                 />
               )}
             </div>
