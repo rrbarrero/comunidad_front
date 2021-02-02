@@ -7,8 +7,8 @@ const ArticleList = () => {
 
     const [url, setUrl] = useState('');
     const [articles, setArticles] = useState([]);
-    const [nextUrl, setNextUrl] = useState('');
-    const [prevUrl, setPrevUrl] = useState('');
+    const [nextUrl, setNextUrl] = useState(null);
+    const [prevUrl, setPrevUrl] = useState(null);
     const [articlesCount, setArticlesCount] = useState(0);
 
     if (url === '') {
@@ -55,10 +55,10 @@ const ArticleList = () => {
         {articles?.map((item, i) => (
           <ArticleListItem key={i} item={item} />
         ))}
-        {nextUrl && (
+        {articlesCount>process.env.REACT_APP_ARTICLES_PER_PAGE && (
           <Pagination
-            handleNext={handleNext}
-            handlePrev={handlePrev}
+            handleNext={nextUrl ? handleNext : null}
+            handlePrev={prevUrl ? handlePrev : null}
             nextString="Artículos anteriores"
             prevString="Artículos siguientes"
           />

@@ -28,8 +28,8 @@ const NewDetail = () => {
     const [commentToUpdate, setCommentToUpdate] = useState({});
     const [autor, setAutor] = useState('');
     const [url, setUrl] = useState("");
-    const [nextUrl, setNextUrl] = useState("");
-    const [prevUrl, setPrevUrl] = useState("");
+    const [nextUrl, setNextUrl] = useState(url);
+    const [prevUrl, setPrevUrl] = useState(url);
     const [commentsCount, setCommentsCount] = useState(0);
     const [page, setPage] = useState(0);
 
@@ -214,8 +214,8 @@ const NewDetail = () => {
               })}
               {commentsCount > process.env.REACT_APP_COMMENTS_PER_PAGE && (
                 <Pagination
-                  handleNext={handlePrev}
-                  handlePrev={handleNext}
+                  handleNext={nextUrl ? handleNext : null}
+                  handlePrev={prevUrl ? handlePrev : null}
                   nextString="COMENTARIOS ANTERIORES"
                   prevString="COMENTARIOS POSTERIORES"
                 />

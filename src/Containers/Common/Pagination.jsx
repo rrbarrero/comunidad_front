@@ -1,12 +1,26 @@
-import { FaForward, FaBackward } from "react-icons/fa";
+//import { FaForward, FaBackward } from "react-icons/fa";
 
 const Pagination = ({ handleNext, handlePrev, nextString, prevString}) => {
+
+    const disableButton = (fnc) => {
+      if(fnc===null){
+        console.log(fnc, "null");
+        return {
+          disabled: 'disabled',
+          color: 'grey',
+          cursor: 'not-allowed',
+        }
+      }
+      return null;
+    }
+
     return (
       <ul className="flex justify-between list-reset rounded w-auto font-sans md:mx-10 my-7">
         <li>
           <button
             className="block h-32 sm:h-16 dark:bg-gray-800 bg-white hover:shadow-xl rounded border-b-4 border-red-500 shadow-md ml-3 px-3 py-2"
             onClick={handleNext}
+            style={disableButton(handleNext)}
           >
            <svg className="mr-2 float-left" width="24" height="30" viewBox="0 0 24 24" fill="none"
 								xmlns="http://www.w3.org/2000/svg">
@@ -19,6 +33,7 @@ const Pagination = ({ handleNext, handlePrev, nextString, prevString}) => {
           <button
             className="block h-32 sm:h-16 dark:bg-gray-800 bg-white hover:shadow-xl rounded border-b-4 border-red-500 shadow-md mr-3 px-3 py-2"
             onClick={handlePrev}
+            style={disableButton(handlePrev)}
           >
             <svg className="ml-2 float-right" width="24" height="30" viewBox="0 0 24 24" fill="none"
 								xmlns="http://www.w3.org/2000/svg">

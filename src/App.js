@@ -38,7 +38,7 @@ function App() {
     setUpdateAvailable(true);
   }
 
-  useEffect(()=>serviceWorkerRegistration.register({ onUpdate: onSWUpdate, autoClose: 15000, }));
+  useEffect(()=>serviceWorkerRegistration.register({ onUpdate: onSWUpdate, autoClose: 25000, }));
 
   return (
     <div className="App">
