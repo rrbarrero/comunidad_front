@@ -220,8 +220,8 @@ const NewDetail = () => {
               })}
               {commentsCount > process.env.REACT_APP_COMMENTS_PER_PAGE && (
                 <Pagination
-                  handleNext={nextUrl ? handleNext : null}
-                  handlePrev={prevUrl ? handlePrev : null}
+                  handleNext={prevUrl ? handlePrev : null}
+                  handlePrev={nextUrl ? handleNext : null}
                   nextString="COMENTARIOS ANTERIORES"
                   prevString="COMENTARIOS POSTERIORES"
                 />
