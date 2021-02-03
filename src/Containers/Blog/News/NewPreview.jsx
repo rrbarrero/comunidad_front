@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import FetchNewDetail from '../../../Services/Blog/FetchNewDetail';
+import FetchNewPreview from '../../../Services/Blog/FetchNewPreview';
 import './NewPreview.css';
 
 const NewPreview = ({ position }) => {
@@ -11,7 +11,7 @@ const NewPreview = ({ position }) => {
     useEffect(() => {
         setIsLoading(true);
         let isSubscribed = true;
-        FetchNewDetail(position).then(resp => {
+        FetchNewPreview(position).then(resp => {
             if (isSubscribed) {
                 setNewArticle(resp);
             }
@@ -40,9 +40,9 @@ const NewPreview = ({ position }) => {
     const getItemClasses = () => {
         if (newArticle && newArticle.posicion) {
             if (newArticle.posicion === "1") {
-                return "flex w-full md:text-5xl text-3xl m-1 text-gray-700 hover:text-gray-900 overflow-hidden sm:w-full bg-gradient-to-l md:bg-gradient-to-r border-2 border-red-congreso100 font-Midnight";
+                return "flex w-full md:text-5xl text-3xl m-1 text-gray-800 hover:text-gray-900 overflow-hidden sm:w-full bg-gradient-to-l md:bg-gradient-to-r border-2 border-red-congreso100 font-Midnight";
             } else {
-                return "flex w-full md:text-2xl text-2xl lg:w-1/2 text-gray-700 hover:text-gray-900 bg-indigo-100 border-2 border-red-congreso100 font-Midnight";
+                return "flex w-full md:text-2xl text-2xl lg:w-1/2 text-gray-800 hover:text-gray-900 bg-indigo-100 border-2 border-red-congreso100 font-Midnight";
             }
         }
     }

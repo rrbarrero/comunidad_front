@@ -15,6 +15,7 @@ import FetchUserDetail from '../../../Services/User/FetchUserDetail';
 import { getDateFormated, getSignature } from '../../../Services/Common/Misc';
 import { FaComments } from 'react-icons/fa';
 import Pagination from '../../Common/Pagination';
+import { Link } from 'react-router-dom';
 
 const NewDetail = () => {
     
@@ -157,16 +158,21 @@ const NewDetail = () => {
                 <Avatar userId={article.autor} />
                 <br />
                 <div className="pl-1">
-                  <div className="text-sm text-red-congreso200 mt-3">
+                  <div className="text-sm text-black-700 mt-3">
                     Por{" "}
-                    <span className="text-sm font-semibold">
+                    <span className="text-sm text-red-congreso100 font-semibold">
+                    <Link
+                      to={{ pathname: `/perfil/${article.autor}` }}
+                      className="lg:ml-1 flex inline-flex flex-shrink-0 lg:mb-0 mb-4 pointer-cursor"
+                    >
                       {autor && getSignature(autor)}
+                    </Link>
                     </span>{" "}
-                    <span className="text-sm text-red-congreso100">
+                    <span className="text-sm text-black-700">
                       {getDateFormated(article.fecha_creacion)}
                     </span>
                   </div>
-                  <div className="hidden lg:flex lg:items-center lg:w-auto text-sm font-light italic text-gray-congreso100">
+                  <div className="hidden lg:flex lg:items-center lg:w-auto text-sm font-light italic text-gray-congreso200">
                     {autor.perfil && autor.perfil.frase_inspiradora}
                   </div>
                 </div>

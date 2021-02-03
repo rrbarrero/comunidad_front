@@ -1,8 +1,8 @@
-const FetchNewDetail = (newId) => {
+const FetchLastCommentPost = () => {
     /*
         RETURN LAST X COMMON ARTICLES
     */
-    const url = `${process.env.REACT_APP_API_URL}news/noticias/${newId}`;
+    const url = `${process.env.REACT_APP_API_URL}foro/ultimos_comentarios`;
     
     const response = fetch(url, {
         method: 'get',
@@ -15,4 +15,4 @@ const FetchNewDetail = (newId) => {
     return response;
 }
 
-export default FetchNewDetail;
+export default FetchLastCommentPost;

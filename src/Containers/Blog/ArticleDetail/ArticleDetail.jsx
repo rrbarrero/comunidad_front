@@ -125,7 +125,7 @@ const ArticleDetail = () => {
                       {getDateFormated(article.fecha_creacion)}
                     </span>
                   </div>
-                  <div className="hidden lg:flex lg:items-center lg:w-auto text-sm font-light italic text-gray-congreso100">
+                  <div className="hidden lg:flex lg:items-center lg:w-auto text-sm font-light italic text-gray-congreso200">
                     {autor.perfil && autor.perfil.frase_inspiradora}
                   </div>
                 </div>

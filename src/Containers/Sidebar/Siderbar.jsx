@@ -4,12 +4,14 @@ import { FaStar } from 'react-icons/fa';
 //import { FaPoll } from "react-icons/fa";
 //import { FaQuestion } from "react-icons/fa";
 import FetchFeatured from '../../Services/Sidebar/FetchFeatured';
+import FetchLastCommentPost from '../../Services/Sidebar/FetchLastCommentPost';
 import { Link } from 'react-router-dom';
 //import Avatar from "../Common/Avatar";
 
 const Sidebar = () => {
 
     const [featuredPost, setFeaturedPost] = useState([]);
+    const [lastCommentPost, setLastCommentPost] = useState([]);
     const [isLoading, setIsLoading] = useState();
 
     useEffect(() => {
@@ -23,6 +25,18 @@ const Sidebar = () => {
         });
         return () => isSubscribed = false;
     }, []);
+
+    useEffect(() => {
+      setIsLoading(true);
+      let isSubscribed = true;
+      FetchLastCommentPost().then(resp => {
+          if (isSubscribed) {
+              setLastCommentPost(resp?.results);
+              setIsLoading(false);
+          }
+      });
+      return () => isSubscribed = false;
+  }, []);
     
     const FeaturedItem = ({item}) => {
         return <li>
@@ -87,6 +101,16 @@ const Sidebar = () => {
             </h5>
             <ul className="overflow-x-hidden text-gray-500 font-medium">
               {featuredPost?.map((item, i) => (
+                <FeaturedItem key={i} item={item} />
+              ))}
+            </ul>
+            <br />
+
+            <h5 className="text-red-congreso200 uppercase tracking-wide font-semibold mb-3 text-sm lg:text-md">
+              <FaStar className="inline" /> Últimos comentarios
+            </h5>
+            <ul className="overflow-x-hidden text-gray-500 font-medium">
+              {lastCommentPost?.map((item, i) => (
                 <FeaturedItem key={i} item={item} />
               ))}
             </ul>
