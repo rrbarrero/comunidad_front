@@ -4,7 +4,6 @@ const Pagination = ({ handleNext, handlePrev, nextString, prevString}) => {
 
     const disableButton = (fnc) => {
       if(fnc===null){
-        console.log(fnc, "null");
         return {
           disabled: 'disabled',
           color: 'grey',

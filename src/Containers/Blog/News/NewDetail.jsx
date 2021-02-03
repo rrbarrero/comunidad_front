@@ -118,10 +118,10 @@ const NewDetail = () => {
                   const id = hash.replace('#', '');
                   const element = document.getElementById(id);
                   if (element) {
-                      element.scrollIntoView();
+                      element.scrollIntoView({behavior: "smooth"});
                   }
               },
-              2000
+              1000
           );
       }
     }, [hash, pathname])
