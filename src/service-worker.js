@@ -43,6 +43,9 @@ registerRoute(
     if (url.pathname.startsWith('/ckeditor/')) {
       return false;
     }
+    if (url.pathname.startsWith('/confirmar/')){
+      return false;
+    }
 
     if (url.pathname.match(fileExtensionRegexp)) {
       return false;
