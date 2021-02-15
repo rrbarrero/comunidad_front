@@ -22,6 +22,8 @@ const ProfileOwn = () => {
     const [password, setPassword] = useState(defaultUnchagedPassword);
     const [password2, setPassword2] = useState(defaultUnchagedPassword);
     const [frase, setFrase] = useState('');
+    const [mailOnArticulo, setMailOnArticulo] = useState(false);
+    const [mailOnMessage, setMailOnMessage] = useState(false);
     // const [ocupacion, setOcupacion] = useState('');
     const [currentAvatar, setCurrentAvatar] = useState('');
     const [newAvatar, setNewAvatar] = useState({});
@@ -37,12 +39,12 @@ const ProfileOwn = () => {
         const selectedFile = evt.target.files[0];
         if (selectedFile.size < MAX_FILE_SIZE) {
             if (isFileImage(selectedFile)) {
-                setNewAvatar(selectedFile);    
+                setNewAvatar(selectedFile);
             } else {
-                toast.warning("El tipo de imagen seleccionado no está soportado. Cambia el formato de la imagen por favor.");    
+                toast.warning("El tipo de imagen seleccionado no está soportado. Cambia el formato de la imagen por favor.");
             }
         } else {
-            toast.warning(`Esa imagen ocupa demasiado, reduce el tamaño por favor. El tamaño máximo permitido es: ${MAX_FILE_SIZE/1000}kB.`);
+            toast.warning(`Esa imagen ocupa demasiado, reduce el tamaño por favor. El tamaño máximo permitido es: ${MAX_FILE_SIZE / 1000}kB.`);
         }
     }
 
@@ -71,6 +73,8 @@ const ProfileOwn = () => {
             last_name: apellidos,
             perfil: {
                 frase_inspiradora: frase,
+                mail_on_nuevo_articulo: mailOnArticulo,
+                mail_on_nuevo_comentario: mailOnMessage,
             }
         }
         if (password !== defaultUnchagedPassword) {
@@ -81,7 +85,7 @@ const ProfileOwn = () => {
             if (resp.status !== 200) {
                 Object.values(resp.data).forEach(x => toast.error(x[0]));
             } else {
-                if (newAvatar && newAvatar.size>0 && newAvatar.size<MAX_FILE_SIZE) {
+                if (newAvatar && newAvatar.size > 0 && newAvatar.size < MAX_FILE_SIZE) {
                     updateAvatar(currentUser, newAvatar).then(resp => {
                         if (resp.status !== 200) {
                             let errors = [];
@@ -107,7 +111,7 @@ const ProfileOwn = () => {
         setError(validateForm())
         if (error.length === 0) {
             updateProfile();
-        }else {
+        } else {
             notifyErrors();
         }
     }
@@ -121,6 +125,8 @@ const ProfileOwn = () => {
                     setNombre(resp.first_name);
                     setApellidos(resp.last_name);
                     setFrase(resp.perfil.frase_inspiradora);
+                    setMailOnArticulo(resp.perfil.mail_on_nuevo_articulo);
+                    setMailOnMessage(resp.perfil.mail_on_nuevo_comentario);
                     //setOcupacion(resp.ocupacion);
                     //setCurrentAvatar(`${BACK_URL}${resp.avatar}`);
                 }
@@ -133,7 +139,7 @@ const ProfileOwn = () => {
             return () => isSubscribed = false;
         }
     }, [currentUser])
-    
+
     return (
         <div className="w-full overflow-hidden sm:w-3/4 bg-white">
             <ToastContainer />
@@ -147,65 +153,87 @@ const ProfileOwn = () => {
                         <div className="flex flex-col space-y-1">
                             <label htmlFor="nombre" className="text-sm font-semibold text-gray-500">Nombre</label>
                             <input
-                            type="text"
-                            id="nombre"
-                            value={nombre}
-                            onChange={(e) => setNombre(e.target.value)}
-                            autoFocus
-                            className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
+                                type="text"
+                                id="nombre"
+                                value={nombre}
+                                onChange={(e) => setNombre(e.target.value)}
+                                autoFocus
+                                className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                             />
                         </div>
                         <div className="flex flex-col space-y-1">
                             <label htmlFor="apellidos" className="text-sm font-semibold text-gray-500">Apellidos</label>
                             <input
-                            type="text"
-                            id="apellidos"
-                            value={apellidos}
-                            onChange={(e) => setApellidos(e.target.value)}
-                            className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
+                                type="text"
+                                id="apellidos"
+                                value={apellidos}
+                                onChange={(e) => setApellidos(e.target.value)}
+                                className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                             />
                         </div>
                         <div className="flex flex-col space-y-1">
                             <label htmlFor="frase" className="text-sm font-semibold text-gray-500">Frase inspiradora</label>
                             <input
-                            type="text"
-                            id="frase"
-                            value={frase}
-                            onChange={(e) => setFrase(e.target.value)}
-                            className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
+                                type="text"
+                                id="frase"
+                                value={frase}
+                                onChange={(e) => setFrase(e.target.value)}
+                                className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
+                            />
+                        </div>
+                        <div className="flex flex-col space-y-1">
+                            <label htmlFor="frase" className="text-sm font-semibold text-gray-500">Notificarme cuando se publique un nuevo artículo.</label>
+                            <input
+                                type="checkbox"
+                                id="mail_on_nuevo_articulo"
+                                value={mailOnArticulo}
+                                checked={mailOnArticulo}
+                                onChange={(e) => setMailOnArticulo(!mailOnArticulo)}
+                                className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
+                            />
+                        </div>
+                        <div className="flex flex-col space-y-1">
+                            <label htmlFor="frase" className="text-sm font-semibold text-gray-500">Notificarme cuando se publique un comentario en hilos en los que participo.</label>
+                            <input
+                                type="checkbox"
+                                id="mail_on_nuevo_comentario"
+                                value={mailOnMessage}
+                                checked={mailOnMessage}
+                                onChange={(e) => setMailOnMessage(!mailOnMessage)}
+                                className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                             />
                         </div>
                         <div className="flex flex-col space-y-1">
                             <label htmlFor="password" className="text-sm font-semibold text-gray-500">Contraseña</label>
                             <input
-                            type="password"
-                            id="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
+                                type="password"
+                                id="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                             />
                         </div>
                         <div className="flex flex-col space-y-1">
                             <label htmlFor="password2" className="text-sm font-semibold text-gray-500">Confirmar contraseña</label>
                             <input
-                            type="password"
-                            id="password2"
-                            value={password2}
-                            onChange={(e) => setPassword2(e.target.value)}
-                            className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
+                                type="password"
+                                id="password2"
+                                value={password2}
+                                onChange={(e) => setPassword2(e.target.value)}
+                                className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                             />
                         </div>
                         <div className="flex flex-col space-y-1">
                             <label htmlFor="newAvatar" className="text-sm font-semibold text-gray-500">Actualizar avatar</label>
                             <input
-                            name="newAvatar"
-                            type="file"
-                            id="newAvatar"
-                            onChange={handleFileSelected}
-                            className="px-4 py-2"
+                                name="newAvatar"
+                                type="file"
+                                id="newAvatar"
+                                onChange={handleFileSelected}
+                                className="px-4 py-2"
                             />
                         </div>
-                    
+
                         <div>
                             <button
                                 id="button-register"
