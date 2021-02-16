@@ -3,6 +3,7 @@ import { FaCalendar } from 'react-icons/fa';
 import { FaStar } from 'react-icons/fa';
 //import { FaPoll } from "react-icons/fa";
 //import { FaQuestion } from "react-icons/fa";
+import FetchLastPosts from "../../Services/Sidebar/FetchLastPosts";
 import FetchFeatured from '../../Services/Sidebar/FetchFeatured';
 import FetchLastCommentPost from '../../Services/Sidebar/FetchLastCommentPost';
 import { Link } from 'react-router-dom';
@@ -10,9 +11,22 @@ import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
 
+    const [lastPosts, setLastPosts] = useState([]);
     const [featuredPost, setFeaturedPost] = useState([]);
     const [lastCommentPost, setLastCommentPost] = useState([]);
     const [isLoading, setIsLoading] = useState();
+
+    useEffect(() => {
+      setIsLoading(true);
+      let isSubscribed = true;
+      FetchLastPosts().then((resp) => {
+        if (isSubscribed) {
+          setLastPosts(resp?.results);
+          setIsLoading(false);
+        }
+      });
+      return () => (isSubscribed = false);
+    }, []);
 
     useEffect(() => {
         setIsLoading(true);
@@ -96,6 +110,16 @@ const Sidebar = () => {
               </li>
             </ul>
             <br /> */}
+            <h5 className="text-red-congreso200 uppercase tracking-wide font-semibold mb-3 text-sm lg:text-md">
+              <FaStar className="inline" /> Hilos recientes
+            </h5>
+            <ul className="overflow-x-hidden text-gray-500 font-medium">
+              {lastPosts?.map((item, i) => (
+                <FeaturedItem key={i} item={item} />
+              ))}
+            </ul>
+            <br />
+
             <h5 className="text-red-congreso200 uppercase tracking-wide font-semibold mb-3 text-sm lg:text-md">
               <FaStar className="inline" /> Destacados
             </h5>
