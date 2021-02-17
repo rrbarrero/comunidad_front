@@ -148,9 +148,9 @@ const ProfileOwn = () => {
                 <div className="hidden lg:block lg:flex-grow-0 m-3">
                     <img className="border border-red-congreso99 rounded-lg" id="profile-currentAvatarImg" src={currentAvatar} alt="Current User Avatar" />
                 </div>
-                <div className="flex-grow">
+                <div className="flex w-full">
                     <form onSubmit={handleSubmit} className="flex flex-col space-y-5">
-                        <div className="flex flex-col space-y-1">
+                        <div className="flex w-10/12 sm:w-full flex-col space-y-1">
                             <label htmlFor="nombre" className="text-sm font-semibold text-gray-500">Nombre</label>
                             <input
                                 type="text"
@@ -161,7 +161,7 @@ const ProfileOwn = () => {
                                 className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                             />
                         </div>
-                        <div className="flex flex-col space-y-1">
+                        <div className="flex w-10/12 sm:w-full flex-col space-y-1">
                             <label htmlFor="apellidos" className="text-sm font-semibold text-gray-500">Apellidos</label>
                             <input
                                 type="text"
@@ -171,7 +171,7 @@ const ProfileOwn = () => {
                                 className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                             />
                         </div>
-                        <div className="flex flex-col space-y-1">
+                        <div className="flex w-10/12 sm:w-full flex-col space-y-1">
                             <label htmlFor="frase" className="text-sm font-semibold text-gray-500">Frase inspiradora</label>
                             <input
                                 type="text"
@@ -181,7 +181,7 @@ const ProfileOwn = () => {
                                 className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                             />
                         </div>
-                        <div className="flex flex-col space-y-1">
+                        <div className="flex w-10/12 sm:w-full flex-col space-y-1">
                             <label htmlFor="frase" className="text-sm font-semibold text-gray-500">Notificarme cuando se publique un nuevo artículo.</label>
                             <input
                                 type="checkbox"
@@ -192,7 +192,7 @@ const ProfileOwn = () => {
                                 className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                             />
                         </div>
-                        <div className="flex flex-col space-y-1">
+                        <div className="flex w-10/12 sm:w-full flex-col space-y-1">
                             <label htmlFor="frase" className="text-sm font-semibold text-gray-500">Notificarme cuando se publique un comentario en hilos en los que participo.</label>
                             <input
                                 type="checkbox"
@@ -203,7 +203,7 @@ const ProfileOwn = () => {
                                 className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                             />
                         </div>
-                        <div className="flex flex-col space-y-1">
+                        <div className="flex w-10/12 sm:w-full flex-col space-y-1">
                             <label htmlFor="password" className="text-sm font-semibold text-gray-500">Contraseña</label>
                             <input
                                 type="password"
@@ -213,7 +213,7 @@ const ProfileOwn = () => {
                                 className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                             />
                         </div>
-                        <div className="flex flex-col space-y-1">
+                        <div className="flex w-10/12 sm:w-full flex-col space-y-1">
                             <label htmlFor="password2" className="text-sm font-semibold text-gray-500">Confirmar contraseña</label>
                             <input
                                 type="password"
@@ -234,7 +234,7 @@ const ProfileOwn = () => {
                             />
                         </div>
 
-                        <div>
+                        <div className="flex w-10/12 sm:w-full">
                             <button
                                 id="button-register"
                                 type="submit"
