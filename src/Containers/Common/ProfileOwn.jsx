@@ -5,6 +5,7 @@ import FetchAvatar from '../../Services/User/FetchAvatar';
 import { updateAvatar, UpdateUserDetail } from '../../Services/User/UpdateUserDetail';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Switch from "react-switch";
 import './ProfileOwn.css';
 
 
@@ -183,25 +184,12 @@ const ProfileOwn = () => {
                         </div>
                         <div className="flex w-10/12 sm:w-full flex-col space-y-1">
                             <label htmlFor="frase" className="text-sm font-semibold text-gray-500">Notificarme cuando se publique un nuevo artículo.</label>
-                            <input
-                                type="checkbox"
-                                id="mail_on_nuevo_articulo"
-                                value={mailOnArticulo}
-                                checked={mailOnArticulo}
-                                onChange={(e) => setMailOnArticulo(!mailOnArticulo)}
-                                className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
-                            />
+                            <Switch onChange={(e) => setMailOnArticulo(!mailOnArticulo)} checked={mailOnArticulo} value={mailOnArticulo} id="mail_on_nuevo_articulo" />
+
                         </div>
                         <div className="flex w-10/12 sm:w-full flex-col space-y-1">
                             <label htmlFor="frase" className="text-sm font-semibold text-gray-500">Notificarme cuando se publique un comentario en hilos en los que participo.</label>
-                            <input
-                                type="checkbox"
-                                id="mail_on_nuevo_comentario"
-                                value={mailOnMessage}
-                                checked={mailOnMessage}
-                                onChange={(e) => setMailOnMessage(!mailOnMessage)}
-                                className="px-4 py-2 transition duration-300 border border-gray-300 rounded focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
-                            />
+                            <Switch onChange={(e) => setMailOnMessage(!mailOnMessage)} checked={mailOnMessage} value={mailOnMessage} id="mail_on_nuevo_comentario" />
                         </div>
                         <div className="flex w-10/12 sm:w-full flex-col space-y-1">
                             <label htmlFor="password" className="text-sm font-semibold text-gray-500">Contraseña</label>
