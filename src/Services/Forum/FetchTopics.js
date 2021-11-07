@@ -2,8 +2,8 @@ const FetchTopics = () => {
     /*
         RETURN LAST X COMMON ARTICLES
     */
-    const url = `${process.env.REACT_APP_API_URL}foro/temas`;
-    
+    const url = `${process.env.REACT_APP_API_URL}foro/temas?limit=50`;
+
     const response = fetch(url, {
         method: 'get',
         headers: {
