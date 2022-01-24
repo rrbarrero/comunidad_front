@@ -1,21 +1,25 @@
 import { useEffect, useState } from "react";
-import { useParams } from 'react-router';
-import FetchPostDetail from '../../../Services/Forum/FetchPostDetail';
-import FetchTopicDetail from '../../../Services/Forum/FetchTopicDetail';
-import FetchCommentsOfPost from '../../../Services/Forum/FetchCommentsOfPost';
-import CommentOfPost from '../../Blog/CommentArticle/CommentArticle';
-import UpdateComment from '../CommentOfPost/UpdateComment';
-import PutCommentOnPost from './PutCommentOnPost';
-import { Link, useLocation } from 'react-router-dom';
+import { useParams } from "react-router";
+import FetchPostDetail from "../../../Services/Forum/FetchPostDetail";
+import FetchTopicDetail from "../../../Services/Forum/FetchTopicDetail";
+import FetchCommentsOfPost from "../../../Services/Forum/FetchCommentsOfPost";
+import CommentOfPost from "../../Blog/CommentArticle/CommentArticle";
+import UpdateComment from "../CommentOfPost/UpdateComment";
+import PutCommentOnPost from "./PutCommentOnPost";
+import { Link, useLocation } from "react-router-dom";
 import Avatar from "../../Common/Avatar";
 import FetchUserDetail from "../../../Services/User/FetchUserDetail";
 import { getDateFormated, getSignature } from "../../../Services/Common/Misc";
-import { TwitterShareButton, FacebookShareButton, WhatsappShareButton } from 'react-share';
-import { TwitterIcon, FacebookIcon, WhatsappIcon } from 'react-share';
-import { GoBroadcast } from 'react-icons/go';
+import {
+  TwitterShareButton,
+  FacebookShareButton,
+  WhatsappShareButton,
+} from "react-share";
+import { TwitterIcon, FacebookIcon, WhatsappIcon } from "react-share";
+import { GoBroadcast } from "react-icons/go";
+import "./PostDetail.css";
 
 const PostDetail = () => {
-
   const { pathname, hash } = useLocation();
 
   const { postId } = useParams();
@@ -33,45 +37,43 @@ const PostDetail = () => {
     if (postId) {
       setIsLoading(true);
       let isSubscribed = true;
-      FetchPostDetail(postId).then(resp => {
+      FetchPostDetail(postId).then((resp) => {
         if (isSubscribed) {
           setPost(resp);
         }
       });
-      FetchCommentsOfPost(postId).then(resp => {
+      FetchCommentsOfPost(postId).then((resp) => {
         if (isSubscribed) {
           setComentarios(resp.results);
           setIsLoading(false);
         }
       });
 
-      return () => isSubscribed = false;
+      return () => (isSubscribed = false);
     }
   }, [postId]);
 
   useEffect(() => {
     let isSubscribed = true;
     if (post && post.autor) {
-      FetchUserDetail(post.autor).then(resp => {
+      FetchUserDetail(post.autor).then((resp) => {
         if (isSubscribed) {
-          setAutor(resp)
+          setAutor(resp);
         }
       });
-      return () => isSubscribed = false;
+      return () => (isSubscribed = false);
     }
   }, [post]);
-
-
 
   useEffect(() => {
     if (post && post.tema) {
       let isSubscribed = true;
-      FetchTopicDetail(post.tema).then(resp => {
+      FetchTopicDetail(post.tema).then((resp) => {
         if (isSubscribed) {
           setTopic(resp);
         }
       });
-      return () => isSubscribed = false;
+      return () => (isSubscribed = false);
     }
   }, [post]);
 
@@ -79,21 +81,35 @@ const PostDetail = () => {
     if (topic && topic.nombre) {
       return (
         <>
-          <Link to={{ pathname: "/foro" }} className="text-xl border-b-2 border-transparent hover:border-blue-congreso200">Temas</Link>
+          <Link
+            to={{ pathname: "/foro" }}
+            className="text-xl border-b-2 border-transparent hover:border-blue-congreso200"
+          >
+            Temas
+          </Link>
           <span> / </span>
-          <Link to={{ pathname: `/temas/${topic.id}/publicaciones` }} className="text-2xl border-b-2 border-transparent hover:border-blue-congreso200">{topic.nombre}</Link>
+          <Link
+            to={{ pathname: `/temas/${topic.id}/publicaciones` }}
+            className="text-2xl border-b-2 border-transparent hover:border-blue-congreso200"
+          >
+            {topic.nombre}
+          </Link>
         </>
       );
     } else {
       return (
         <>
-          <Link to={{ pathname: "/foro" }} className="text-xl border-b-2 border-transparent hover:border-blue-congreso200">Temas</Link>
+          <Link
+            to={{ pathname: "/foro" }}
+            className="text-xl border-b-2 border-transparent hover:border-blue-congreso200"
+          >
+            Temas
+          </Link>
           <span> / </span>
         </>
       );
     }
-
-  }
+  };
 
   return (
     <div className="w-full overflow-hidden sm:w-3/4">
@@ -120,7 +136,9 @@ const PostDetail = () => {
           ></article>
         </div>
         <div className="hidden sm:flex w-full sm:flex-shrink-0 sm:justify-center mb-5 text-3xl font-bold">
-          <h3><GoBroadcast className="inline" /> ¡Dale difusión!</h3>
+          <h3>
+            <GoBroadcast className="inline" /> ¡Dale difusión!
+          </h3>
         </div>
 
         <div className="hidden sm:flex w-full sm:flex-shrink-0 sm:justify-center">
@@ -212,18 +230,16 @@ const PostDetail = () => {
             })}
           </div>
         </div>
-        {
-          updatingComment === false && (
-            <PutCommentOnPost
-              post={post}
-              comentarios={comentarios}
-              setComentarios={setComentarios}
-            />
-          )
-        }
-      </div >
-    </div >
+        {updatingComment === false && (
+          <PutCommentOnPost
+            post={post}
+            comentarios={comentarios}
+            setComentarios={setComentarios}
+          />
+        )}
+      </div>
+    </div>
   );
-}
+};
 
 export default PostDetail;
