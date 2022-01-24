@@ -131,7 +131,7 @@ const PostDetail = () => {
         {/* <p className="text-2xl font-bold pl-4">{post.titulo}</p> */}
         <div className="w-full p-5">
           <article
-            className=""
+            className="article-body"
             dangerouslySetInnerHTML={{ __html: post.cuerpo }}
           ></article>
         </div>
