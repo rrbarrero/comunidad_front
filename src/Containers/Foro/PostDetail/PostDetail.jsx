@@ -14,8 +14,9 @@ import {
   TwitterShareButton,
   FacebookShareButton,
   WhatsappShareButton,
+  LinkedinShareButton,
 } from "react-share";
-import { TwitterIcon, FacebookIcon, WhatsappIcon } from "react-share";
+import { TwitterIcon, LinkedinIcon, WhatsappIcon } from "react-share";
 import { GoBroadcast } from "react-icons/go";
 import "./PostDetail.css";
 
@@ -151,14 +152,14 @@ const PostDetail = () => {
           >
             <TwitterIcon size={42} round={true} />
           </TwitterShareButton>
-          <FacebookShareButton
+          <LinkedinShareButton
             url={process.env.REACT_APP_FRONTEND_URL + pathname}
             quote={post.titulo + " " + post.entradilla}
             hashtags={hashtags}
             className="mx-3"
           >
-            <FacebookIcon size={42} round={true} />
-          </FacebookShareButton>
+            <LinkedinIcon size={42} round={true} />
+          </LinkedinShareButton>
           <WhatsappShareButton
             url={process.env.REACT_APP_FRONTEND_URL + pathname}
             title={post.titulo}
@@ -180,13 +181,13 @@ const PostDetail = () => {
             </TwitterShareButton>
           </div>
           <div className="mx-1">
-            <FacebookShareButton
+            <LinkedinShareButton
               url={process.env.REACT_APP_FRONTEND_URL + pathname}
               quote={post.titulo + " " + post.entradilla}
               hashtags={hashtags}
             >
-              <FacebookIcon size={42} round={true} />
-            </FacebookShareButton>
+              <LinkedinIcon size={42} round={true} />
+            </LinkedinShareButton>
           </div>
           <div className="mx-1">
             <WhatsappShareButton
