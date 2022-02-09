@@ -24,6 +24,7 @@ const ProfileOwn = () => {
     const [password2, setPassword2] = useState(defaultUnchagedPassword);
     const [frase, setFrase] = useState('');
     const [mailOnArticulo, setMailOnArticulo] = useState(false);
+    const [mailOnThread, setMailOnThread] = useState(false);
     const [mailOnMessage, setMailOnMessage] = useState(false);
     // const [ocupacion, setOcupacion] = useState('');
     const [currentAvatar, setCurrentAvatar] = useState('');
@@ -75,6 +76,7 @@ const ProfileOwn = () => {
             perfil: {
                 frase_inspiradora: frase,
                 mail_on_nuevo_articulo: mailOnArticulo,
+                mail_on_nuevo_hilo: mailOnThread,
                 mail_on_nuevo_comentario: mailOnMessage,
             }
         }
@@ -127,6 +129,7 @@ const ProfileOwn = () => {
                     setApellidos(resp.last_name);
                     setFrase(resp.perfil.frase_inspiradora);
                     setMailOnArticulo(resp.perfil.mail_on_nuevo_articulo);
+                    setMailOnThread(resp.perfil.mail_on_nuevo_hilo);
                     setMailOnMessage(resp.perfil.mail_on_nuevo_comentario);
                     //setOcupacion(resp.ocupacion);
                     //setCurrentAvatar(`${BACK_URL}${resp.avatar}`);
@@ -185,6 +188,11 @@ const ProfileOwn = () => {
                         <div className="flex w-10/12 sm:w-full flex-col space-y-1">
                             <label htmlFor="frase" className="text-sm font-semibold text-gray-500">Notificarme cuando se publique un nuevo artículo.</label>
                             <Switch onChange={(e) => setMailOnArticulo(!mailOnArticulo)} checked={mailOnArticulo} value={mailOnArticulo} id="mail_on_nuevo_articulo" />
+
+                        </div>
+                        <div className="flex w-10/12 sm:w-full flex-col space-y-1">
+                            <label htmlFor="frase" className="text-sm font-semibold text-gray-500">Notificarme cuando se publique un nuevo hilo en foro.</label>
+                            <Switch onChange={(e) => setMailOnThread(!mailOnThread)} checked={mailOnThread} value={mailOnThread} id="mail_on_nuevo_hilo" />
 
                         </div>
                         <div className="flex w-10/12 sm:w-full flex-col space-y-1">

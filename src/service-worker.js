@@ -46,6 +46,9 @@ registerRoute(
     if (url.pathname.startsWith('/confirmar/')){
       return false;
     }
+    if (url.pathname.startsWith('/sendmail/')){
+      return false;
+    }
 
     if (url.pathname.match(fileExtensionRegexp)) {
       return false;
